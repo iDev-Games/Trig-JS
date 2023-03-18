@@ -17,7 +17,7 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 <script src="/js/trig.js"></script>
 ```
 
-#How to use?
+# How to use?
 To activate trig.js add the data attribute "data-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.
 
 ```
@@ -29,7 +29,7 @@ To activate trig.js add the data attribute "data-trig" to your html element. To 
 @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
 ```
 
-#Scroll Animations
+# Scroll Animations
 Trig.js calculates the percentage that the element is on screen and creates CSS variables using the elements id that you can use with CSS transform.
 
 ```
