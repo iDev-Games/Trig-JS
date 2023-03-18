@@ -1,7 +1,7 @@
 # Trig.js
 Trig.js is a simple and lightweight way to take more control of your animations with simple data attributes.
 
-See it in action here: https://idev-games.github.io/Trig/
+See it in action here: https://idev-games.github.io/Trig-JS/
 
 # What is Trig.js?
 Trig.js is a super simple and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
@@ -52,6 +52,6 @@ You can use the below data attributes for additional features
 <div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig> </div>
 ```
 
-Check out the code of the doumentation as an example.
+Check out the code of the documentation as an example.
 
-https://github.com/iDev-Games/Trig/blob/main/index.html
+https://github.com/iDev-Games/Trig-JS/blob/main/index.html
