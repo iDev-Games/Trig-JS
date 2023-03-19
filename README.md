@@ -3,6 +3,12 @@ Trig.js is a simple and lightweight way to take more control of your animations 
 
 See it in action here: https://idev-games.github.io/Trig-JS/
 
+Install with NPM
+
+```
+npm i trig-js
+```
+
 # What is Trig.js?
 Trig.js is a super simple and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
 

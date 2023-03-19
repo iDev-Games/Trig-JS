@@ -3,7 +3,7 @@
         <title>Trig.js Documentation</title>
         
         <!-- Trig JS -->
-        <script src="src/trig.js"></script>
+        <script src="dist/trig.js"></script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +11,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono&display=swap" rel="stylesheet">
         <!--End Fonts -->
 
+        <!-- Mobile viewport meta tag -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <!-- Styles -->
         <style>
             body{
                 margin:0px;
@@ -124,16 +126,16 @@
                     transform:translateY(calc(var(--trig-textBlock)));
                 }
                 #install{
-                    transform:translateY(calc(var(--trig-install)));
+                    transform:translateY(calc(var(--trig-reverse-install)));
                 }
                 #use{
-                    transform:translateY(calc(var(--trig-use)));
+                    transform:translateY(calc(var(--trig-reverse-use)));
                 }
                 #animation{
-                    transform:translateY(calc(var(--trig-animation)));
+                    transform:translateY(calc(var(--trig-reverse-animation)));
                 }
                 #attributes{
-                    transform:translateY(calc(var(--trig-attributes)));
+                    transform:translateY(calc(var(--trig-reverse-attributes)));
                 }
                 .headerText{
                     font-size:122px;
@@ -141,10 +143,12 @@
                 }
             }
         </style>
+        <!-- End of styles -->
 
     </head>
     <body>
         <div class="pageContainer">
+
             <div class="container alignCenter">
                 <div class="box">
                     <h1 id="logo" data-trig-min="30" data-trig>Trig.js</h1>
@@ -154,7 +158,9 @@
                     <h2 id="documentation">Documentation</h2>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container alignCenter">
                 <div class="box" id="Whatis" data-trig-min="20" data-trig>        
                     <h2>What is Trig.js?</h2>
@@ -172,19 +178,23 @@
                     </div>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container alignCenter">
                 <div class="box" id="install" data-trig-min="20" data-trig-offset="400" data-trig>        
                     <h2>How to install?</h2>
                 </div>
                 <div class="box fadeIn" data-trig>        
-                    <p>All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a></p>
+                    <p>All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
                     <pre>
                             &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
                     </pre>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container alignCenter">
                 <div class="box" id="use" data-trig-min="20" data-trig-offset="400" data-trig>        
                     <h2>How to use?</h2>
@@ -201,7 +211,9 @@
                     </pre>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container alignCenter">
                 <div class="box" id="animation" data-trig-min="20" data-trig-offset="400" data-trig>        
                     <h2>Scroll Animations</h2>
@@ -229,7 +241,9 @@
                     </div>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container alignCenter">
                 <div class="box" id="attributes" data-trig-min="20" data-trig-offset="400" data-trig>        
                     <h2>Data Attributes</h2>
@@ -243,7 +257,9 @@
                     </div>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container alignCenter">
                 <div id="creative" class="box" data-trig-offset="400" data-trig>        
                     <div class="headerText">BE CREATIVE</div>
@@ -252,7 +268,9 @@
                     <div class="headerText">WITH YOUR CSS</div>
                 </div>
             </div>
+
             <hr/>
+
             <div class="container">
                 <div class="box">
                     <p>Check out the code of the documentation as an example.</p>
@@ -266,6 +284,7 @@
                     <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">Download here</a>
                 </div>
             </div>
+
         </div>
     </body>
 </html>

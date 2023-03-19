@@ -76,12 +76,20 @@ window.onload = (event) => {
             if(element.id){
                 if(oldPos[index] != thePos[index]){
                     document.documentElement.style.setProperty('--trig-'+element.id, thePos[index]+"%");
-                    document.documentElement.style.setProperty('--trig-reverse-'+element.id, (-thePos[index])+"%");
+                    document.documentElement.style.setProperty('--trig-reverse-'+element.id, opposite(thePos[index])+"%");
                     document.documentElement.style.setProperty('--trig-deg-'+element.id, ((thePos[index]/100)*360)+"deg");
-                    document.documentElement.style.setProperty('--trig-deg-reverse-'+element.id, ((-thePos[index]/100)*360)+"deg");
+                    document.documentElement.style.setProperty('--trig-deg-reverse-'+element.id, ((opposite(thePos[index])/100)*360)+"deg");
                 }
             }
         });
+    }
+
+    function opposite(num){
+        if(num < 0){
+            return Math.abs(num);
+        } else {
+            return -Math.abs(num);
+        }
     }
 
     function getItemHeight(element) {
