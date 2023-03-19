@@ -122,6 +122,9 @@
                 }
             }
             @media screen and (min-width: 768px) {
+                #documentation{
+                    transform:translateY(calc(var(--trig-documentation) * 10));
+                }
                 #textBlock{
                     transform:translateY(calc(var(--trig-textBlock)));
                 }
@@ -155,7 +158,7 @@
 
                     <hr id="headerLine" data-trig-min="20" data-trig />
             
-                    <h2 id="documentation">Documentation</h2>
+                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation</h2>
                 </div>
             </div>
 
