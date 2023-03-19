@@ -1,18 +1,16 @@
-/* Trig.js v1.0 by iDev Games */
+/* Trig.js v1.1 by iDev Games */
 window.onload = (event) => {
     
-    var updateSpeed = 1;
-    var active = true;
     var trigs = document.querySelectorAll('[data-trig]');
     var oldPos = [];
     var thePos = [];
-    trigs.forEach(function (element, index) {
-        trig(element, index);
-    });
+    window.addEventListener('scroll', trigScroll, false);
+    window.addEventListener('resize', trigScroll, false);
+    trigScroll();
 
     function isVisiblePos(object,offset) {
         var elementTop = object.getBoundingClientRect().top + window.scrollY;
-        var windowTop = document.body.scrollTop;
+        var windowTop = window.pageYOffset;
         var posTop = windowTop - (elementTop - ((window.innerHeight / 2) + offset));
         var percent = (posTop / document.body.clientHeight) * 100;
         return percent;
@@ -20,28 +18,19 @@ window.onload = (event) => {
     
     function isVisible(object, bOffset) {
         var elementTop = object.getBoundingClientRect().top + window.scrollY;
-        var elementBottom = (elementTop + getAbsoluteHeight(object)) + bOffset;
-        var windowTop = document.body.scrollTop;
+        var elementBottom = (elementTop + getItemHeight(object)) + bOffset;
+        var windowTop = window.pageYOffset;
         var windowBottom = windowTop + window.innerHeight;
         return elementBottom > windowTop && elementTop < windowBottom;
     }
 
-    
-    window.addEventListener(['scroll'], function() {
+    function trigScroll(){
         if(trigs){
             trigs.forEach(function (element, index) {
                 trig(element, index);
             });
         } 
-    });
-    window.addEventListener(['resize'], function() {
-        if(trigs){
-            trigs.forEach(function (element, index) {
-                trig(element, index);
-            });
-        } 
-    });
-
+    }
 
     function trig(item, index){
         var height = 0;
@@ -89,15 +78,15 @@ window.onload = (event) => {
                     document.documentElement.style.setProperty('--trig-'+element.id, thePos[index]+"%");
                     document.documentElement.style.setProperty('--trig-reverse-'+element.id, (-thePos[index])+"%");
                     document.documentElement.style.setProperty('--trig-deg-'+element.id, ((thePos[index]/100)*360)+"deg");
-                    document.documentElement.style.setProperty('--trig-deg-'+element.id, ((thePos[index]/100)*360)+"deg");
+                    document.documentElement.style.setProperty('--trig-deg-reverse-'+element.id, ((-thePos[index]/100)*360)+"deg");
                 }
             }
         });
     }
 
-    function getAbsoluteHeight(element) {
+    function getItemHeight(element) {
         var styles = window.getComputedStyle(element);
         var margin = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom']);
         return Math.ceil(element.offsetHeight + margin);
-      }
+    }
 };

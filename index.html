@@ -3,7 +3,7 @@
         <title>Trig.js Documentation</title>
         
         <!-- Trig JS -->
-        <script src="dist/trig.js"></script>
+        <script src="src/trig.js"></script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,10 @@
                 background-color:#060606;
                 color:#FFF;
                 font-family: 'Space Mono', monospace;
-                height:100%;
-                overflow-x:hidden;
+            }
+            .pageContainer{
+                max-width:100%;
+                overflow:hidden;
             }
             .container{
                 width:80vw;
@@ -32,6 +34,9 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+            }
+            hr{
+                border-color:#AAAAAA;
             }
             pre{
                 font-size: 22px;
@@ -59,12 +64,6 @@
             #logo{
                 transform:scale(calc(var(--trig-logo) * 5)) translateY(calc(var(--trig-reverse-logo) / 2));
             }
-            .headerText{
-                font-family: 'Bebas Neue', cursive;
-                color: #FFF;
-                text-shadow: 2px 2px 2px #000000;
-                font-size:122px;
-            }
             .listItem{
                 font-size: 20px;
                 background-color: #111;
@@ -72,8 +71,12 @@
                 display:inline-block;
                 margin-top:10px;
             }
-            #textBlock{
-                transform:translateY(calc(var(--trig-textBlock)));
+            .headerText{
+                font-family: 'Bebas Neue', cursive;
+                color: #FFF;
+                text-shadow: 2px 2px 2px #000000;
+                font-size:52px;
+                width:238px;
             }
             #headerLine{
                 transform:scaleX(calc(var(--trig-headerLine) * 5));
@@ -84,8 +87,6 @@
                 transform:scaleX(calc(var(--trig-reverse-headerLine2) * 5));
             }
             #Whatis{
-                position:sticky;
-                top:0px;
                 transform:scale(calc(var(--trig-Whatis) * 5));
                 width:100%;
                 z-index:2;
@@ -97,18 +98,6 @@
             #withcss{
                 opacity:calc(var(--trig-withcss));
                 transform:translateX(calc(var(--trig-reverse-withcss)));
-            }
-            #install{
-                transform:translateY(calc(var(--trig-install)));
-            }
-            #use{
-                transform:translateY(calc(var(--trig-use)));
-            }
-            #animation{
-                transform:translateY(calc(var(--trig-animation)));
-            }
-            #attributes{
-                transform:translateY(calc(var(--trig-attributes)));
             }
             .fadeIn{
                 opacity:0;
@@ -130,122 +119,152 @@
                     opacity:1;
                 }
             }
+            @media screen and (min-width: 768px) {
+                #textBlock{
+                    transform:translateY(calc(var(--trig-textBlock)));
+                }
+                #install{
+                    transform:translateY(calc(var(--trig-install)));
+                }
+                #use{
+                    transform:translateY(calc(var(--trig-use)));
+                }
+                #animation{
+                    transform:translateY(calc(var(--trig-animation)));
+                }
+                #attributes{
+                    transform:translateY(calc(var(--trig-attributes)));
+                }
+                .headerText{
+                    font-size:122px;
+                    width: 100%;
+                }
+            }
         </style>
 
     </head>
     <body>
-        <div class="container alignCenter">
-            <div class="box">
-                <h1 id="logo" data-trig-min="30" data-trig>Trig.js</h1>
+        <div class="pageContainer">
+            <div class="container alignCenter">
+                <div class="box">
+                    <h1 id="logo" data-trig-min="30" data-trig>Trig.js</h1>
 
-                <hr id="headerLine" data-trig-min="20" data-trig />
-        
-                <h2 id="documentation">Documentation</h2>
-            </div>
-        </div>
-        <div class="container alignCenter">
-            <div class="box" id="Whatis" data-trig-min="20" data-trig>        
-                <h2>What is Trig.js?</h2>
-            </div>
-            <hr id="headerLine2" data-trig-min="10" data-trig />
-            <div id="textBlock" data-trig>
-                <div class="box fadeIn" data-trig-min="0" data-trig>        
-                    Trig.js is a super simple and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
-                </div>
-                <div class="box fadeIn animdelay1" data-trig-min="0" data-trig>        
-                    Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
-                </div>
-                <div class="box fadeIn animdelay2" data-trig-min="0" data-trig>        
-                    Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript.
+                    <hr id="headerLine" data-trig-min="20" data-trig />
+            
+                    <h2 id="documentation">Documentation</h2>
                 </div>
             </div>
-        </div>
-        <div class="container alignCenter">
-            <div class="box" id="install" data-trig-min="20" data-trig-offset="400" data-trig>        
-                <h2>How to install?</h2>
-            </div>
-            <div class="box fadeIn" data-trig>        
-                <p>All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a></p>
-                <pre>
-                        &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
-                </pre>
-            </div>
-        </div>
-        <div class="container alignCenter">
-            <div class="box" id="use" data-trig-min="20" data-trig-offset="400" data-trig>        
-                <h2>How to use?</h2>
-            </div>
-            <div class="box fadeIn" data-trig>        
-                <p>To activate trig.js add the data attribute "data-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.</p>
-                <pre>
-                        &lt;div class="fadeIn" data-trig&gt; &lt;/div&gt;
-                </pre>
-                <pre>
-                    .fadeIn{ opacity:0; }
-                    .fadeIn.trig{ animation: fadeIn 1s normal forwards ease-in-out; }
-                    @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
-                </pre>
-            </div>
-        </div>
-        <div class="container alignCenter">
-            <div class="box" id="animation" data-trig-min="20" data-trig-offset="400" data-trig>        
-                <h2>Scroll Animations</h2>
-            </div>
-            <div class="box fadeIn" data-trig>        
-                <p>Trig.js calculates the percentage that the element is on screen and creates CSS variables using the elements id that you can use with CSS transform.</p>
-                <pre>
-                        &lt;div id="yourelementid" data-trig&gt; &lt;/div&gt;
-                </pre>
-                <pre>
-                        #yourelementid{ transform: translateX( var(--trig-yourelementid) ); }
-                </pre>
-                <p>The CSS variables you can use are:</p>
-                <div class="listItem">
-                    --trig-yourelementid
+            <hr/>
+            <div class="container alignCenter">
+                <div class="box" id="Whatis" data-trig-min="20" data-trig>        
+                    <h2>What is Trig.js?</h2>
                 </div>
-                <div class="listItem">
-                    --trig-reverse-yourelementid
-                </div>
-                <div class="listItem">
-                    --trig-deg-yourelementid
-                </div>
-                <div class="listItem">
-                    --trig-deg-reverse-yourelementid
+                <hr id="headerLine2" data-trig-min="10" data-trig />
+                <div id="textBlock" data-trig>
+                    <div class="box fadeIn" data-trig-min="0" data-trig>        
+                        Trig.js is a super simple and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
+                    </div>
+                    <div class="box fadeIn animdelay1" data-trig-min="0" data-trig>        
+                        Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
+                    </div>
+                    <div class="box fadeIn animdelay2" data-trig-min="0" data-trig>        
+                        Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container alignCenter">
-            <div class="box" id="attributes" data-trig-min="20" data-trig-offset="400" data-trig>        
-                <h2>Data Attributes</h2>
-            </div>
-            <div class="box fadeIn" data-trig>        
-                <p>You can use the below data attributes for additional features</p>
-                <div class="listItem">
+            <hr/>
+            <div class="container alignCenter">
+                <div class="box" id="install" data-trig-min="20" data-trig-offset="400" data-trig>        
+                    <h2>How to install?</h2>
+                </div>
+                <div class="box fadeIn" data-trig>        
+                    <p>All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a></p>
                     <pre>
-                        &lt;div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig&gt; &lt;/div&gt;
+                            &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
                     </pre>
                 </div>
             </div>
-        </div>
-        <div class="container alignCenter">
-            <div id="creative" class="box" data-trig-offset="400" data-trig>        
-                <div class="headerText">BE CREATIVE</div>
+            <hr/>
+            <div class="container alignCenter">
+                <div class="box" id="use" data-trig-min="20" data-trig-offset="400" data-trig>        
+                    <h2>How to use?</h2>
+                </div>
+                <div class="box fadeIn" data-trig>        
+                    <p>To activate trig.js add the data attribute "data-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.</p>
+                    <pre>
+                            &lt;div class="fadeIn" data-trig&gt; &lt;/div&gt;
+                    </pre>
+                    <pre>
+                        .fadeIn{ opacity:0; }
+                        .fadeIn.trig{ animation: fadeIn 1s normal forwards ease-in-out; }
+                        @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
+                    </pre>
+                </div>
             </div>
-            <div id="withcss" class="box" data-trig-offset="400" data-trig>        
-                <div class="headerText">WITH YOUR CSS</div>
+            <hr/>
+            <div class="container alignCenter">
+                <div class="box" id="animation" data-trig-min="20" data-trig-offset="400" data-trig>        
+                    <h2>Scroll Animations</h2>
+                </div>
+                <div class="box fadeIn" data-trig>        
+                    <p>Trig.js calculates the percentage that the element is on screen and creates CSS variables using the elements id that you can use with CSS transform.</p>
+                    <pre>
+                            &lt;div id="yourelementid" data-trig&gt; &lt;/div&gt;
+                    </pre>
+                    <pre>
+                            #yourelementid{ transform: translateX( var(--trig-yourelementid) ); }
+                    </pre>
+                    <p>The CSS variables you can use are:</p>
+                    <div class="listItem">
+                        --trig-yourelementid
+                    </div>
+                    <div class="listItem">
+                        --trig-reverse-yourelementid
+                    </div>
+                    <div class="listItem">
+                        --trig-deg-yourelementid
+                    </div>
+                    <div class="listItem">
+                        --trig-deg-reverse-yourelementid
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="box">
-                <p>Check out the code of the documentation as an example.</p>
+            <hr/>
+            <div class="container alignCenter">
+                <div class="box" id="attributes" data-trig-min="20" data-trig-offset="400" data-trig>        
+                    <h2>Data Attributes</h2>
+                </div>
+                <div class="box fadeIn" data-trig>        
+                    <p>You can use the below data attributes for additional features</p>
+                    <div class="listItem">
+                        <pre>
+                            &lt;div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig&gt; &lt;/div&gt;
+                        </pre>
+                    </div>
+                </div>
             </div>
-            <div class="listItem">
-                <pre>
-                    <a href="https://github.com/iDev-Games/Trig-JS/blob/main/index.html" target="_Blank" style="color:#FFF;">https://github.com/iDev-Games/Trig-JS/blob/main/index.html</a>
-                </pre>
+            <hr/>
+            <div class="container alignCenter">
+                <div id="creative" class="box" data-trig-offset="400" data-trig>        
+                    <div class="headerText">BE CREATIVE</div>
+                </div>
+                <div id="withcss" class="box" data-trig-offset="400" data-trig>        
+                    <div class="headerText">WITH YOUR CSS</div>
+                </div>
             </div>
-            <div class="box">
-                <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">Download here</a>
+            <hr/>
+            <div class="container">
+                <div class="box">
+                    <p>Check out the code of the documentation as an example.</p>
+                </div>
+                <div class="listItem">
+                    <pre>
+                        <a href="https://github.com/iDev-Games/Trig-JS/blob/main/index.html" target="_Blank" style="color:#FFF;">https://github.com/iDev-Games/Trig-JS/blob/main/index.html</a>
+                    </pre>
+                </div>
+                <div class="box">
+                    <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">Download here</a>
+                </div>
             </div>
         </div>
     </body>
