@@ -1,27 +1,21 @@
-/* Trig.js v1.1 by iDev Games */
-window.onload = (event) => {
+/* Trig.js v1.2.0 by iDev Games */
+onload = () => {
     
     var trigs = document.querySelectorAll('[data-trig]');
-    var oldPos = [];
     var thePos = [];
-    window.addEventListener('scroll', trigScroll, false);
-    window.addEventListener('resize', trigScroll, false);
+    document.addEventListener('scroll', trigScroll, false);
+    document.addEventListener('resize', trigScroll, false);
     trigScroll();
-
-    function isVisiblePos(object,offset) {
-        var elementTop = object.getBoundingClientRect().top + window.scrollY;
-        var windowTop = window.pageYOffset;
-        var posTop = windowTop - (elementTop - ((window.innerHeight / 2) + offset));
-        var percent = (posTop / document.body.clientHeight) * 100;
-        return percent;
-    }
     
-    function isVisible(object, bOffset) {
-        var elementTop = object.getBoundingClientRect().top + window.scrollY;
+    function isVisible(object, bOffset, offset) {
+        var elementTop = object.getBoundingClientRect().top + scrollY;
         var elementBottom = (elementTop + getItemHeight(object)) + bOffset;
-        var windowTop = window.pageYOffset;
-        var windowBottom = windowTop + window.innerHeight;
-        return elementBottom > windowTop && elementTop < windowBottom;
+        var posTop = pageYOffset - (elementTop - ((innerHeight / 2) + offset));
+        if(offset == null){
+            return elementBottom > pageYOffset && elementTop < (pageYOffset + innerHeight);
+        } else {
+            return (posTop / document.body.clientHeight) * 100;
+        }
     }
 
     function trigScroll(){
@@ -46,8 +40,11 @@ window.onload = (event) => {
         if(item.dataset.trigMax){
             max = parseInt(item.dataset.trigMax);
         } 
+        if(item.dataset.height){
+            height = item.dataset.height;
+        } 
         var activeNow = isVisible(item, height);
-        var pos = isVisiblePos(item, offset);
+        var pos = isVisible(item, height, offset);
         if(activeNow){
             if (pos >= min && pos <= max) {
                 thePos[index] = pos;
@@ -57,9 +54,6 @@ window.onload = (event) => {
                 thePos[index] = max;
             }
         }
-        if(item.dataset.height){
-            height = item.dataset.height;
-        } 
         if (activeNow) {
             item.classList.add("trig");
         } else {
@@ -70,16 +64,12 @@ window.onload = (event) => {
 
     function updatePos(){
         trigs.forEach(function (element, index) {
-            if(!oldPos[index]){
-                oldPos[index] = 0;
-            }
             if(element.id){
-                if(oldPos[index] != thePos[index]){
-                    document.documentElement.style.setProperty('--trig-'+element.id, thePos[index]+"%");
-                    document.documentElement.style.setProperty('--trig-reverse-'+element.id, opposite(thePos[index])+"%");
-                    document.documentElement.style.setProperty('--trig-deg-'+element.id, ((thePos[index]/100)*360)+"deg");
-                    document.documentElement.style.setProperty('--trig-deg-reverse-'+element.id, ((opposite(thePos[index])/100)*360)+"deg");
-                }
+                var el = document.documentElement.style;
+                el.setProperty('--trig-'+element.id, thePos[index]+"%");
+                el.setProperty('--trig-reverse-'+element.id, opposite(thePos[index])+"%");
+                el.setProperty('--trig-deg-'+element.id, ((thePos[index]/100)*360)+"deg");
+                el.setProperty('--trig-deg-reverse-'+element.id, ((opposite(thePos[index])/100)*360)+"deg");
             }
         });
     }
@@ -93,7 +83,7 @@ window.onload = (event) => {
     }
 
     function getItemHeight(element) {
-        var styles = window.getComputedStyle(element);
+        var styles = getComputedStyle(element);
         var margin = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom']);
         return Math.ceil(element.offsetHeight + margin);
     }
