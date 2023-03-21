@@ -1,6 +1,6 @@
 {
   "name": "trig-js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The easy way to create CSS animations that react to the element's position on screen",
   "main": "dist/trig.js",
   "scripts": {

@@ -8,6 +8,10 @@
 [![GitHub tag](https://img.shields.io/github/tag/iDev-Games/Trig-JS?include_prereleases=&sort=semver&color=blue)](https://github.com/iDev-Games/Trig-JS/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
+image:https://img.shields.io/github/downloads/idev-games/trig-js/total[GitHub all releases]
+
+![GitHub all releases](https://img.shields.io/github/downloads/idev-games/trig-js/total?label=Release%20Downloads&logo=Github) | ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) | ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) | ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) | ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM)
+
 See it in action here: https://idev-games.github.io/Trig-JS/
 
 Install with NPM
