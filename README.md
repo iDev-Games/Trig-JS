@@ -17,7 +17,7 @@ The easy way to create CSS scroll animations that react to the position of your 
 
 See it in action here: https://idev-games.github.io/Trig-JS/
 
-Find more examples here: https://idev-games.github.io/Trig-JS-Examples/
+Find more examples here: https://github.com/iDev-Games/Trig-JS-Examples
 
 You can download from Github.
 
