@@ -12,16 +12,26 @@
 
 See it in action here: https://idev-games.github.io/Trig-JS/
 
+You can download from Github.
+
 Install with NPM
 
 ```
 npm i trig-js
 ```
 
+Use Trig.js from a CDN
+```
+https://cdn.jsdelivr.net/npm/trig-js@1.2.1/dist/trig.js
+```
+```
+https://unpkg.com/trig-js@1.2.1/dist/trig.js
+```
+
 # What is Trig.js?
 Trig.js is a super simple and lightweight way of making CSS scroll animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
 
-Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
+Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here: https://idev-games.github.io/Trig-JS/! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
 
 Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript. 
 
