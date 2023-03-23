@@ -44,6 +44,14 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 <script src="/js/trig.js"></script>
 ```
 
+Or just add one of the below CDN instead
+```
+<script src="https://unpkg.com/trig-js@1.2.1/dist/trig.js"></script>
+```
+```
+<script src="https://cdn.jsdelivr.net/npm/trig-js@1.2.1/dist/trig.js"></script>
+```
+
 # How to use?
 To activate trig.js add the data attribute "data-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.
 
