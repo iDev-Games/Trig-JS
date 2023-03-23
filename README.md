@@ -27,10 +27,10 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.2.1/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js@1.2.2/dist/trig.js
 ```
 ```
-https://unpkg.com/trig-js@1.2.1/dist/trig.js
+https://unpkg.com/trig-js@1.2.2/dist/trig.js
 ```
 
 # What is Trig.js?
