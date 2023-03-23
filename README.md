@@ -10,6 +10,8 @@
 
 ![GitHub all releases](https://img.shields.io/github/downloads/idev-games/trig-js/total?label=Release%20Downloads&logo=Github) ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM)
 
+Trig.js will give you the ability to animate on scroll (AOS).
+
 See it in action here: https://idev-games.github.io/Trig-JS/
 
 You can download from Github.
