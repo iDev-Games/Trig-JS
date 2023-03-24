@@ -3,7 +3,7 @@
         <title>Trig.js Documentation</title>
         
         <!-- Trig JS -->
-        <script src="src/trig.js"></script>
+        <script src="dist/trig.js"></script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +83,15 @@
                 font-size:52px;
                 width:238px;
             }
+            .moreExamples{
+                display: inline-block;
+                margin: auto;
+                background-color: #F1F1F1;
+                color: #060606;
+                font-weight: bold;
+                padding: 10px 45px;
+                text-decoration: none;
+            }
             #headerLine{
                 transform:scaleX(calc(var(--trig-headerLine) * 5));
             }
@@ -147,6 +156,11 @@
                     font-size:122px;
                     width: 100%;
                 }
+                #examples{
+                    position:relative;
+                    z-index:2;
+                    transform:translateY(calc(var(--trig-examples) * 10));
+                }
             }
         </style>
         <!-- End of styles -->
@@ -198,10 +212,10 @@
                     </pre>
                     <p>Or just add one of the below CDN instead</p>
                     <pre>
-                        &lt;script src="https://unpkg.com/trig-js@1.2.2/dist/trig.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://unpkg.com/trig-js@1.3.0/dist/trig.js"&gt;&lt;/script&gt;
                     </pre>
                     <pre>
-                        &lt;script src="https://cdn.jsdelivr.net/npm/trig-js@1.2.2/dist/trig.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://cdn.jsdelivr.net/npm/trig-js@1.3.0/dist/trig.js"&gt;&lt;/script&gt;
                     </pre>
                 </div>
             </div>
@@ -247,6 +261,12 @@
                         --trig-reverse-yourelementid
                     </div>
                     <div class="listItem">
+                        --trig-px-yourelementid
+                    </div>
+                    <div class="listItem">
+                        --trig-px-reverse-yourelementid
+                    </div>
+                    <div class="listItem">
                         --trig-deg-yourelementid
                     </div>
                     <div class="listItem">
@@ -279,6 +299,9 @@
                 </div>
                 <div id="withcss" class="box" data-trig-offset="400" data-trig>        
                     <div class="headerText">WITH YOUR CSS</div>
+                </div>
+                <div id="examples" class="box" data-trig-offset="400" data-trig>
+                    <a class="moreExamples" href="https://idev-games.github.io/Trig-JS-Examples/" target="_Blank">See More Examples</a>
                 </div>
             </div>
 

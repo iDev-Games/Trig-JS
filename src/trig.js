@@ -1,4 +1,4 @@
-/* Trig.js v1.2.0 by iDev Games */
+/* Trig.js v1.3.0 by iDev Games */
 onload = () => {
     
     var trigs = document.querySelectorAll('[data-trig]');
@@ -14,7 +14,7 @@ onload = () => {
         if(offset == null){
             return elementBottom > pageYOffset && elementTop < (pageYOffset + innerHeight);
         } else {
-            return (posTop / document.body.clientHeight) * 100;
+            return (posTop / innerHeight) * 100;
         }
     }
 
@@ -40,7 +40,7 @@ onload = () => {
         if(item.dataset.trigMax){
             max = parseInt(item.dataset.trigMax);
         } 
-        if(item.dataset.height){
+        if(item.dataset.trigHeight){
             height = item.dataset.height;
         } 
         var activeNow = isVisible(item, height);
@@ -68,6 +68,8 @@ onload = () => {
                 var el = document.documentElement.style;
                 el.setProperty('--trig-'+element.id, thePos[index]+"%");
                 el.setProperty('--trig-reverse-'+element.id, opposite(thePos[index])+"%");
+                el.setProperty('--trig-px-'+element.id, thePos[index]+"px");
+                el.setProperty('--trig-px-reverse-'+element.id, opposite(thePos[index])+"px");
                 el.setProperty('--trig-deg-'+element.id, ((thePos[index]/100)*360)+"deg");
                 el.setProperty('--trig-deg-reverse-'+element.id, ((opposite(thePos[index])/100)*360)+"deg");
             }
