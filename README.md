@@ -29,10 +29,10 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.3.0/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js@1.4.0/dist/trig.js
 ```
 ```
-https://unpkg.com/trig-js@1.3.0/dist/trig.js
+https://unpkg.com/trig-js@1.4.0/dist/trig.js
 ```
 
 # What is Trig.js?
@@ -53,10 +53,10 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 
 Or just add one of the below CDN instead
 ```
-<script src="https://unpkg.com/trig-js@1.3.0/dist/trig.js"></script>
+<script src="https://unpkg.com/trig-js@1.4.0/dist/trig.js"></script>
 ```
 ```
-<script src="https://cdn.jsdelivr.net/npm/trig-js@1.3.0/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js@1.4.0/dist/trig.js"></script>
 ```
 
 # How to use?
@@ -72,26 +72,26 @@ To activate trig.js add the data attribute "data-trig" to your html element. To 
 ```
 
 # Scroll Animations
-Trig.js calculates the percentage that the element is on screen and creates CSS variables using the elements id that you can use with CSS transform.
+Trig.js calculates the percentage that the element is on screen and creates CSS variables that you can use with CSS transform etc.
 
 ```
-<div id="yourelementid" data-trig> </div>
+<div class="element" data-trig> </div>
 ```
 ```
-#yourelementid{ transform: translateX( var(--trig-yourelementid) ); }
+.element{ transform: translateX( var(--trig) ); }
 ```
 
 The CSS variables you can use are:
 
 ```
---trig-yourelementid --trig-reverse-yourelementid --trig-px-yourelementid --trig-px-reverse-yourelementid --trig-deg-yourelementid --trig-deg-reverse-yourelementid
+--trig --trig-reverse --trig-px --trig-px-reverse --trig-deg --trig-deg-reverse
 ```
 
 # Data Attributes
 You can use the below data attributes for additional features
 
 ```
-<div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig> </div>
+<div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig> </div>
 ```
 
 Check out the code of the documentation as an example.

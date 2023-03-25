@@ -67,7 +67,7 @@
                 font-size:72px;
             }
             #logo{
-                transform:scale(calc(var(--trig-logo) * 5)) translateY(calc(var(--trig-reverse-logo) / 2));
+                transform:scale(calc(var(--trig) * 5)) translateY(calc(var(--trig-reverse) / 2));
             }
             .listItem{
                 font-size: 20px;
@@ -93,25 +93,25 @@
                 text-decoration: none;
             }
             #headerLine{
-                transform:scaleX(calc(var(--trig-headerLine) * 5));
+                transform:scaleX(calc(var(--trig) * 5));
             }
             #headerLine2{
                 background:#AAAAAA;
                 width:200px;
-                transform:scaleX(calc(var(--trig-reverse-headerLine2) * 5));
+                transform:scaleX(calc(var(--trig-reverse) * 5));
             }
             #Whatis{
-                transform:scale(calc(var(--trig-Whatis) * 5));
+                transform:scale(calc(var(--trig) * 5));
                 width:100%;
                 z-index:2;
             }
             #creative{
-                opacity:calc(var(--trig-creative));
-                transform:translateX(calc(var(--trig-creative)));
+                opacity:calc(var(--trig));
+                transform:translateX(calc(var(--trig)));
             }
             #withcss{
-                opacity:calc(var(--trig-withcss));
-                transform:translateX(calc(var(--trig-reverse-withcss)));
+                opacity:calc(var(--trig));
+                transform:translateX(calc(var(--trig-reverse)));
             }
             .fadeIn{
                 opacity:0;
@@ -135,22 +135,22 @@
             }
             @media screen and (min-width: 768px) {
                 #documentation{
-                    transform:translateY(calc(var(--trig-documentation) * 10));
+                    transform:translateY(calc(var(--trig) * 10));
                 }
                 #textBlock{
-                    transform:translateY(calc(var(--trig-textBlock)));
+                    transform:translateY(calc(var(--trig)));
                 }
                 #install{
-                    transform:translateY(calc(var(--trig-reverse-install)));
+                    transform:translateY(calc(var(--trig-reverse)));
                 }
                 #use{
-                    transform:translateY(calc(var(--trig-reverse-use)));
+                    transform:translateY(calc(var(--trig-reverse)));
                 }
                 #animation{
-                    transform:translateY(calc(var(--trig-reverse-animation)));
+                    transform:translateY(calc(var(--trig-reverse)));
                 }
                 #attributes{
-                    transform:translateY(calc(var(--trig-reverse-attributes)));
+                    transform:translateY(calc(var(--trig-reverse)));
                 }
                 .headerText{
                     font-size:122px;
@@ -159,7 +159,7 @@
                 #examples{
                     position:relative;
                     z-index:2;
-                    transform:translateY(calc(var(--trig-examples) * 10));
+                    transform:translateY(calc(var(--trig) * 10));
                 }
             }
         </style>
@@ -171,7 +171,7 @@
 
             <div class="container alignCenter">
                 <div class="box">
-                    <h1 id="logo" data-trig-min="30" data-trig>Trig.js</h1>
+                    <h1 id="logo" data-trig-min="30" data-trig-scroll=true data-trig>Trig.js</h1>
 
                     <hr id="headerLine" data-trig-min="20" data-trig />
             
@@ -187,13 +187,13 @@
                 </div>
                 <hr id="headerLine2" data-trig-min="10" data-trig />
                 <div id="textBlock" data-trig>
-                    <div class="box fadeIn" data-trig-min="0" data-trig>        
+                    <div class="box fadeIn" data-trig>        
                         Trig.js is a super simple and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
                     </div>
-                    <div class="box fadeIn animdelay1" data-trig-min="0" data-trig>        
+                    <div class="box fadeIn animdelay1" data-trig>        
                         Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
                     </div>
-                    <div class="box fadeIn animdelay2" data-trig-min="0" data-trig>        
+                    <div class="box fadeIn animdelay2" data-trig>        
                         Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript.
                     </div>
                 </div>
@@ -212,10 +212,10 @@
                     </pre>
                     <p>Or just add one of the below CDN instead</p>
                     <pre>
-                        &lt;script src="https://unpkg.com/trig-js@1.3.0/dist/trig.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://unpkg.com/trig-js@1.4.0/dist/trig.js"&gt;&lt;/script&gt;
                     </pre>
                     <pre>
-                        &lt;script src="https://cdn.jsdelivr.net/npm/trig-js@1.3.0/dist/trig.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://cdn.jsdelivr.net/npm/trig-js@1.4.0/dist/trig.js"&gt;&lt;/script&gt;
                     </pre>
                 </div>
             </div>
@@ -246,31 +246,31 @@
                     <h2>Scroll Animations</h2>
                 </div>
                 <div class="box fadeIn" data-trig>        
-                    <p>Trig.js calculates the percentage that the element is on screen and creates CSS variables using the elements id that you can use with CSS transform.</p>
+                    <p>Trig.js calculates the percentage that the element is on screen and creates CSS variables that you can use with CSS transform etc.</p>
                     <pre>
-                            &lt;div id="yourelementid" data-trig&gt; &lt;/div&gt;
+                            &lt;div class="element" data-trig&gt; &lt;/div&gt;
                     </pre>
                     <pre>
-                            #yourelementid{ transform: translateX( var(--trig-yourelementid) ); }
+                            .element{ transform: translateX( var(--trig) ); }
                     </pre>
                     <p>The CSS variables you can use are:</p>
                     <div class="listItem">
-                        --trig-yourelementid
+                        --trig
                     </div>
                     <div class="listItem">
-                        --trig-reverse-yourelementid
+                        --trig-reverse
                     </div>
                     <div class="listItem">
-                        --trig-px-yourelementid
+                        --trig-px
                     </div>
                     <div class="listItem">
-                        --trig-px-reverse-yourelementid
+                        --trig-px-reverse
                     </div>
                     <div class="listItem">
-                        --trig-deg-yourelementid
+                        --trig-deg
                     </div>
                     <div class="listItem">
-                        --trig-deg-reverse-yourelementid
+                        --trig-deg-reverse
                     </div>
                 </div>
             </div>
@@ -285,7 +285,7 @@
                     <p>You can use the below data attributes for additional features</p>
                     <div class="listItem">
                         <pre>
-                            &lt;div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig&gt; &lt;/div&gt;
+                            &lt;div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig&gt; &lt;/div&gt;
                         </pre>
                     </div>
                 </div>
