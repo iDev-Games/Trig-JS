@@ -1,10 +1,9 @@
-/* Trig.js v1.5.2 by iDev Games */
+/* Trig.js v1.6.0 by iDev Games */
 document.addEventListener('DOMContentLoaded', initTrig, false);
 
 function initTrig() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(function(entry) {
-            const bounds = entry.boundingClientRect;
             const intersecting = entry.isIntersecting;
             if (intersecting) {
                 entry.target.classList.add("trig");
@@ -14,7 +13,7 @@ function initTrig() {
             var offset = 0;
             var min = -100;
             var max = 100;
-            var el = bounds.top + scrollY;
+            var el = entry.boundingClientRect.top + scrollY;
             if (entry.target.dataset.trigOffset) {
                 offset = parseInt(entry.target.dataset.trigOffset);
             }
@@ -25,19 +24,19 @@ function initTrig() {
                 max = parseInt(entry.target.dataset.trigMax);
             }
             var posTop = pageYOffset - (el - ((innerHeight / 2) + offset));
-            var pos = [intersecting, (posTop / innerHeight) * 100];
-            if (pos[1] >= min && pos[1] <= max) {
-                thePos[entry.target.index] = pos[1];
-            } else if (pos[1] <= min) {
+            var pos = (posTop / innerHeight) * 100;
+            if (pos >= min && pos <= max) {
+                thePos[entry.target.index] = pos;
+            } else if (pos <= min) {
                 thePos[entry.target.index] = min;
-            } else if (pos[1] >= max) {
+            } else if (pos >= max) {
                 thePos[entry.target.index] = max;
             }
         });
         updatePos();
         observer.disconnect();
     });
-    var trigs = document.querySelectorAll('[data-trig]');
+    var trigs = document.querySelectorAll('.enable-trig,[data-trig]');
     var thePos = [];
     document.addEventListener('scroll', trigScroll, false);
     document.addEventListener('resize', trigScroll, false);

@@ -29,10 +29,10 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.5.2/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js@1.6.0/dist/trig.js
 ```
 ```
-https://unpkg.com/trig-js@1.5.2/dist/trig.js
+https://unpkg.com/trig-js@1.6.0/dist/trig.js
 ```
 
 # What is Trig.js?
@@ -44,7 +44,7 @@ Trig.js is really simple and quick to work with. You can use Trig.js even if you
 
 Trig.js is the perfect solution for CSS scroll animations in any project by developers of any skill level for both light or heavy usage. Making it the perfect alternative to frameworks like scrollmagic or GSAP scrolltrigger for most of your website animation needs.
 
-# How to install?
+# How To Install?
 All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags
 
 ```
@@ -53,14 +53,14 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 
 Or just add one of the below CDN instead
 ```
-<script src="https://unpkg.com/trig-js@1.5.2/dist/trig.js"></script>
+<script src="https://unpkg.com/trig-js@1.6.0/dist/trig.js"></script>
 ```
 ```
-<script src="https://cdn.jsdelivr.net/npm/trig-js@1.5.2/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js@1.6.0/dist/trig.js"></script>
 ```
 
-# How to use?
-To activate trig.js add the data attribute "data-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.
+# How To Use?
+To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.
 
 ```
 <div class="fadeIn" data-trig> </div>
