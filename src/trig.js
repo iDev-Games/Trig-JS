@@ -1,4 +1,4 @@
-/* Trig.js v1.5.1 by iDev Games */
+/* Trig.js v1.5.2 by iDev Games */
 document.addEventListener('DOMContentLoaded', initTrig, false);
 
 function initTrig() {
@@ -7,31 +7,31 @@ function initTrig() {
             const bounds = entry.boundingClientRect;
             const intersecting = entry.isIntersecting;
             if (intersecting) {
-                var offset = 0;
-                var min = -100;
-                var max = 100;
-                var el = bounds.top + scrollY;
-                if (entry.target.dataset.trigOffset) {
-                    offset = parseInt(entry.target.dataset.trigOffset);
-                }
-                if (entry.target.dataset.trigMin) {
-                    min = parseInt(entry.target.dataset.trigMin);
-                }
-                if (entry.target.dataset.trigMax) {
-                    max = parseInt(entry.target.dataset.trigMax);
-                }
-                var posTop = pageYOffset - (el - ((innerHeight / 2) + offset));
-                var pos = [intersecting, (posTop / innerHeight) * 100];
-                if (pos[1] >= min && pos[1] <= max) {
-                    thePos[entry.target.index] = pos[1];
-                } else if (pos[1] <= min) {
-                    thePos[entry.target.index] = min;
-                } else if (pos[1] >= max) {
-                    thePos[entry.target.index] = max;
-                }
                 entry.target.classList.add("trig");
             } else {
                 entry.target.classList.remove("trig");
+            }
+            var offset = 0;
+            var min = -100;
+            var max = 100;
+            var el = bounds.top + scrollY;
+            if (entry.target.dataset.trigOffset) {
+                offset = parseInt(entry.target.dataset.trigOffset);
+            }
+            if (entry.target.dataset.trigMin) {
+                min = parseInt(entry.target.dataset.trigMin);
+            }
+            if (entry.target.dataset.trigMax) {
+                max = parseInt(entry.target.dataset.trigMax);
+            }
+            var posTop = pageYOffset - (el - ((innerHeight / 2) + offset));
+            var pos = [intersecting, (posTop / innerHeight) * 100];
+            if (pos[1] >= min && pos[1] <= max) {
+                thePos[entry.target.index] = pos[1];
+            } else if (pos[1] <= min) {
+                thePos[entry.target.index] = min;
+            } else if (pos[1] >= max) {
+                thePos[entry.target.index] = max;
             }
         });
         updatePos();
