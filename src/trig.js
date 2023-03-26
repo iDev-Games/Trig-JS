@@ -1,62 +1,57 @@
-/* Trig.js v1.4.0 by iDev Games */
+/* Trig.js v1.5.0 by iDev Games */
 document.addEventListener('DOMContentLoaded', initTrig, false);
 function initTrig(){
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(function (entry) {
+          const bounds = entry.boundingClientRect;
+          const intersecting = entry.isIntersecting;
+          if(intersecting){
+                var offset = 0;
+                var min = -100;
+                var max = 100;
+                var el = bounds.top + scrollY;
+                if(entry.target.dataset.trigOffset){
+                    offset = parseInt(entry.target.dataset.trigOffset);
+                } 
+                if(entry.target.dataset.trigMin){
+                    min = parseInt(entry.target.dataset.trigMin);
+                } 
+                if(entry.target.dataset.trigMax){
+                    max = parseInt(entry.target.dataset.trigMax);
+                } 
+                if(entry.target.dataset.trigHeight){
+                    height = entry.target.dataset.height;
+                } 
+                var posTop = pageYOffset - (el - ((innerHeight / 2) + offset));
+                var pos = [intersecting, (posTop / innerHeight) * 100];
+                if (pos[1] >= min && pos[1] <= max) {
+                    thePos[entry.target.index] = pos[1];
+                } else if(pos[1] <= min) {
+                    thePos[entry.target.index] = min;
+                } else if(pos[1] >= max) {
+                    thePos[entry.target.index] = max;
+                }
+                entry.target.classList.add("trig");
+          } else {
+            entry.target.classList.remove("trig");
+          }
+        });
+        updatePos();
+        observer.disconnect();
+    });
     var trigs = document.querySelectorAll('[data-trig]');
     var thePos = [];
-    var styles = [];
     document.addEventListener('scroll', trigScroll, false);
     document.addEventListener('resize', trigScroll, false);
     trigScroll();
-    
-    function isVisible(object, index, bOffset, offset) {
-        var elementTop = object.getBoundingClientRect().top + scrollY;
-        var elementBottom = (elementTop + getItemHeight(object, index)) + bOffset;
-        var posTop = pageYOffset - (elementTop - ((innerHeight / 2) + offset));
-        return [elementBottom > pageYOffset && elementTop < (pageYOffset + innerHeight), (posTop / innerHeight) * 100];
-    }
 
     function trigScroll(){
         if(trigs){
             trigs.forEach(function (element, index) {
-                if(!styles[index]){
-                    styles[index] = getComputedStyle(element);
-                }
-                trig(element, index);
+                element.index = index;
+                observer.observe(element);
             });
         } 
-    }
-
-    function trig(item, index){
-        var height = 0;
-        var offset = 0;
-        var min = -100;
-        var max = 100;
-        if(item.dataset.trigOffset){
-            offset = parseInt(item.dataset.trigOffset);
-        } 
-        if(item.dataset.trigMin){
-            min = parseInt(item.dataset.trigMin);
-        } 
-        if(item.dataset.trigMax){
-            max = parseInt(item.dataset.trigMax);
-        } 
-        if(item.dataset.trigHeight){
-            height = item.dataset.height;
-        } 
-        var pos = isVisible(item, index, height, offset);
-        if(pos[0]){
-            item.classList.add("trig");
-            if (pos[1] >= min && pos[1] <= max) {
-                thePos[index] = pos[1];
-            } else if(pos[1] <= min) {
-                thePos[index] = min;
-            } else if(pos[1] >= max) {
-                thePos[index] = max;
-            }
-        } else {
-            item.classList.remove("trig");
-        }
-        updatePos();
     }
 
     function updatePos(){
@@ -69,10 +64,5 @@ function initTrig(){
             el.setProperty('--trig-deg', ((thePos[index]/100)*360)+"deg");
             el.setProperty('--trig-deg-reverse', ((-(thePos[index])/100)*360)+"deg");
         });
-    }
-
-    function getItemHeight(element, index) {
-        var margin = parseFloat(styles[index]['marginTop']) + parseFloat(styles[index]['marginBottom']);
-        return Math.ceil(element.offsetHeight + margin);
     }
 }
