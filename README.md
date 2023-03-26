@@ -29,10 +29,10 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.5.0/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js@1.5.1/dist/trig.js
 ```
 ```
-https://unpkg.com/trig-js@1.5.0/dist/trig.js
+https://unpkg.com/trig-js@1.5.1/dist/trig.js
 ```
 
 # What is Trig.js?
@@ -53,10 +53,10 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 
 Or just add one of the below CDN instead
 ```
-<script src="https://unpkg.com/trig-js@1.5.0/dist/trig.js"></script>
+<script src="https://unpkg.com/trig-js@1.5.1/dist/trig.js"></script>
 ```
 ```
-<script src="https://cdn.jsdelivr.net/npm/trig-js@1.5.0/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js@1.5.1/dist/trig.js"></script>
 ```
 
 # How to use?
