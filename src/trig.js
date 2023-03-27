@@ -1,4 +1,4 @@
-/* Trig.js v1.6.0 by iDev Games */
+/* Trig.js v1.7.0 by iDev Games */
 document.addEventListener('DOMContentLoaded', initTrig, false);
 
 function initTrig() {
@@ -13,7 +13,7 @@ function initTrig() {
             var offset = 0;
             var min = -100;
             var max = 100;
-            var el = entry.boundingClientRect.top + scrollY;
+            var el = entry.boundingClientRect.top;
             if (entry.target.dataset.trigOffset) {
                 offset = parseInt(entry.target.dataset.trigOffset);
             }
@@ -23,8 +23,8 @@ function initTrig() {
             if (entry.target.dataset.trigMax) {
                 max = parseInt(entry.target.dataset.trigMax);
             }
-            var posTop = pageYOffset - (el - ((innerHeight / 2) + offset));
-            var pos = (posTop / innerHeight) * 100;
+            var posTop = 0 - (el - ((documentHeight / 2) + offset));
+            var pos = (posTop / documentHeight) * 100;
             if (pos >= min && pos <= max) {
                 thePos[entry.target.index] = pos;
             } else if (pos <= min) {
@@ -38,9 +38,15 @@ function initTrig() {
     });
     var trigs = document.querySelectorAll('.enable-trig,[data-trig]');
     var thePos = [];
+    var documentHeight = 0;
     document.addEventListener('scroll', trigScroll, false);
-    document.addEventListener('resize', trigScroll, false);
-    trigScroll();
+    document.addEventListener('resize', trigInit, false);
+    trigInit();
+
+    function trigInit(){
+        documentHeight = innerHeight;
+        trigScroll();
+    }
 
     function trigScroll() {
         if (trigs) {

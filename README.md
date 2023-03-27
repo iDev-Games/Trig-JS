@@ -11,7 +11,7 @@
 [![GitHub tag](https://img.shields.io/github/tag/iDev-Games/Trig-JS?include_prereleases=&sort=semver&color=blue)](https://github.com/iDev-Games/Trig-JS/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-![GitHub all releases](https://img.shields.io/github/downloads/idev-games/trig-js/total?label=Release%20Downloads&logo=Github) ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM)
+![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM)
 
 The easy way to create CSS scroll animations that react to the position of your HTML element on screen. Animate on scroll (AOS) your CSS.
 
@@ -29,10 +29,10 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.6.0/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js@1.7.0/dist/trig.js
 ```
 ```
-https://unpkg.com/trig-js@1.6.0/dist/trig.js
+https://unpkg.com/trig-js@1.7.0/dist/trig.js
 ```
 
 # What is Trig.js?
@@ -53,10 +53,10 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 
 Or just add one of the below CDN instead
 ```
-<script src="https://unpkg.com/trig-js@1.6.0/dist/trig.js"></script>
+<script src="https://unpkg.com/trig-js@1.7.0/dist/trig.js"></script>
 ```
 ```
-<script src="https://cdn.jsdelivr.net/npm/trig-js@1.6.0/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js@1.7.0/dist/trig.js"></script>
 ```
 
 # How To Use?
