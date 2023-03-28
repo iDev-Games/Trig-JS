@@ -28,7 +28,8 @@
                 overflow:hidden;
             }
             .container{
-                width:80vw;
+                background-color:#060606;
+                width:100%;
                 min-height:100vh;
                 position:relative;
                 margin:auto;
@@ -36,9 +37,7 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-            }
-            .overflowHidden{
-                overflow:hidden;
+                max-width: 1800px;
             }
             hr{
                 border-color:#AAAAAA;
@@ -56,6 +55,7 @@
                 margin:auto;
                 margin:20px;
                 padding:20px;
+                max-width: 100%;
             }
             .alignCenter{
                 text-align:center;
@@ -172,7 +172,7 @@
 
             <hr/>
 
-            <div class="container alignCenter overflowHidden">
+            <div class="container alignCenter">
                 <div class="box" id="Whatis" data-trig-min="20" data-trig-max="40" data-trig>        
                     <h2>What is Trig.js?</h2>
                 </div>
