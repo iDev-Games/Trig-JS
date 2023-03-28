@@ -141,7 +141,7 @@
                     transform:translateY(calc(var(--trig)));
                 }
                 .title{
-                    transform:translateY(calc(var(--trig-reverse)  * 3));
+                    transform:translateY(calc(var(--trig-reverse)));
                 }
                 .headerText{
                     font-size:122px;
@@ -150,7 +150,7 @@
                 #examples{
                     position:relative;
                     z-index:2;
-                    transform:translateY(calc(var(--trig) * 10));
+                    transform:translateY(calc(var(--trig) * 2));
                 }
             }
         </style>
@@ -173,11 +173,11 @@
             <hr/>
 
             <div class="container alignCenter overflowHidden">
-                <div class="box" id="Whatis" data-trig-min="20" data-trig>        
+                <div class="box" id="Whatis" data-trig-min="20" data-trig-max="40" data-trig>        
                     <h2>What is Trig.js?</h2>
                 </div>
                 <hr id="headerLine2" data-trig-min="10" data-trig />
-                <div id="textBlock" data-trig>
+                <div id="textBlock" data-trig-min="0" data-trig>
                     <div class="box fadeIn" data-trig>        
                         Trig.js is a super simple and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
                     </div>
