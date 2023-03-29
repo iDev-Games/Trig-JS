@@ -1,11 +1,4 @@
-/* Trig.js v1.7.1 by iDev Games */
-
-const observer = new IntersectionObserver(function(entries) {
-    trigObject.trigEntries(entries);
-    trigObject.updatePos(trigs);
-    observer.disconnect();
-});
-
+/* Trig.js v1.7.2 by iDev Games */
 const trig = {
     trigs: [],
     thePos: [],
@@ -23,7 +16,9 @@ const trig = {
             trigObject.trigPos(entry);
         });
     },
-    trigSetPos: function(pos, min, max, entry) {
+    trigSetPos: function(el, min, max, entry, offset) {
+        var posTop = 0 - (el - ((trigObject.documentHeight / 2) + offset));
+        var pos = (posTop / trigObject.documentHeight) * 100;
         if (pos >= min && pos <= max) {
             trigObject.thePos[entry.target.index] = pos;
         } else if (pos <= min) {
@@ -46,12 +41,10 @@ const trig = {
         if (entry.target.dataset.trigMax) {
             max = parseInt(entry.target.dataset.trigMax);
         }
-        var posTop = 0 - (el - ((trigObject.documentHeight / 2) + offset));
-        var pos = (posTop / trigObject.documentHeight) * 100;
-        trigObject.trigSetPos(pos, min, max, entry);
+        trigObject.trigSetPos(el, min, max, entry, offset);
     },
-    updatePos: function(trigs) {
-        trigs.forEach(function(element, index) {
+    updatePos: function() {
+        trigObject.trigs.forEach(function(element, index) {
             var el = element.style;
             el.setProperty('--trig', trigObject.thePos[index] + "%");
             el.setProperty('--trig-reverse', -(trigObject.thePos[index]) + "%");
@@ -62,21 +55,28 @@ const trig = {
         });
     }
 };
+
+const observer = new IntersectionObserver(function(entries) {
+    trigObject.trigEntries(entries);
+    trigObject.updatePos(trigObject.trigs);
+    observer.disconnect();
+});
   
 const trigObject = Object.create(trig);
+
 document.addEventListener('scroll', trigScroll, false);
 document.addEventListener('resize', trigInit, false);
 document.addEventListener('DOMContentLoaded', trigInit, false);
 
 function trigInit(){
-    trigs = document.querySelectorAll('.enable-trig,[data-trig]');
+    trigObject.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
     trigObject.documentHeight = innerHeight;
     trigScroll();
 }
 
 function trigScroll() {
-    if (trigs) {
-        trigs.forEach(function(element, index) {
+    if (trigObject.trigs) {
+        trigObject.trigs.forEach(function(element, index) {
             element.index = index;
             observer.observe(element);
         });

@@ -4,6 +4,7 @@
 
 
 [![iDev-Games - Trig-JS](https://img.shields.io/static/v1?label=iDev-Games&message=Trig-JS&color=blue&logo=github)](https://github.com/iDev-Games/Trig-JS "Go to GitHub repo")
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/idev-games)]
 [![stars - Trig-JS](https://img.shields.io/github/stars/iDev-Games/Trig-JS?style=social)](https://github.com/iDev-Games/Trig-JS)
 [![forks - Trig-JS](https://img.shields.io/github/forks/iDev-Games/Trig-JS?style=social)](https://github.com/iDev-Games/Trig-JS)
 
@@ -14,6 +15,11 @@
 ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM)
 
 The easy way to create CSS scroll animations that react to the position of your HTML element on screen. Animate on scroll (AOS) your CSS.
+
+<p align="center">
+  <img src="creative.gif">
+</p>
+
 
 See it in action here: https://idev-games.github.io/Trig-JS/
 
@@ -29,14 +35,14 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.7.1/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js@1.7.2/dist/trig.js
 ```
 ```
-https://unpkg.com/trig-js@1.7.1/dist/trig.js
+https://unpkg.com/trig-js@1.7.2/dist/trig.js
 ```
 
 # What is Trig.js?
-Trig.js is a super simple and lightweight way of making CSS scroll animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
+Trig.js is a super simple, effecient and lightweight way of making CSS scroll animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
 
 Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here: https://idev-games.github.io/Trig-JS/! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
 
@@ -53,10 +59,10 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 
 Or just add one of the below CDN instead
 ```
-<script src="https://unpkg.com/trig-js@1.7.1/dist/trig.js"></script>
+<script src="https://unpkg.com/trig-js@1.7.2/dist/trig.js"></script>
 ```
 ```
-<script src="https://cdn.jsdelivr.net/npm/trig-js@1.7.1/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js@1.7.2/dist/trig.js"></script>
 ```
 
 # How To Use?
