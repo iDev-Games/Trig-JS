@@ -28,7 +28,7 @@ You can download from Github.
 
 Install with NPM
 
-```
+```css
 npm i trig-js
 ```
 
@@ -52,25 +52,25 @@ Trig.js is the perfect solution for CSS scroll animations in any project by deve
 # How To Install?
 All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags
 
-```
+```html
 <script src="/js/trig.js"></script>
 ```
 
 Or just add one of the below CDN instead
-```
+```html
 <script src="https://unpkg.com/trig-js@1.7.3/dist/trig.js"></script>
 ```
-```
+```html
 <script src="https://cdn.jsdelivr.net/npm/trig-js@1.7.3/dist/trig.js"></script>
 ```
 
 # How To Use?
 To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.
 
-```
+```html
 <div class="fadeIn" data-trig> </div>
 ```
-```
+```css
 .fadeIn{ opacity:0; }
 .fadeIn.trig{ animation: fadeIn 1s normal forwards ease-in-out; }
 @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
@@ -79,23 +79,23 @@ To activate trig.js add the data attribute "data-trig" or a class "enable-trig" 
 # Scroll Animations
 Trig.js calculates the percentage that the element is on screen and creates CSS variables that you can use with CSS transform etc.
 
-```
+```html
 <div class="element" data-trig> </div>
 ```
-```
+```css
 .element{ transform: translateX( var(--trig) ); }
 ```
 
 The CSS variables you can use are:
 
-```
+```css
 --trig --trig-reverse --trig-px --trig-px-reverse --trig-deg --trig-deg-reverse
 ```
 
 # Data Attributes
 You can use the below data attributes for additional features
 
-```
+```html
 <div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig> </div>
 ```
 
