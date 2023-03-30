@@ -71,9 +71,20 @@ To activate trig.js add the data attribute "data-trig" or a class "enable-trig" 
 <div class="fadeIn" data-trig> </div>
 ```
 ```css
-.fadeIn{ opacity:0; }
-.fadeIn.trig{ animation: fadeIn 1s normal forwards ease-in-out; }
-@keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
+.fadeIn{ 
+    opacity:0;
+}
+.fadeIn.trig{ 
+    animation: fadeIn 1s normal forwards ease-in-out; 
+}
+@keyframes fadeIn { 
+  0% { 
+    opacity:0;
+  } 
+  100% { 
+    opacity:1; 
+  } 
+}
 ```
 
 # Scroll Animations
@@ -83,13 +94,20 @@ Trig.js calculates the percentage that the element is on screen and creates CSS 
 <div class="element" data-trig> </div>
 ```
 ```css
-.element{ transform: translateX( var(--trig) ); }
+.element{ 
+    transform: translateX( var(--trig) );
+}
 ```
 
 The CSS variables you can use are:
 
 ```css
---trig --trig-reverse --trig-px --trig-px-reverse --trig-deg --trig-deg-reverse
+var(--trig) /* Percentage */
+var(--trig-reverse) /* Reverse percentage */
+var(--trig-px) /* Pixels */
+var(--trig-px-reverse) /* Reverse pixels */
+var(--trig-deg) /* Degrees */
+var(--trig-deg-reverse) /* Reverse degrees */
 ```
 
 # Data Attributes
