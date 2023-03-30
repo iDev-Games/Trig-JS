@@ -1,13 +1,31 @@
-/* Trig.js v1.7.2 by iDev Games */
+/* Trig.js v1.7.3 by iDev Games */
 const trig = {
     trigs: [],
     thePos: [],
     documentHeight: 0,
+    observer: new IntersectionObserver(function(entries) {
+            trigObject.trigEntries(entries);
+            trigObject.updatePos(trigObject.trigs);
+            trigObject.observer.disconnect();
+    }),
     trigIntersecting: function(entry) {
         if (entry.isIntersecting) {
             entry.target.classList.add("trig");
         } else {
             entry.target.classList.remove("trig");
+        }
+    },
+    trigInit: function() {
+        trigObject.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
+        trigObject.documentHeight = innerHeight;
+        trigObject.trigScroll();
+    },
+    trigScroll: function(){
+        if (trigObject.trigs) {
+            trigObject.trigs.forEach(function(element, index) {
+                element.index = index;
+                trigObject.observer.observe(element);
+            });
         }
     },
     trigEntries: function(entries) {
@@ -16,9 +34,7 @@ const trig = {
             trigObject.trigPos(entry);
         });
     },
-    trigSetPos: function(el, min, max, entry, offset) {
-        var posTop = 0 - (el - ((trigObject.documentHeight / 2) + offset));
-        var pos = (posTop / trigObject.documentHeight) * 100;
+    trigSetPos: function(pos, min, max, entry) {
         if (pos >= min && pos <= max) {
             trigObject.thePos[entry.target.index] = pos;
         } else if (pos <= min) {
@@ -41,7 +57,9 @@ const trig = {
         if (entry.target.dataset.trigMax) {
             max = parseInt(entry.target.dataset.trigMax);
         }
-        trigObject.trigSetPos(el, min, max, entry, offset);
+        var posTop = 0 - (el - ((trigObject.documentHeight / 2) + offset));
+        var pos = (posTop / trigObject.documentHeight) * 100;
+        trigObject.trigSetPos(pos, min, max, entry);
     },
     updatePos: function() {
         trigObject.trigs.forEach(function(element, index) {
@@ -56,29 +74,8 @@ const trig = {
     }
 };
 
-const observer = new IntersectionObserver(function(entries) {
-    trigObject.trigEntries(entries);
-    trigObject.updatePos(trigObject.trigs);
-    observer.disconnect();
-});
-  
 const trigObject = Object.create(trig);
 
-document.addEventListener('scroll', trigScroll, false);
-document.addEventListener('resize', trigInit, false);
-document.addEventListener('DOMContentLoaded', trigInit, false);
-
-function trigInit(){
-    trigObject.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
-    trigObject.documentHeight = innerHeight;
-    trigScroll();
-}
-
-function trigScroll() {
-    if (trigObject.trigs) {
-        trigObject.trigs.forEach(function(element, index) {
-            element.index = index;
-            observer.observe(element);
-        });
-    }
-}
+document.addEventListener('scroll', trigObject.trigScroll, false);
+document.addEventListener('resize', trigObject.trigInit, false);
+document.addEventListener('DOMContentLoaded', trigObject.trigInit, false);
