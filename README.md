@@ -10,10 +10,11 @@
 
 [![GitHub tag](https://img.shields.io/github/tag/iDev-Games/Trig-JS?include_prereleases=&sort=semver&color=blue)](https://github.com/iDev-Games/Trig-JS/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+![npm bundle size](https://img.shields.io/bundlephobia/min/trig-js)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce378a75b36040f9a820005742a225ac)](https://app.codacy.com/gh/iDev-Games/Trig-JS/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0d58ec40b6b2e8231b19/maintainability)](https://codeclimate.com/github/iDev-Games/Trig-JS/maintainability)
 
-![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM)
+![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/trig-js)
 
 The easy way to create CSS scroll animations that react to the position of your HTML element on screen. Animate on scroll (AOS) your CSS.
 
