@@ -13,7 +13,7 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/trig-js)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce378a75b36040f9a820005742a225ac)](https://app.codacy.com/gh/iDev-Games/Trig-JS/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0d58ec40b6b2e8231b19/maintainability)](https://codeclimate.com/github/iDev-Games/Trig-JS/maintainability)
-[![Verified on Openbase](https://badges.openbase.com/js/verified/trig-js.svg?token=yMxvYp29jHYagYuMihBM9fSmdmu4CUt12M6SRvyJ6k0=)](https://openbase.com/js/trig-js?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
+[![Rate this package](https://badges.openbase.com/js/rating/trig-js.svg?token=yMxvYp29jHYagYuMihBM9fSmdmu4CUt12M6SRvyJ6k0=)](https://openbase.com/js/trig-js?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
 
 ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/trig-js)
 
