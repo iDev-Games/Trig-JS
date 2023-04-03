@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png">
+  <img src="https://github.com/iDev-Games/Trig-JS/blob/main/logo.png">
 </p>
 
 
@@ -20,7 +20,7 @@
 The easy way to create CSS scroll animations that react to the position of your HTML element on screen. Animate on scroll (AOS) your CSS.
 
 <p align="center">
-  <img src="creative.gif">
+  <img src="https://github.com/iDev-Games/Trig-JS/raw/main/creative.gif">
 </p>
 
 
