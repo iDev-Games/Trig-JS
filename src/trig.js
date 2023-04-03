@@ -1,4 +1,4 @@
-/* Trig.js v1.7.3 by iDev Games */
+/* Trig.js v1.8.0 by iDev Games */
 const trig = {
     trigs: [],
     thePos: [],
@@ -48,6 +48,7 @@ const trig = {
         var min = -100;
         var max = 100;
         var el = entry.boundingClientRect.top;
+        var height = entry.boundingClientRect.height;
         if (entry.target.dataset.trigOffset) {
             offset = parseInt(entry.target.dataset.trigOffset);
         }
@@ -57,19 +58,28 @@ const trig = {
         if (entry.target.dataset.trigMax) {
             max = parseInt(entry.target.dataset.trigMax);
         }
+        if(trigObject.documentHeight > height){
+            height = trigObject.documentHeight;
+        }
         var posTop = 0 - (el - ((trigObject.documentHeight / 2) + offset));
-        var pos = (posTop / trigObject.documentHeight) * 100;
+        var pos = (posTop / (height)) * 100;
         trigObject.trigSetPos(pos, min, max, entry);
     },
     updatePos: function() {
         trigObject.trigs.forEach(function(element, index) {
-            var el = element.style;
-            el.setProperty('--trig', trigObject.thePos[index] + "%");
-            el.setProperty('--trig-reverse', -(trigObject.thePos[index]) + "%");
-            el.setProperty('--trig-px', trigObject.thePos[index] + "px");
-            el.setProperty('--trig-px-reverse', -(trigObject.thePos[index]) + "px");
-            el.setProperty('--trig-deg', ((trigObject.thePos[index] / 100) * 360) + "deg");
-            el.setProperty('--trig-deg-reverse', ((-(trigObject.thePos[index]) / 100) * 360) + "deg");
+            if (element.dataset.trigGlobal == "true") {
+                var el = document.documentElement.style;
+                var id = "-"+element.id;
+            } else {
+                var el = element.style;
+                var id = "";
+            }
+            el.setProperty('--trig'+id, trigObject.thePos[index] + "%");
+            el.setProperty('--trig-reverse'+id, -(trigObject.thePos[index]) + "%");
+            el.setProperty('--trig-px'+id, trigObject.thePos[index] + "px");
+            el.setProperty('--trig-px-reverse'+id, -(trigObject.thePos[index]) + "px");
+            el.setProperty('--trig-deg'+id, ((trigObject.thePos[index] / 100) * 360) + "deg");
+            el.setProperty('--trig-deg-reverse'+id, ((-(trigObject.thePos[index]) / 100) * 360) + "deg");
         });
     }
 };
