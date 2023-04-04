@@ -6,7 +6,6 @@ class Trig
     height = 0;
     observer = new IntersectionObserver(function(entries) {
             trig.trigEntries(entries);
-            trig.updatePos(trig.trigs);
             trig.observer.disconnect();
     });
     trigInit() {
@@ -26,6 +25,7 @@ class Trig
         entries.forEach(function(entry) {
             trig.trigIntersecting(entry);
             trig.trigPos(entry);
+            trig.updatePos(entry.target);
         });
     }
     trigIntersecting(entry) {
@@ -71,22 +71,20 @@ class Trig
             trig.thePos[entry.index] = max;
         }    
     }
-    updatePos() {
-        trig.trigs.forEach(function(element, index) {
-            if (element.dataset.trigGlobal == "true" && element.id) {
-                var el = document.documentElement.style;
-                var id = "-"+element.id;
-            } else {
-                var el = element.style;
-                var id = "";
-            }
-            el.setProperty('--trig'+id, trig.thePos[index] + "%");
-            el.setProperty('--trig-reverse'+id, -(trig.thePos[index]) + "%");
-            el.setProperty('--trig-px'+id, trig.thePos[index] + "px");
-            el.setProperty('--trig-px-reverse'+id, -(trig.thePos[index]) + "px");
-            el.setProperty('--trig-deg'+id, ((trig.thePos[index] / 100) * 360) + "deg");
-            el.setProperty('--trig-deg-reverse'+id, ((-(trig.thePos[index]) / 100) * 360) + "deg");
-        });
+    updatePos(element) {
+        if (element.dataset.trigGlobal == "true" && element.id) {
+            var el = document.documentElement.style;
+            var id = "-"+element.id;
+        } else {
+            var el = element.style;
+            var id = "";
+        }
+        el.setProperty('--trig'+id, trig.thePos[element.index] + "%");
+        el.setProperty('--trig-reverse'+id, -(trig.thePos[element.index]) + "%");
+        el.setProperty('--trig-px'+id, trig.thePos[element.index] + "px");
+        el.setProperty('--trig-px-reverse'+id, -(trig.thePos[element.index]) + "px");
+        el.setProperty('--trig-deg'+id, ((trig.thePos[element.index] / 100) * 360) + "deg");
+        el.setProperty('--trig-deg-reverse'+id, ((-(trig.thePos[element.index]) / 100) * 360) + "deg");
     }
 }
 const trig = new Trig;
