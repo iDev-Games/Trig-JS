@@ -1,4 +1,4 @@
-/* Trig.js v1.9.0 by iDev Games */
+/* Trig.js v1.9.1 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -42,8 +42,7 @@ class Trig
         var max = 100;
         var el = entry.boundingClientRect.top;
         var height = entry.boundingClientRect.height;
-        var target = entry.target;
-        var dSet = target.dataset;
+        var dSet = entry.target.dataset;
         if (dSet.trigOffset) {
             offset = parseInt(dSet.trigOffset);
         }
@@ -61,7 +60,7 @@ class Trig
         }
         var posTop = 0 - (el - ((trig.height / 2) + offset));
         var pos = (posTop / (height + hOffset)) * 100;
-        trig.trigSetPos(pos, min, max, target);
+        trig.trigSetPos(pos, min, max, entry.target);
     }
     trigSetPos(pos, min, max, entry) {
         if (pos >= min && pos <= max) {
