@@ -1,91 +1,97 @@
-/* Trig.js v1.8.0 by iDev Games */
-const trig = {
-    trigs: [],
-    thePos: [],
-    documentHeight: 0,
-    observer: new IntersectionObserver(function(entries) {
-            trigObject.trigEntries(entries);
-            trigObject.updatePos(trigObject.trigs);
-            trigObject.observer.disconnect();
-    }),
-    trigIntersecting: function(entry) {
+/* Trig.js v1.9.0 by iDev Games */
+class Trig
+{
+    trigs = [];
+    thePos = [];
+    height = 0;
+    observer = new IntersectionObserver(function(entries) {
+            trig.trigEntries(entries);
+            trig.updatePos(trig.trigs);
+            trig.observer.disconnect();
+    });
+    trigInit() {
+        trig.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
+        trig.height = innerHeight;
+        trig.trigScroll();
+    }
+    trigScroll(){
+        if (trig.trigs) {
+            trig.trigs.forEach(function(element, index) {
+                element.index = index;
+                trig.observer.observe(element);
+            });
+        }
+    }
+    trigEntries(entries) {
+        entries.forEach(function(entry) {
+            trig.trigIntersecting(entry);
+            trig.trigPos(entry);
+        });
+    }
+    trigIntersecting(entry) {
         if (entry.isIntersecting) {
             entry.target.classList.add("trig");
         } else {
             entry.target.classList.remove("trig");
         }
-    },
-    trigInit: function() {
-        trigObject.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
-        trigObject.documentHeight = innerHeight;
-        trigObject.trigScroll();
-    },
-    trigScroll: function(){
-        if (trigObject.trigs) {
-            trigObject.trigs.forEach(function(element, index) {
-                element.index = index;
-                trigObject.observer.observe(element);
-            });
-        }
-    },
-    trigEntries: function(entries) {
-        entries.forEach(function(entry) {
-            trigObject.trigIntersecting(entry);
-            trigObject.trigPos(entry);
-        });
-    },
-    trigSetPos: function(pos, min, max, entry) {
-        if (pos >= min && pos <= max) {
-            trigObject.thePos[entry.target.index] = pos;
-        } else if (pos <= min) {
-            trigObject.thePos[entry.target.index] = min;
-        } else if (pos >= max) {
-            trigObject.thePos[entry.target.index] = max;
-        }    
-    },
-    trigPos: function(entry) {
+    }
+    trigPos(entry) {
         var offset = 0;
+        var hOffset = 0;
         var min = -100;
         var max = 100;
         var el = entry.boundingClientRect.top;
         var height = entry.boundingClientRect.height;
-        if (entry.target.dataset.trigOffset) {
-            offset = parseInt(entry.target.dataset.trigOffset);
+        var target = entry.target;
+        var dSet = target.dataset;
+        if (dSet.trigOffset) {
+            offset = parseInt(dSet.trigOffset);
         }
-        if (entry.target.dataset.trigMin) {
-            min = parseInt(entry.target.dataset.trigMin);
+        if (dSet.trigMin) {
+            min = parseInt(dSet.trigMin);
         }
-        if (entry.target.dataset.trigMax) {
-            max = parseInt(entry.target.dataset.trigMax);
+        if (dSet.trigMax) {
+            max = parseInt(dSet.trigMax);
         }
-        if(trigObject.documentHeight > height){
-            height = trigObject.documentHeight;
+        if (dSet.trigHeight) {
+            hOffset = parseInt(dSet.trigHeight);
         }
-        var posTop = 0 - (el - ((trigObject.documentHeight / 2) + offset));
-        var pos = (posTop / (height)) * 100;
-        trigObject.trigSetPos(pos, min, max, entry);
-    },
-    updatePos: function() {
-        trigObject.trigs.forEach(function(element, index) {
-            if (element.dataset.trigGlobal == "true") {
+        if(trig.height > height){
+            height = trig.height;
+        }
+        var posTop = 0 - (el - ((trig.height / 2) + offset));
+        var pos = (posTop / (height + hOffset)) * 100;
+        trig.trigSetPos(pos, min, max, target);
+    }
+    trigSetPos(pos, min, max, entry) {
+        if (pos >= min && pos <= max) {
+            trig.thePos[entry.index] = pos;
+        } else if (pos <= min) {
+            trig.thePos[entry.index] = min;
+        } else if (pos >= max) {
+            trig.thePos[entry.index] = max;
+        }    
+    }
+    updatePos() {
+        trig.trigs.forEach(function(element, index) {
+            if (element.dataset.trigGlobal == "true" && element.id) {
                 var el = document.documentElement.style;
                 var id = "-"+element.id;
             } else {
                 var el = element.style;
                 var id = "";
             }
-            el.setProperty('--trig'+id, trigObject.thePos[index] + "%");
-            el.setProperty('--trig-reverse'+id, -(trigObject.thePos[index]) + "%");
-            el.setProperty('--trig-px'+id, trigObject.thePos[index] + "px");
-            el.setProperty('--trig-px-reverse'+id, -(trigObject.thePos[index]) + "px");
-            el.setProperty('--trig-deg'+id, ((trigObject.thePos[index] / 100) * 360) + "deg");
-            el.setProperty('--trig-deg-reverse'+id, ((-(trigObject.thePos[index]) / 100) * 360) + "deg");
+            el.setProperty('--trig'+id, trig.thePos[index] + "%");
+            el.setProperty('--trig-reverse'+id, -(trig.thePos[index]) + "%");
+            el.setProperty('--trig-px'+id, trig.thePos[index] + "px");
+            el.setProperty('--trig-px-reverse'+id, -(trig.thePos[index]) + "px");
+            el.setProperty('--trig-deg'+id, ((trig.thePos[index] / 100) * 360) + "deg");
+            el.setProperty('--trig-deg-reverse'+id, ((-(trig.thePos[index]) / 100) * 360) + "deg");
         });
     }
-};
+}
+const trig = new Trig;
 
-const trigObject = Object.create(trig);
-
-document.addEventListener('scroll', trigObject.trigScroll, false);
-document.addEventListener('resize', trigObject.trigInit, false);
-document.addEventListener('DOMContentLoaded', trigObject.trigInit, false);
+document.addEventListener('scroll', trig.trigScroll, false);
+document.addEventListener('resize', trig.trigInit, false);
+document.addEventListener('DOMContentLoaded', trig.trigInit, false);
