@@ -118,7 +118,7 @@ var(--trig-deg-reverse) /* Reverse degrees */
 You can use the below data attributes for additional features
 
 ```html
-<div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-global="true" data-trig> </div>
+<div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig-global="true" data-trig> </div>
 ```
 
 Check out the code of the documentation as an example.
