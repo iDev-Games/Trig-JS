@@ -4,10 +4,7 @@ class Trig
     trigs = [];
     thePos = [];
     height = 0;
-    observer = new IntersectionObserver(function(entries) {
-            trig.trigEntries(entries);
-            trig.observer.disconnect();
-    });
+    observer = new IntersectionObserver(this.trigObserver);
     trigInit() {
         trig.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
         trig.height = innerHeight;
@@ -27,6 +24,10 @@ class Trig
             trig.trigPos(entry);
             trig.updatePos(entry.target);
         });
+    }
+    trigObserver(entries){
+        trig.trigEntries(entries);
+        trig.observer.disconnect();
     }
     trigIntersecting(entry) {
         if (entry.isIntersecting) {
