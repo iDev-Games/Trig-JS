@@ -5,7 +5,6 @@
 
 [![iDev-Games - Trig-JS](https://img.shields.io/static/v1?label=iDev-Games&message=Trig-JS&color=blue&logo=github)](https://github.com/iDev-Games/Trig-JS "Go to GitHub repo")
 [![stars - Trig-JS](https://img.shields.io/github/stars/iDev-Games/Trig-JS?style=social)](https://github.com/iDev-Games/Trig-JS)
-[![forks - Trig-JS](https://img.shields.io/github/forks/iDev-Games/Trig-JS?style=social)](https://github.com/iDev-Games/Trig-JS)
 
 
 [![GitHub tag](https://img.shields.io/github/tag/iDev-Games/Trig-JS?include_prereleases=&sort=semver&color=blue)](https://github.com/iDev-Games/Trig-JS/releases/)
