@@ -4,8 +4,9 @@ class Trig
     trigs = [];
     thePos = [];
     height = 0;
-    observer = new IntersectionObserver(this.trigObserver);
+    observer;
     trigInit() {
+        trig.observer = new IntersectionObserver(trig.trigObserver);
         trig.trigs = document.querySelectorAll('.enable-trig,[data-trig]');
         trig.height = innerHeight;
         trig.trigScroll();
