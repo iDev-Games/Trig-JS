@@ -37,16 +37,13 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js@1.9.1/dist/trig.js
-```
-```
-https://unpkg.com/trig-js@1.9.1/dist/trig.js
+https://cdn.jsdelivr.net/npm/trig-js/dist/trig.js"
 ```
 
 # What is Trig.js?
 Trig.js is a super simple, efficient and lightweight way of making CSS scroll animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
 
-Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here: https://idev-games.github.io/Trig-JS/! Not just that, Trig.js is really lightweight with a filesize of less than 2kb! Trig.js is created with javascript and doesn't require any dependencies.
+Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here: https://idev-games.github.io/Trig-JS/! Not just that, Trig.js is really lightweight with a filesize of less than 3kb! Trig.js is created with javascript and doesn't require any dependencies.
 
 Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript. 
 
@@ -59,12 +56,9 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 <script src="/js/trig.js"></script>
 ```
 
-Or just add one of the below CDN instead
+Or just add a CDN instead
 ```html
-<script src="https://cdn.jsdelivr.net/npm/trig-js@1.9.1/dist/trig.js"></script>
-```
-```html
-<script src="https://unpkg.com/trig-js@1.9.1/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js/dist/trig.js"></script>
 ```
 
 # How To Use?
@@ -112,6 +106,9 @@ var(--trig-px-reverse) /* Reverse pixels */
 var(--trig-deg) /* Degrees */
 var(--trig-deg-reverse) /* Reverse degrees */
 ```
+
+# Scroll Direction
+Trig.js creates a class of "trig-scroll-up" or "trig-scroll-down" onto the body of the document depending on the last scroll direction.
 
 # Data Attributes
 You can use the below data attributes for additional features

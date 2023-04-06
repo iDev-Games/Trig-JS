@@ -1,9 +1,10 @@
-/* Trig.js v1.9.1 by iDev Games */
+/* Trig.js v2.0.0 by iDev Games */
 class Trig
 {
     trigs = [];
     thePos = [];
     height = 0;
+    scrollDir = ["trig-scroll-down", "trig-scroll-up"];
     observer;
     trigInit() {
         trig.observer = new IntersectionObserver(trig.trigObserver);
@@ -22,9 +23,23 @@ class Trig
     trigEntries(entries) {
         entries.forEach(function(entry) {
             trig.trigIntersecting(entry);
+            if(entry.target.index == 0){
+                trig.trigDirection(entry);
+            }
             trig.trigPos(entry);
             trig.updatePos(entry.target);
         });
+    }
+    trigDirection(entry){
+        var y = entry.boundingClientRect.y;
+        if(trig.scrollPos){
+            if(trig.scrollPos <= y) {
+                trig.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
+            } else {
+                trig.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
+            }
+        }
+        trig.scrollPos = y;
     }
     trigObserver(entries){
         trig.trigEntries(entries);
@@ -80,6 +95,13 @@ class Trig
         } else {
             var el = element.style;
             var id = "";
+        }
+        var bo = document.body.classList;
+        if(bo.contains(trig.scrollDir[0])){
+            bo.replace(trig.scrollDir[0], trig.scrollDir[1]);
+        }
+        if(!bo.contains(trig.scrollDir[0]) && !bo.contains(trig.scrollDir[1])){
+            bo.add("trig-scroll-up");
         }
         el.setProperty('--trig'+id, trig.thePos[element.index] + "%");
         el.setProperty('--trig-reverse'+id, -(trig.thePos[element.index]) + "%");
