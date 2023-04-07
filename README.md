@@ -37,7 +37,7 @@ npm i trig-js
 
 Use Trig.js from a CDN
 ```
-https://cdn.jsdelivr.net/npm/trig-js/dist/trig.js"
+https://cdn.jsdelivr.net/npm/trig-js/src/trig.min.js
 ```
 
 # What is Trig.js?
@@ -58,7 +58,7 @@ All you need to do is add the dist trig.js file into your projects JS folder and
 
 Or just add a CDN instead
 ```html
-<script src="https://cdn.jsdelivr.net/npm/trig-js/dist/trig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trig-js/src/trig.min.js"></script>
 ```
 
 # How To Use?
