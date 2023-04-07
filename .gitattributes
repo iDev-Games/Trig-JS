@@ -1,2 +1,2 @@
 # .gitattributes
-index.html -HTML
+/index.html -HTML
