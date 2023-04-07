@@ -33,9 +33,9 @@ class Trig
     trigDirection(entry){
         var y = entry.boundingClientRect.y;
         if(trig.scrollPos){
-            if(trig.scrollPos <= y) {
+            if(trig.scrollPos < y-1) {
                 trig.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
-            } else {
+            } else if(trig.scrollPos > y+1) {
                 trig.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
             }
         }
