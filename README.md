@@ -111,7 +111,7 @@ var(--trig-deg-reverse) /* Reverse degrees */
 Trig.js creates a class of "trig-scroll-up" or "trig-scroll-down" onto the body of the document depending on the last scroll direction.
 
 # Scroll Position
-Trig.js creates a class of "trig-scroll-top" or "trig-scroll-bottom" onto the body of the document depending on the last scroll position. To give the ability to make something happen at different break points down the page. The classes "trig-scroll-25", "trig-scroll-50" and "trig-scroll-75" are added to the body of the document depending on the scoll position percentage down the page.
+Trig.js creates a class of "trig-scroll-top" or "trig-scroll-bottom" onto the body of the document depending on the last scroll position. To give the ability to make something happen at different break points down the page. The classes "trig-scroll-25", "trig-scroll-50" and "trig-scroll-75" are added to the body of the document depending on the scroll position percentage down the page.
 
 # Data Attributes
 You can use the below data attributes for additional features

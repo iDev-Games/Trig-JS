@@ -1,4 +1,4 @@
-/* Trig.js v2.1.0 by iDev Games */
+/* Trig.js v2.1.1 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -104,26 +104,22 @@ class Trig
         if(!cl.contains(trig.scrollDir[0]) && !cl.contains(trig.scrollDir[1])){
             cl.add("trig-scroll-up");
         }
-        if(trig.thePos[element.index] == 0){
-            cl.add("trig-scroll-top");
-        } else {
-            cl.remove("trig-scroll-top");
-        }
-        if(trig.thePos[element.index] == 100){
-            cl.add("trig-scroll-bottom");
-        } else {
-            cl.remove("trig-scroll-bottom");
-        }
-        var split = [25,50,75];
+        var split = [0,25,50,75,100];
         for (let i = 0; i < 4; i++) {
             trig.trigSplit(split[i], element.index, cl);
         }
     }
     trigSplit(split, index, cl){
+        var name = split;
+        if(split == 0){
+            name = "top";
+        } else if(split == 100){
+            name = "bottom";
+        }
         if(trig.thePos[index] >= split){
-            cl.add("trig-scroll-"+split);
+            cl.add("trig-scroll-"+name);
         } else if(trig.thePos[index] < split) {
-            cl.remove("trig-scroll-"+split);
+            cl.remove("trig-scroll-"+name);
         }
     }
     updatePos(element) {
