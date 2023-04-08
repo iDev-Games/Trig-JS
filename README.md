@@ -43,7 +43,7 @@ https://cdn.jsdelivr.net/npm/trig-js/src/trig.min.js
 # What is Trig.js?
 Trig.js is a super simple, efficient and lightweight way of making CSS scroll animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
 
-Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here: https://idev-games.github.io/Trig-JS/! Not just that, Trig.js is really lightweight with a filesize of less than 3kb! Trig.js is created with javascript and doesn't require any dependencies.
+Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here: https://idev-games.github.io/Trig-JS/! Not just that, Trig.js is really lightweight with a filesize of ![npm bundle size](https://img.shields.io/bundlephobia/min/trig-js)! Trig.js is created with javascript and doesn't require any dependencies.
 
 Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript. 
 
@@ -109,6 +109,9 @@ var(--trig-deg-reverse) /* Reverse degrees */
 
 # Scroll Direction
 Trig.js creates a class of "trig-scroll-up" or "trig-scroll-down" onto the body of the document depending on the last scroll direction.
+
+# Scroll Position
+Trig.js creates a class of "trig-scroll-top" or "trig-scroll-bottom" onto the body of the document depending on the last scroll position. To give the ability to make something happen at different break points down the page. The classes "trig-scroll-25", "trig-scroll-50" and "trig-scroll-75" are added to the body of the document depending on the scoll position percentage down the page.
 
 # Data Attributes
 You can use the below data attributes for additional features
