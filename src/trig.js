@@ -1,4 +1,4 @@
-/* Trig.js v2.1.3 by iDev Games */
+/* Trig.js v2.1.4 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -7,44 +7,47 @@ class Trig
     pos = 0;
     scrollDir = ["trig-scroll-down", "trig-scroll-up"];
     observer;
+    constructor() {
+        self = this;       
+    }
     trigInit() {
-        trig.observer = new IntersectionObserver(trig.trigObserver);
-        trig.trigs = document.querySelectorAll('body,.enable-trig,[data-trig]');
-        trig.height = innerHeight;
-        trig.trigScroll();
+        self.observer = new IntersectionObserver(self.trigObserver);
+        self.trigs = document.querySelectorAll('body,.enable-trig,[data-trig]');
+        self.height = innerHeight;
+        self.trigScroll();
     }
     trigScroll(){
-        if (trig.trigs) {
-            trig.trigs.forEach(function(element, index) {
+        if (self.trigs) {
+            self.trigs.forEach(function(element, index) {
                 element.index = index;
-                trig.observer.observe(element);
+                self.observer.observe(element);
             });
         }
     }
     trigEntries(entries) {
         entries.forEach(function(entry) {
-            trig.trigIntersecting(entry);
+            self.trigIntersecting(entry);
             if(entry.target.index == 0){
-                trig.trigDirection(entry);
+                self.trigDirection(entry);
             }
-            trig.trigPos(entry);
-            trig.updatePos(entry.target);
+            self.trigPos(entry);
+            self.updatePos(entry.target);
         });
     }
     trigDirection(entry){
         var y = entry.boundingClientRect.y;
-        if(trig.scrollPos){
-            if(trig.scrollPos < y-1) {
-                trig.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
-            } else if(trig.scrollPos > y+1) {
-                trig.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
+        if(self.scrollPos){
+            if(self.scrollPos < y-1) {
+                self.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
+            } else if(self.scrollPos > y+1) {
+                self.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
             }
         }
-        trig.scrollPos = y;
+        self.scrollPos = y;
     }
     trigObserver(entries){
-        trig.trigEntries(entries);
-        trig.observer.disconnect();
+        self.trigEntries(entries);
+        self.observer.disconnect();
     }
     trigIntersecting(entry) {
         if(document.body != entry.target){
@@ -58,21 +61,21 @@ class Trig
     trigPos(entry) {
         var options = { offset: 0, height: 0, min: -100, max: 100 };
         Object.keys(options).forEach(function(key) {
-            options[key] = trig.trigAttributes(entry, options, key);
+            options[key] = self.trigAttributes(entry, options, key);
         });
         var el = entry.boundingClientRect.top;
         var height = entry.boundingClientRect.height;
-        if(trig.height > height){
-            height = trig.height;
+        if(self.height > height){
+            height = self.height;
         }
         if(document.body == entry.target){
             var posTop = 0 - (el);
-            var pos = (posTop / (height - ((trig.height)))) * 100;
+            var pos = (posTop / (height - ((self.height)))) * 100;
         } else {
-            var posTop = 0 - (el - ((trig.height / 2) + options.offset));
+            var posTop = 0 - (el - ((self.height / 2) + options.offset));
             var pos = (posTop / (height + options.height)) * 100;
         }
-        trig.trigSetPos(pos, options.min, options.max, entry.target);
+        self.trigSetPos(pos, options.min, options.max, entry.target);
     }
     trigAttributes(entry, options, name){
         var dSet = entry.target.getAttribute("data-trig-"+name);
@@ -88,33 +91,33 @@ class Trig
     }
     trigSetPos(pos, min, max, entry) {
         if (pos >= min && pos <= max) {
-            trig.thePos[entry.index] = pos;
+            self.thePos[entry.index] = pos;
         } else if (pos <= min) {
-            trig.thePos[entry.index] = min;
+            self.thePos[entry.index] = min;
         } else if (pos >= max) {
-            trig.thePos[entry.index] = max;
+            self.thePos[entry.index] = max;
         }    
     }
     trigSetBody(element){
         var bo = element;
         var cl = bo.classList;
-        if(cl.contains(trig.scrollDir[0])){
-            cl.replace(trig.scrollDir[0], trig.scrollDir[1]);
+        if(cl.contains(self.scrollDir[0])){
+            cl.replace(self.scrollDir[0], self.scrollDir[1]);
         }
-        if(!cl.contains(trig.scrollDir[0]) && !cl.contains(trig.scrollDir[1])){
+        if(!cl.contains(self.scrollDir[0]) && !cl.contains(self.scrollDir[1])){
             cl.add("trig-scroll-up");
         }
         var split = [0,25,50,75,100];
         for (let i = 0; i < split.length; i++) {
-            trig.trigSplit(split[i], element.index, cl);
+            self.trigSplit(split[i], element.index, cl);
         }
     }
     trigSplit(split, index, cl){
         var name = split;
         if(split == 0 || split == 100){ 
-            trig.trigSplitEquals(name,split,cl,index);
+            self.trigSplitEquals(name,split,cl,index);
         } else {   
-            trig.trigSplitMoreThan(name,split,cl,index);
+            self.trigSplitMoreThan(name,split,cl,index);
         }
     }
     trigSplitEquals(name,split,cl,index){
@@ -123,16 +126,16 @@ class Trig
         } else if(split == 100) {
             name = "bottom";
         }
-        if(trig.thePos[index] == split){
+        if(self.thePos[index] == split){
             cl.add("trig-scroll-"+name);
         } else {
             cl.remove("trig-scroll-"+name);
         }
     }
     trigSplitMoreThan(name,split,cl,index){
-        if(trig.thePos[index] >= split){
+        if(self.thePos[index] >= split){
             cl.add("trig-scroll-"+name);
-        } else if(trig.thePos[index] < split) {
+        } else if(self.thePos[index] < split) {
             cl.remove("trig-scroll-"+name);
         }
     }
@@ -145,14 +148,14 @@ class Trig
             var id = "";
         }
         if(document.body == element){
-            trig.trigSetBody(element);
+            self.trigSetBody(element);
         } else {
-            el.setProperty('--trig'+id, trig.thePos[element.index] + "%");
-            el.setProperty('--trig-reverse'+id, -(trig.thePos[element.index]) + "%");
-            el.setProperty('--trig-px'+id, trig.thePos[element.index] + "px");
-            el.setProperty('--trig-px-reverse'+id, -(trig.thePos[element.index]) + "px");
-            el.setProperty('--trig-deg'+id, ((trig.thePos[element.index] / 100) * 360) + "deg");
-            el.setProperty('--trig-deg-reverse'+id, ((-(trig.thePos[element.index]) / 100) * 360) + "deg");
+            el.setProperty('--trig'+id, self.thePos[element.index] + "%");
+            el.setProperty('--trig-reverse'+id, -(self.thePos[element.index]) + "%");
+            el.setProperty('--trig-px'+id, self.thePos[element.index] + "px");
+            el.setProperty('--trig-px-reverse'+id, -(self.thePos[element.index]) + "px");
+            el.setProperty('--trig-deg'+id, ((self.thePos[element.index] / 100) * 360) + "deg");
+            el.setProperty('--trig-deg-reverse'+id, ((-(self.thePos[element.index]) / 100) * 360) + "deg");
         }
     }
 }
