@@ -32,6 +32,6 @@
   },
   "homepage": "https://github.com/iDev-Games/trig#readme",
   "publishConfig": {
-    "@idev-games:registry": "https://npm.pkg.github.com"
+    "@iDev-Games:registry": "https://npm.pkg.github.com"
   }
 }
