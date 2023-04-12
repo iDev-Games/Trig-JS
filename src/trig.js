@@ -1,4 +1,4 @@
-/* Trig.js v2.1.5 by iDev Games */
+/* Trig.js v2.1.6 by iDev Games */
 class Trig
 {
     trigs = [];
