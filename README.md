@@ -47,7 +47,7 @@ Using nothing but the power of CSS, HTML and Trig.js. You can make the same effe
 
 Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript. 
 
-Trig.js is the perfect solution for CSS scroll animations in any project by developers of any skill level for both light or heavy usage. Making it the perfect alternative to frameworks like scrollmagic or GSAP scrolltrigger for most of your website animation needs.
+Trig.js is the perfect solution for CSS scroll animations in any project by developers of any skill level for both light or heavy usage. Making it the perfect alternative to libraries like scrollmagic or GSAP scrolltrigger for most of your website animation needs.
 
 # How To Install?
 All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags
