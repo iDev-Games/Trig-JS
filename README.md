@@ -117,7 +117,7 @@ Trig.js creates a class of "trig-scroll-top" or "trig-scroll-bottom" onto the bo
 You can use the below data attributes for additional features
 
 ```html
-<div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-height="0" data-trig-global="false" data-trig> </div>
+<div id="yourelement" data-trig-min="-100" data-trig-max="100" data-trig-offset="0" data-trig-negativeOffset="0" data-trig-height="0" data-trig-global="false" data-trig> </div>
 ```
 
 Check out the code of the documentation as an example.

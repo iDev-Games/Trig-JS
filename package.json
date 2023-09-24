@@ -1,6 +1,6 @@
 {
   "name": "trig-js",
-  "version": "2.1.8",
+  "version": "2.2",
   "description": "The easy way to create CSS scroll animations that react to the position of your HTML element on screen. Animate on scroll (AOS) your CSS.",
   "main": "src/trig.js",
   "repository": {
@@ -32,6 +32,6 @@
   },
   "homepage": "https://github.com/iDev-Games/trig#readme",
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   }
 }

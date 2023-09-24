@@ -1,4 +1,4 @@
-/* Trig.js v2.1.7 by iDev Games */
+/* Trig.js v2.2 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -59,7 +59,7 @@ class Trig
         }
     }
     trigPos(entry) {
-        var options = { offset: 0, height: 0, min: -100, max: 100 };
+        var options = { negativeOffset: 0, offset: 0, height: 0, min: -100, max: 100 };
         Object.keys(options).forEach(function(key) {
             options[key] = self.trigAttributes(entry, options, key);
         });
@@ -72,7 +72,11 @@ class Trig
             var posTop = 0 - (el);
             var pos = (posTop / (height - ((self.height)))) * 100;
         } else {
-            var posTop = 0 - (el - ((self.height / 2) + options.offset));
+            if(options.negativeOffset > 0){
+                var posTop = 0 - (el - ((self.height / 2) + options.negativeOffset));
+            } else {
+                var posTop = 0 - (el - ((self.height / 2) - options.offset));
+            }
             var pos = (posTop / (height + options.height)) * 100;
         }
         self.trigSetPos(pos, options.min, options.max, entry.target);
