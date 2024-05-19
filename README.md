@@ -96,7 +96,7 @@ Trig.js calculates the percentage that the element is on screen and creates CSS 
 }
 ```
 
-The CSS variables you can use are:
+The CSS variables you can use by adding data-trig-var="true", data-trig-pixels="true" or data-trig-degrees="true" are:
 
 ```css
 var(--trig) /* Percentage */

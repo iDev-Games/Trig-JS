@@ -1,4 +1,4 @@
-/* Trig.js v2.2 by iDev Games */
+/* Trig.js v3 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -13,9 +13,12 @@ class Trig
     trigInit() {
         self.observer = new IntersectionObserver(self.trigObserver);
         self.trigs = document.querySelectorAll('body,.enable-trig,[data-trig]');
-        self.height = innerHeight;
+        self.trigWindowHeight();
         self.trigScroll();
     }
+    trigWindowHeight(){
+        self.height = innerHeight;
+    };
     trigScroll(){
         if (self.trigs) {
             self.trigs.forEach(function(element, index) {
@@ -26,12 +29,16 @@ class Trig
     }
     trigEntries(entries) {
         entries.forEach(function(entry) {
-            self.trigIntersecting(entry);
-            if(entry.target.index == 0){
-                self.trigDirection(entry);
+            if(self.trigIntersecting(entry) == true){
+                self.trigPos(entry);
+                self.updatePos(entry.target);
+            } else if(document.body == entry.target){
+                if(entry.target.index == 0){
+                    self.trigDirection(entry);
+                }
+                self.trigPos(entry);
+                self.updatePos(entry.target);
             }
-            self.trigPos(entry);
-            self.updatePos(entry.target);
         });
     }
     trigDirection(entry){
@@ -46,7 +53,7 @@ class Trig
         self.scrollPos = y;
     }
     trigObserver(entries){
-        self.trigEntries(entries);
+        requestAnimationFrame(function () {self.trigEntries(entries) });
         self.observer.disconnect();
     }
     trigIntersecting(entry) {
@@ -56,7 +63,9 @@ class Trig
             } else {
                 entry.target.classList.remove("trig");
             }
+            return true;
         }
+        return false;
     }
     trigPos(entry) {
         var options = { negativeOffset: 0, offset: 0, height: 0, min: -100, max: 100 };
@@ -113,6 +122,7 @@ class Trig
         }
         var split = [0,25,50,75,100];
         for (let i = 0; i < split.length; i++) {
+
             self.trigSplit(split[i], element.index, cl);
         }
     }
@@ -144,7 +154,7 @@ class Trig
         }
     }
     updatePos(element) {
-        if (element.dataset.trigGlobal == "true" && element.id) {
+        if (element.dataset.trigGlobal == "true") {
             var el = document.documentElement.style;
             var id = "-"+element.id;
         } else {
@@ -154,17 +164,25 @@ class Trig
         if(document.body == element){
             self.trigSetBody(element);
         } else {
-            el.setProperty('--trig'+id, self.thePos[element.index] + "%");
-            el.setProperty('--trig-reverse'+id, -(self.thePos[element.index]) + "%");
-            el.setProperty('--trig-px'+id, self.thePos[element.index] + "px");
-            el.setProperty('--trig-px-reverse'+id, -(self.thePos[element.index]) + "px");
-            el.setProperty('--trig-deg'+id, ((self.thePos[element.index] / 100) * 360) + "deg");
-            el.setProperty('--trig-deg-reverse'+id, ((-(self.thePos[element.index]) / 100) * 360) + "deg");
+            if(self.thePos[element.index]){
+                if(element.dataset.trigVar == "true"){
+                    el.setProperty('--trig'+id, self.thePos[element.index] + "%");
+                    el.setProperty('--trig-reverse'+id, -(self.thePos[element.index]) + "%");
+                }    
+                if(element.dataset.trigPixels == "true"){
+                    el.setProperty('--trig-px'+id, self.thePos[element.index] + "px");
+                    el.setProperty('--trig-px-reverse'+id, -(self.thePos[element.index]) + "px");
+                }    
+                if(element.dataset.trigDegrees == "true"){
+                    el.setProperty('--trig-deg'+id, ((self.thePos[element.index] / 100) * 360) + "deg");
+                    el.setProperty('--trig-deg-reverse'+id, ((-(self.thePos[element.index]) / 100) * 360) + "deg"); 
+                }
+            }
         }
     }
 }
 const trig = new Trig;
 
-document.addEventListener('scroll', trig.trigScroll, false);
-document.addEventListener('resize', trig.trigInit, false);
-document.addEventListener('DOMContentLoaded', trig.trigInit, false);
+window.addEventListener("scroll", trig.trigScroll, { passive: true });
+window.addEventListener('resize', trig.trigWindowHeight, { passive: true });
+window.addEventListener('load', trig.trigInit, { passive: true });

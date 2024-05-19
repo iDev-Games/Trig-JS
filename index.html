@@ -23,6 +23,191 @@
                 color:#FFF;
                 font-family: 'Space Mono', monospace;
             }
+            hr{
+                margin:0px;
+            }
+            .trig.background1{
+                overflow:hidden;
+            }
+            .trig.background1:after{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                background-image:url("assets/img/clouds.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 0;
+                transform:translateX(calc(var(--trig-reverse) + 135%)) translateY(calc(var(--trig-reverse) + 100%));
+                opacity: 9;
+                filter: blur(var(--trig));
+            }
+            .trig.background1:before{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                background: rgb(196,241,255);
+                background: linear-gradient(0deg, rgba(196,241,255,1) 0%, rgba(63,210,251,1) 100%);
+                opacity: calc(var(--trig) - 60%);
+                filter: blur(98px);
+            }
+            .trig.background2{
+                overflow:hidden;
+            }
+            .trig.background2:before{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                background-image:url("assets/img/plane.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 0;
+                transform:translateX(calc(var(--trig) - 40%)) translateY(calc(var(--trig) - 10%));
+                opacity: 0.1;
+                filter: blur(calc(var(--trig-px) / 4));
+            }
+            .trig.background2:after{
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgb(63,210,251);
+                background: linear-gradient(0deg, rgba(63,210,251,0) 0%, rgba(196,241,255,1) 50%);
+                opacity: calc(var(--trig));
+                filter: blur(var(--trig-px));
+            }
+            .trig.background3{
+                overflow:hidden;
+            }
+            .trig.background3 div{
+                position: relative;
+                z-index:3;
+            }
+            .trig.background3:before{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                background-image:url("assets/img/planet1.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 0;
+                transform:translateY(calc(var(--trig) - 50%));
+                opacity: 0.8;
+                filter: blur(calc(var(--trig-px) / 2));
+            }
+            .trig.background3:after{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                background: rgb(63,210,251);
+                background: linear-gradient(194deg, rgba(63,210,251,0) 0%, rgba(0,0,0,1) 100%);
+                background-position: 0;
+                opacity: calc(var(--trig) + 50%);
+                filter: blur(var(--trig));
+                z-index:0;
+            }
+            .trig.background4{
+                overflow:hidden;
+            }
+            .trig.background4:before{
+                content:"";
+                width:200%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:calc(var(--trig) - 50%);
+                background-image:url("assets/img/wheel.png");
+                background-size: auto 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                transform:rotate(calc(var(--trig-deg)));
+                opacity: 0.8;
+            }
+            .trig.background5{
+                overflow:hidden;
+                background:rgba(255,255,255,calc(var(--trig) - 80%));
+            }
+            .trig.background5:before{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0px;
+                background-image:url("assets/img/living-room.jpg");
+                background-size: 200% 100vh;
+                background-position: calc((var(--trig) / 2) - 10%) bottom;
+                background-repeat: no-repeat;
+                mix-blend-mode: screen;
+                filter: blur(5px);
+            }
+            .trig.background6{
+                overflow:hidden;
+                background:rgba(255,255,255,calc(var(--trig) - 80%));
+            }
+            .trig.background6:before{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0px;
+                background-image:url("assets/img/skyscraper.jpg");
+                background-size: auto 200%;
+                background-position: center calc((var(--trig) / 2) - 10%);
+                background-repeat: no-repeat;
+                mix-blend-mode: screen;
+                filter: blur(5px);
+            }
+            .trig.background7{
+                overflow:hidden;
+            }
+            .trig.background7:before{
+                content:"";
+                width:100%;
+                height:calc(var(--trig));
+                position:absolute;
+                top:0;
+                left:0px;
+                background: rgb(252,176,69);
+                background: linear-gradient(0deg, rgba(252,176,69,1) 25%, rgba(253,124,41,1) 25%, rgba(253,124,41,1) 50%, rgba(253,29,29,1) 50%, rgba(253,29,29,1) 75%, rgba(208,0,0,1) 75%);
+                background-size: 100vw 100vh;
+                background-position: center top;
+                background-repeat: no-repeat;
+            }
+            .trig.background8{
+                overflow:hidden;
+                background:rgba(255,255,255,calc(var(--trig) - 40%));
+            }
+            .trig.background8:before{
+                content:"";
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0px;
+                background-image:url("assets/img/servers.jpg");
+                background-size: 100vw 100vh;
+                background-position: center top;
+                background-repeat: no-repeat;
+                mix-blend-mode: hard-light;
+            }
             .pageContainer{
                 max-width:100%;
                 overflow:hidden;
@@ -56,6 +241,9 @@
                 margin:20px;
                 padding:20px;
                 max-width: 100%;
+            }
+            .boxBG{
+                background-color: rgba(0, 0, 0, 0.8);
             }
             .alignCenter{
                 text-align:center;
@@ -160,24 +348,24 @@
     <body>
         <div class="pageContainer">
 
-            <div class="container alignCenter">
+            <div class="container alignCenter background1" data-trig data-trig-var="true">
                 <div class="box">
-                    <h1 id="logo" class="enable-trig" data-trig-min="30">Trig.js</h1>
+                    <h1 id="logo" data-trig-min="30" data-trig>Trig.js</h1>
 
                     <hr id="headerLine" data-trig-min="20" data-trig />
             
-                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation</h2>
+                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v3</sup></h2>
                 </div>
             </div>
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box" id="Whatis" data-trig-min="20" data-trig-max="40" data-trig>        
+            <div class="container alignCenter background2" data-trig data-trig-max="40" data-trig-pixels="true" data-trig-var="true">
+                <div class="box" id="Whatis" data-trig-min="20" data-trig-max="40" data-trig data-trig-var="true">        
                     <h2>What is Trig.js?</h2>
                 </div>
-                <hr id="headerLine2" data-trig-min="10" data-trig />
-                <div id="textBlock" data-trig-min="0" data-trig>
+                <hr id="headerLine2" data-trig-min="10" data-trig data-trig-var="true"/>
+                <div id="textBlock" data-trig-min="0" data-trig data-trig-var="true">
                     <div class="box fadeIn" data-trig>        
                         Trig.js is a super simple, efficient and lightweight way of making CSS animations that react to the position of your HTML elements. You can also use Trig.js to trigger CSS animations once an element appears on screen.
                     </div>
@@ -192,11 +380,11 @@
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box title" id="install" data-trig-min="20" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter background3" data-trig data-trig-max="50" data-trig-pixels="true" data-trig-var="true">
+                <div class="box boxBG title" id="install">        
                     <h2>How To Install?</h2>
                 </div>
-                <div class="box fadeIn" data-trig>        
+                <div class="box boxBG fadeIn" data-trig>        
                     <p>All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
                     <pre>
                             &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
@@ -210,11 +398,11 @@
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box title" id="use" data-trig-min="20" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter background4" data-trig data-trig-degrees="true" data-trig-var="true">
+                <div class="box boxBG title" id="use">        
                     <h2>How To Use?</h2>
                 </div>
-                <div class="box fadeIn" data-trig>        
+                <div class="box boxBG fadeIn" data-trig>        
                     <p>To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.</p>
                     <pre>
                             &lt;div class="fadeIn" data-trig&gt; &lt;/div&gt;
@@ -229,19 +417,19 @@
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box title" id="animation" data-trig-min="20" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter background5" data-trig data-trig-min="50" data-trig-max="150" data-trig-negativeOffset="600" data-trig-var="true">
+                <div class="box boxBG title" id="animation">        
                     <h2>Scroll Animations</h2>
                 </div>
-                <div class="box fadeIn" data-trig>        
+                <div class="box boxBG fadeIn" data-trig>        
                     <p>Trig.js calculates the percentage that the element is on screen and creates CSS variables that you can use with CSS transform etc.</p>
                     <pre>
-                            &lt;div class="element" data-trig&gt; &lt;/div&gt;
+                            &lt;div class="element" data-trig data-trig-var="true"&gt; &lt;/div&gt;
                     </pre>
                     <pre>
                             .element{ transform: translateX( var(--trig) ); }
                     </pre>
-                    <p>The CSS variables you can use are:</p>
+                    <p>The CSS variables you can use by adding <strong>data-trig-var="true", data-trig-pixels="true" or data-trig-degrees="true"</strong> are:</p>
                     <div class="listItem">
                         --trig
                     </div>
@@ -265,33 +453,33 @@
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box title" id="direction" data-trig-min="20" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter background6" data-trig data-trig-min="50" data-trig-max="150" data-trig-negativeOffset="600" data-trig-var="true">
+                <div class="box boxBG title" id="direction">        
                     <h2>Scroll Direction</h2>
                 </div>
-                <div class="box fadeIn" data-trig>        
+                <div class="box boxBG fadeIn" data-trig>        
                     <p>Trig.js creates a class of "trig-scroll-up" or "trig-scroll-down" onto the body of the document depending on the last scroll direction.</p>
                 </div>
             </div>
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box title" id="direction" data-trig-min="20" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter background7" data-trig data-trig-min="-100" data-trig-max="100" data-trig-negativeOffset="200" data-trig-var="true">
+                <div class="box boxBG title" id="direction">        
                     <h2>Scroll Position</h2>
                 </div>
-                <div class="box fadeIn" data-trig>        
+                <div class="box boxBG fadeIn" data-trig>        
                     <p>Trig.js creates a class of "trig-scroll-top" or "trig-scroll-bottom" onto the body of the document depending on the last scroll position. To give the ability to make something happen at different break points down the page. The classes "trig-scroll-25", "trig-scroll-50" and "trig-scroll-75" are added to the body of the document depending on the scroll position percentage down the page.</p>
                 </div>
             </div>
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div class="box title" id="attributes" data-trig-min="20" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter background8" data-trig data-trig-min="-100" data-trig-max="100" data-trig-negativeOffset="600" data-trig-var="true">
+                <div class="box boxBG title" id="attributes">        
                     <h2>Data Attributes</h2>
                 </div>
-                <div class="box fadeIn" data-trig>        
+                <div class="box boxBG fadeIn" data-trig>        
                     <p>You can use the below data attributes for additional features</p>
                     <div class="listItem">
                         <pre>
@@ -303,14 +491,14 @@
 
             <hr/>
 
-            <div class="container alignCenter">
-                <div id="creative" class="box" data-trig-offset="400" data-trig>        
+            <div class="container alignCenter" data-trig data-trig-var="true">
+                <div id="creative" class="box" data-trig-negativeOffset="400" data-trig data-trig-var="true">        
                     <div class="headerText">BE CREATIVE</div>
                 </div>
-                <div id="withcss" class="box" data-trig-offset="400" data-trig>        
+                <div id="withcss" class="box" data-trig-negativeOffset="400" data-trig data-trig-var="true">        
                     <div class="headerText">WITH YOUR CSS</div>
                 </div>
-                <div id="examples" class="box" data-trig-offset="400" data-trig>
+                <div id="examples" class="box" data-trig-negativeOffset="400" data-trig>
                     <a class="moreExamples" href="https://idev-games.github.io/Trig-JS-Examples/" target="_Blank">See More Examples</a>
                 </div>
             </div>
