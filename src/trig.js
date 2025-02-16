@@ -1,4 +1,4 @@
-/* Trig.js v3 by iDev Games */
+/* Trig.js v3.1 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -7,55 +7,74 @@ class Trig
     pos = 0;
     scrollDir = ["trig-scroll-down", "trig-scroll-up"];
     observer;
+    lastCall = 0;
+    trigScrollTimeout = null;
+    trigAttributesCache = new Map();
+
     constructor() {
-        self = this;       
+        this.trigInit = this.trigInit.bind(this);
+        this.trigWindowHeight = this.trigWindowHeight.bind(this);
+        this.trigScroll = this.trigScroll.bind(this);
+        this.trigObserver = this.trigObserver.bind(this);
+        this.trigWindowHeight();
     }
+
     trigInit() {
-        self.observer = new IntersectionObserver(self.trigObserver);
-        self.trigs = document.querySelectorAll('body,.enable-trig,[data-trig]');
-        self.trigWindowHeight();
-        self.trigScroll();
+        this.observer = new IntersectionObserver(this.trigObserver);
+        this.trigs = document.querySelectorAll('body,.enable-trig,[data-trig]');
+        this.trigScroll();
     }
+
     trigWindowHeight(){
-        self.height = innerHeight;
+        this.height = innerHeight;
     };
-    trigScroll(){
-        if (self.trigs) {
-            self.trigs.forEach(function(element, index) {
-                element.index = index;
-                self.observer.observe(element);
-            });
+
+    trigScroll() {
+        if (this.trigScrollTimeout) {
+            clearTimeout(this.trigScrollTimeout);
         }
+        this.trigScrollTimeout = setTimeout(() => {
+            if (this.trigs) {
+                this.trigs.forEach((element, index) => {
+                    element.index = index;
+                    this.observer.observe(element);
+                });
+            }
+        }, 12);
     }
+
     trigEntries(entries) {
-        entries.forEach(function(entry) {
-            if(self.trigIntersecting(entry) == true){
-                self.trigPos(entry);
-                self.updatePos(entry.target);
+        entries.forEach((entry) => {
+            if(this.trigIntersecting(entry) == true){
+                this.trigPos(entry);
+                this.updatePos(entry.target);
             } else if(document.body == entry.target){
                 if(entry.target.index == 0){
-                    self.trigDirection(entry);
+                    this.trigDirection(entry);
                 }
-                self.trigPos(entry);
-                self.updatePos(entry.target);
+                this.trigPos(entry);
+                this.updatePos(entry.target);
             }
         });
     }
+
     trigDirection(entry){
         var y = entry.boundingClientRect.y;
-        if(self.scrollPos){
-            if(self.scrollPos < y-1) {
-                self.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
-            } else if(self.scrollPos > y+1) {
-                self.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
+        if(this.scrollPos){
+            if(this.scrollPos < y-1) {
+                this.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
+            } else if(this.scrollPos > y+1) {
+                this.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
             }
         }
-        self.scrollPos = y;
+        this.scrollPos = y;
     }
+
     trigObserver(entries){
-        requestAnimationFrame(function () {self.trigEntries(entries) });
-        self.observer.disconnect();
+        requestAnimationFrame(() => { this.trigEntries(entries) });
+        this.observer.disconnect();
     }
+
     trigIntersecting(entry) {
         if(document.body != entry.target){
             if (entry.isIntersecting) {
@@ -67,92 +86,134 @@ class Trig
         }
         return false;
     }
+
     trigPos(entry) {
         var options = { negativeOffset: 0, offset: 0, height: 0, min: -100, max: 100 };
-        Object.keys(options).forEach(function(key) {
-            options[key] = self.trigAttributes(entry, options, key);
+        Object.keys(options).forEach((key) => {
+            options[key] = this.trigAttributes(entry, options, key);
         });
         var el = entry.boundingClientRect.top;
         var height = entry.boundingClientRect.height;
-        if(self.height > height){
-            height = self.height;
+        if(this.height > height){
+            height = this.height;
         }
         if(document.body == entry.target){
             var posTop = 0 - (el);
-            var pos = (posTop / (height - ((self.height)))) * 100;
+            var pos = (posTop / (height - ((this.height)))) * 100;
         } else {
             if(options.negativeOffset > 0){
-                var posTop = 0 - (el - ((self.height / 2) + options.negativeOffset));
+                var posTop = 0 - (el - ((this.height / 2) + options.negativeOffset));
             } else {
-                var posTop = 0 - (el - ((self.height / 2) - options.offset));
+                var posTop = 0 - (el - ((this.height / 2) - options.offset));
             }
             var pos = (posTop / (height + options.height)) * 100;
         }
-        self.trigSetPos(pos, options.min, options.max, entry.target);
+        this.trigSetPos(pos, options.min, options.max, entry.target);
     }
-    trigAttributes(entry, options, name){
-        var dSet = entry.target.getAttribute("data-trig-"+name);
-        if (dSet) {
-            if(dSet.match(/^[0-9]+$/) != null){
-                return parseInt(dSet);
-            } else {
-                return dSet;
-            }
-        } else {
-            return options[name];
+
+    trigAttributes(entry, options, name) {
+        let cachedValue = this.trigAttributesCache.get(entry.target);
+        if (!cachedValue) {
+            cachedValue = {};
+            this.trigAttributesCache.set(entry.target, cachedValue);
         }
+    
+        let dSet = entry.target.getAttribute("data-trig-" + name);
+        if (dSet) {
+            cachedValue[name] = dSet;
+        }
+    
+        return cachedValue[name] || options[name];
     }
+
     trigSetPos(pos, min, max, entry) {
         if (pos >= min && pos <= max) {
-            self.thePos[entry.index] = pos;
+            this.thePos[entry.index] = pos;
         } else if (pos <= min) {
-            self.thePos[entry.index] = min;
+            this.thePos[entry.index] = min;
         } else if (pos >= max) {
-            self.thePos[entry.index] = max;
+            this.thePos[entry.index] = max;
         }    
     }
-    trigSetBody(element){
-        var bo = element;
-        var cl = bo.classList;
-        if(cl.contains(self.scrollDir[0])){
-            cl.replace(self.scrollDir[0], self.scrollDir[1]);
-        }
-        if(!cl.contains(self.scrollDir[0]) && !cl.contains(self.scrollDir[1])){
-            cl.add("trig-scroll-up");
-        }
-        var split = [0,25,50,75,100];
-        for (let i = 0; i < split.length; i++) {
 
-            self.trigSplit(split[i], element.index, cl);
+    trigSetBody(element) {
+        var currentTime = Date.now();
+        if (currentTime - this.lastCall > 100) {
+            this.lastCall = currentTime;
+
+            var bo = element;
+            var cl = bo.classList;
+            if (cl.contains(this.scrollDir[0])) {
+                cl.replace(this.scrollDir[0], this.scrollDir[1]);
+            }
+            if (!cl.contains(this.scrollDir[0]) && !cl.contains(this.scrollDir[1])) {
+                cl.add("trig-scroll-up");
+            }
+
+            var split = [0, 25, 50, 75, 100];
+            for (let i = 0; i < split.length; i++) {
+                this.trigSplit(split[i], element.index, cl);
+            }
         }
     }
+
     trigSplit(split, index, cl){
         var name = split;
         if(split == 0 || split == 100){ 
-            self.trigSplitEquals(name,split,cl,index);
+            this.trigSplitEquals(name,split,cl,index);
         } else {   
-            self.trigSplitMoreThan(name,split,cl,index);
+            this.trigSplitMoreThan(name,split,cl,index);
         }
     }
-    trigSplitEquals(name,split,cl,index){
-        if(split == 0){
+
+    trigSplitEquals(name, split, cl, index) {
+        const BUFFER = 1;
+        let pos = this.thePos[index];
+        
+        if (split == 0) {
             name = "top";
-        } else if(split == 100) {
+            if (pos >= 0 && pos <= BUFFER) {
+                cl.add("trig-scroll-" + name);
+            } else {
+                cl.remove("trig-scroll-" + name);
+            }
+        } else if (split == 100) {
             name = "bottom";
-        }
-        if(self.thePos[index] == split){
-            cl.add("trig-scroll-"+name);
-        } else {
-            cl.remove("trig-scroll-"+name);
+            if (pos >= 100 - BUFFER && pos <= 100) {
+                cl.add("trig-scroll-" + name);
+            } else {
+                cl.remove("trig-scroll-" + name);
+            }
         }
     }
+
     trigSplitMoreThan(name,split,cl,index){
-        if(self.thePos[index] >= split){
+        if(this.thePos[index] >= split){
             cl.add("trig-scroll-"+name);
-        } else if(self.thePos[index] < split) {
+        } else if(this.thePos[index] < split) {
             cl.remove("trig-scroll-"+name);
         }
     }
+
+    trigSetVars(element, el, id){
+        if(this.thePos[element.index]){
+            let roundedPos = Math.ceil(this.thePos[element.index]);
+            if (element.dataset.trigVar == "true") {
+                el.setProperty('--trig' + id, roundedPos + "%");
+                el.setProperty('--trig-reverse' + id, -roundedPos + "%");
+            }    
+            if (element.dataset.trigPixels == "true") {
+                el.setProperty('--trig-px' + id, roundedPos + "px");
+                el.setProperty('--trig-px-reverse' + id, -roundedPos + "px");
+            }    
+            if (element.dataset.trigDegrees == "true") {
+                let roundedDeg = Math.ceil((roundedPos / 100) * 360);
+                el.setProperty('--trig-deg' + id, roundedDeg + "deg");
+                el.setProperty('--trig-deg-reverse' + id, -roundedDeg + "deg"); 
+            }
+        }
+    }
+
     updatePos(element) {
         if (element.dataset.trigGlobal == "true") {
             var el = document.documentElement.style;
@@ -162,22 +223,9 @@ class Trig
             var id = "";
         }
         if(document.body == element){
-            self.trigSetBody(element);
+            this.trigSetBody(element);
         } else {
-            if(self.thePos[element.index]){
-                if(element.dataset.trigVar == "true"){
-                    el.setProperty('--trig'+id, self.thePos[element.index] + "%");
-                    el.setProperty('--trig-reverse'+id, -(self.thePos[element.index]) + "%");
-                }    
-                if(element.dataset.trigPixels == "true"){
-                    el.setProperty('--trig-px'+id, self.thePos[element.index] + "px");
-                    el.setProperty('--trig-px-reverse'+id, -(self.thePos[element.index]) + "px");
-                }    
-                if(element.dataset.trigDegrees == "true"){
-                    el.setProperty('--trig-deg'+id, ((self.thePos[element.index] / 100) * 360) + "deg");
-                    el.setProperty('--trig-deg-reverse'+id, ((-(self.thePos[element.index]) / 100) * 360) + "deg"); 
-                }
-            }
+            this.trigSetVars(element, el, id);
         }
     }
 }
