@@ -1,4 +1,4 @@
-/* Trig.js v3.1 by iDev Games */
+/* Trig.js v3.2 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -31,16 +31,16 @@ class Trig
 
     trigScroll() {
         if (this.trigScrollTimeout) {
-            clearTimeout(this.trigScrollTimeout);
+            cancelAnimationFrame(this.trigScrollTimeout);
         }
-        this.trigScrollTimeout = setTimeout(() => {
+        this.trigScrollTimeout = requestAnimationFrame(() => {
             if (this.trigs) {
                 this.trigs.forEach((element, index) => {
                     element.index = index;
                     this.observer.observe(element);
                 });
             }
-        }, 12);
+        });
     }
 
     trigEntries(entries) {
@@ -61,9 +61,9 @@ class Trig
     trigDirection(entry){
         var y = entry.boundingClientRect.y;
         if(this.scrollPos){
-            if(this.scrollPos < y-1) {
+            if (this.scrollPos < y) {
                 this.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
-            } else if(this.scrollPos > y+1) {
+            } else if (this.scrollPos > y) {
                 this.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
             }
         }
@@ -88,28 +88,39 @@ class Trig
     }
 
     trigPos(entry) {
-        var options = { negativeOffset: 0, offset: 0, height: 0, min: -100, max: 100 };
-        Object.keys(options).forEach((key) => {
-            options[key] = this.trigAttributes(entry, options, key);
-        });
-        var el = entry.boundingClientRect.top;
-        var height = entry.boundingClientRect.height;
-        if(this.height > height){
-            height = this.height;
-        }
-        if(document.body == entry.target){
-            var posTop = 0 - (el);
-            var pos = (posTop / (height - ((this.height)))) * 100;
-        } else {
-            if(options.negativeOffset > 0){
-                var posTop = 0 - (el - ((this.height / 2) + options.negativeOffset));
-            } else {
-                var posTop = 0 - (el - ((this.height / 2) - options.offset));
-            }
-            var pos = (posTop / (height + options.height)) * 100;
-        }
+        const options = this.getTrigOptions(entry);
+        const { top: el, height: entryHeight } = entry.boundingClientRect;
+        const height = Math.max(this.height, entryHeight);
+    
+        const posTop = this.calculatePosTop(entry.target, el, options);
+        const pos = this.calculatePosition(posTop, height, options, entry.target);
+    
         this.trigSetPos(pos, options.min, options.max, entry.target);
     }
+    
+    getTrigOptions(entry) {
+        const defaultOptions = { negativeOffset: 0, offset: 0, height: 0, min: -100, max: 100 };
+        Object.keys(defaultOptions).forEach((key) => {
+            defaultOptions[key] = this.trigAttributes(entry, defaultOptions, key);
+        });
+        return defaultOptions;
+    }
+    
+    calculatePosTop(target, el, options) {
+        const halfHeight = this.height / 2;
+        if (target === document.body) {
+            return -el;
+        }
+        return options.negativeOffset > 0 
+            ? -(el - (halfHeight + options.negativeOffset)) 
+            : -(el - (halfHeight - options.offset));
+    }
+    
+    calculatePosition(posTop, height, options, target) {
+        return target === document.body 
+            ? (posTop / (height - this.height)) * 100 
+            : (posTop / (height + options.height)) * 100;
+    }    
 
     trigAttributes(entry, options, name) {
         let cachedValue = this.trigAttributesCache.get(entry.target);
@@ -137,24 +148,24 @@ class Trig
     }
 
     trigSetBody(element) {
-        var currentTime = Date.now();
-        if (currentTime - this.lastCall > 100) {
-            this.lastCall = currentTime;
-
-            var bo = element;
-            var cl = bo.classList;
-            if (cl.contains(this.scrollDir[0])) {
-                cl.replace(this.scrollDir[0], this.scrollDir[1]);
-            }
-            if (!cl.contains(this.scrollDir[0]) && !cl.contains(this.scrollDir[1])) {
-                cl.add("trig-scroll-up");
-            }
-
-            var split = [0, 25, 50, 75, 100];
-            for (let i = 0; i < split.length; i++) {
-                this.trigSplit(split[i], element.index, cl);
-            }
+        requestAnimationFrame(() => {
+            const cl = element.classList;
+            this.updateScrollDirection(cl);
+            this.applySplitPoints(element);
+        });
+    }
+    
+    updateScrollDirection(cl) {
+        if (cl.contains(this.scrollDir[0])) {
+            cl.replace(this.scrollDir[0], this.scrollDir[1]);
+        } else if (!cl.contains(this.scrollDir[1])) {
+            cl.add("trig-scroll-up");
         }
+    }
+    
+    applySplitPoints(element) {
+        const splitPoints = [0, 25, 50, 75, 100];
+        splitPoints.forEach((split) => this.trigSplit(split, element.index, element.classList));
     }
 
     trigSplit(split, index, cl){
@@ -168,22 +179,16 @@ class Trig
 
     trigSplitEquals(name, split, cl, index) {
         const BUFFER = 1;
-        let pos = this.thePos[index];
+        const pos = this.thePos[index];
         
-        if (split == 0) {
-            name = "top";
-            if (pos >= 0 && pos <= BUFFER) {
-                cl.add("trig-scroll-" + name);
-            } else {
-                cl.remove("trig-scroll-" + name);
-            }
-        } else if (split == 100) {
-            name = "bottom";
-            if (pos >= 100 - BUFFER && pos <= 100) {
-                cl.add("trig-scroll-" + name);
-            } else {
-                cl.remove("trig-scroll-" + name);
-            }
+        const boundaries = {
+            0: { name: "top", min: 0, max: BUFFER },
+            100: { name: "bottom", min: 100 - BUFFER, max: 100 }
+        };
+    
+        if (boundaries[split]) {
+            const { name, min, max } = boundaries[split];
+            cl.toggle(`trig-scroll-${name}`, pos >= min && pos <= max);
         }
     }
 
@@ -195,24 +200,28 @@ class Trig
         }
     }
 
-    trigSetVars(element, el, id){
-        if(this.thePos[element.index]){
-            let roundedPos = Math.ceil(this.thePos[element.index]);
-            if (element.dataset.trigVar == "true") {
-                el.setProperty('--trig' + id, roundedPos + "%");
-                el.setProperty('--trig-reverse' + id, -roundedPos + "%");
-            }    
-            if (element.dataset.trigPixels == "true") {
-                el.setProperty('--trig-px' + id, roundedPos + "px");
-                el.setProperty('--trig-px-reverse' + id, -roundedPos + "px");
-            }    
-            if (element.dataset.trigDegrees == "true") {
-                let roundedDeg = Math.ceil((roundedPos / 100) * 360);
-                el.setProperty('--trig-deg' + id, roundedDeg + "deg");
-                el.setProperty('--trig-deg-reverse' + id, -roundedDeg + "deg"); 
+    trigSetVars(element, el, id) {
+        if (!this.thePos[element.index]) return;
+    
+        const roundedPos = Math.ceil(this.thePos[element.index]);
+    
+        const properties = {
+            trigVar: { key: '--trig', value: `${roundedPos}%`, reverse: `${-roundedPos}%` },
+            trigPixels: { key: '--trig-px', value: `${roundedPos}px`, reverse: `${-roundedPos}px` },
+            trigDegrees: { key: '--trig-deg', value: `${Math.ceil((roundedPos / 100) * 360)}deg`, reverse: `${Math.ceil((roundedPos / 100) * -360)}deg` }
+        };
+    
+        Object.entries(properties).forEach(([attr, { key, value, reverse }]) => {
+            if (element.dataset[attr] === "true") {
+                this.setCSSVariables(el, key + id, value, reverse);
             }
-        }
+        });
     }
+    
+    setCSSVariables(el, key, value, reverse) {
+        el.setProperty(key, value);
+        el.setProperty(key + "-reverse", reverse);
+    }    
 
     updatePos(element) {
         if (element.dataset.trigGlobal == "true") {
