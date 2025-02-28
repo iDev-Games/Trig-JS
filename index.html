@@ -54,6 +54,7 @@
                 background: rgb(196,241,255);
                 background: linear-gradient(0deg, rgba(196,241,255,1) 0%, rgba(63,210,251,1) 100%);
                 opacity: calc(var(--trig) - 60%);
+                transition:opacity ease-out 0.3s;
             }
             .trig.background2{
                 overflow:hidden;
@@ -83,6 +84,7 @@
                 background: rgb(63,210,251);
                 background: linear-gradient(0deg, rgba(63,210,251,0) 0%, rgba(196,241,255,1) 50%);
                 opacity: calc(var(--trig));
+                transition:opacity ease-out 0.3s;
             }
             .trig.background3{
                 overflow:hidden;
@@ -182,7 +184,8 @@
             .trig.background7:before{
                 content:"";
                 width:100%;
-                height:calc(var(--trig));
+                height:100%;
+                clip-path: rect(0% 100% calc(var(--trig)) 0%);
                 position:absolute;
                 top:0;
                 left:0px;
@@ -191,7 +194,7 @@
                 background-size: 100vw 100vh;
                 background-position:top;
                 background-repeat: no-repeat;
-                transition:height ease-out 0.7s;
+                transition:clip-path ease-out 0.7s;
             }
             .trig.background8{
                 overflow:hidden;
@@ -208,7 +211,7 @@
                 background-size: 100vw 100vh;
                 background-position: center top;
                 background-repeat: no-repeat;
-                mix-blend-mode: hard-light;
+                filter: blur(calc((var(--trig-px) / 5) - 10px));
             }
             .pageContainer{
                 max-width:100%;
@@ -300,14 +303,14 @@
                 transition: transform ease-out 0.3s;
             }
             #creative{
-                opacity:calc(var(--trig));
+                opacity:calc(var(--trig) + 10%);
                 transform:translateX(calc(var(--trig)));
-                transition:transform ease-out 0.8s;
+                transition:all ease-out 0.8s;
             }
             #withcss{
-                opacity:calc(var(--trig));
+                opacity:calc(var(--trig) + 10%);
                 transform:translateX(calc(var(--trig-reverse)));
-                transition:transform ease-out 0.8s;
+                transition:all ease-out 0.8s;
             }
             .fadeIn{
                 opacity:0;
@@ -487,7 +490,7 @@
 
             <hr/>
 
-            <div class="container alignCenter background8" data-trig data-trig-min="-100" data-trig-max="100" data-trig-negativeOffset="-600" data-trig-var="true">
+            <div class="container alignCenter background8" data-trig data-trig-min="-100" data-trig-max="100" data-trig-negativeOffset="-600" data-trig-pixels="true">
                 <div class="box boxBG title" id="attributes">        
                     <h2>Data Attributes</h2>
                 </div>

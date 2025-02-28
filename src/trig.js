@@ -1,4 +1,4 @@
-/* Trig.js v3.2 by iDev Games */
+/* Trig.js v3.3 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -7,7 +7,8 @@ class Trig
     pos = 0;
     scrollDir = ["trig-scroll-down", "trig-scroll-up"];
     observer;
-    lastCall = 0;
+    lastScrollTime = 0;
+    throttleDelay = 13.3;
     trigScrollTimeout = null;
     trigAttributesCache = new Map();
 
@@ -16,6 +17,7 @@ class Trig
         this.trigWindowHeight = this.trigWindowHeight.bind(this);
         this.trigScroll = this.trigScroll.bind(this);
         this.trigObserver = this.trigObserver.bind(this);
+        this.observer = new IntersectionObserver(this.trigObserver);
         this.trigWindowHeight();
     }
 
@@ -30,17 +32,15 @@ class Trig
     };
 
     trigScroll() {
-        if (this.trigScrollTimeout) {
-            cancelAnimationFrame(this.trigScrollTimeout);
+        if (!this.trigs || this.trigs.length === 0) return;
+        const now = Date.now();
+        if (now - this.lastScrollTime >= this.throttleDelay) {
+            this.lastScrollTime = now;
+            this.trigs.forEach((element, index) => {
+                element.index = index;
+                this.observer.observe(element);
+            });
         }
-        this.trigScrollTimeout = requestAnimationFrame(() => {
-            if (this.trigs) {
-                this.trigs.forEach((element, index) => {
-                    element.index = index;
-                    this.observer.observe(element);
-                });
-            }
-        });
     }
 
     trigEntries(entries) {
@@ -72,7 +72,10 @@ class Trig
 
     trigObserver(entries){
         requestAnimationFrame(() => { this.trigEntries(entries) });
-        this.observer.disconnect();
+        entries.forEach((entry) => {
+            this.observer.unobserve(entry.target);
+            entry.target.dataset.trigObserved = "false";
+        });
     }
 
     trigIntersecting(entry) {
@@ -117,10 +120,10 @@ class Trig
     }
     
     calculatePosition(posTop, height, options, target) {
-        return target === document.body 
-            ? (posTop / (height - this.height)) * 100 
-            : (posTop / (height + options.height)) * 100;
-    }    
+        const divisor = (target === document.body) ? (height - this.height) : (height + options.height);
+        return (posTop / divisor) * 100;
+    }
+      
 
     trigAttributes(entry, options, name) {
         let cachedValue = this.trigAttributesCache.get(entry.target);
@@ -148,11 +151,9 @@ class Trig
     }
 
     trigSetBody(element) {
-        requestAnimationFrame(() => {
-            const cl = element.classList;
-            this.updateScrollDirection(cl);
-            this.applySplitPoints(element);
-        });
+        const cl = element.classList;
+        this.updateScrollDirection(cl);
+        this.applySplitPoints(element);
     }
     
     updateScrollDirection(cl) {
@@ -211,16 +212,18 @@ class Trig
             trigDegrees: { key: '--trig-deg', value: `${Math.ceil((roundedPos / 100) * 360)}deg`, reverse: `${Math.ceil((roundedPos / 100) * -360)}deg` }
         };
     
-        Object.entries(properties).forEach(([attr, { key, value, reverse }]) => {
-            if (element.dataset[attr] === "true") {
-                this.setCSSVariables(el, key + id, value, reverse);
-            }
-        });
+        this.setCSSVariables(el, id, properties, element);
     }
     
-    setCSSVariables(el, key, value, reverse) {
-        el.setProperty(key, value);
-        el.setProperty(key + "-reverse", reverse);
+    setCSSVariables(el, id, properties, element) {
+        Object.entries(properties).forEach(([attr, { key, value, reverse }]) => {
+            if(el.getPropertyValue(key) != value){
+                if (element.dataset[attr] === "true") {
+                    el.setProperty(key + id, value);
+                    el.setProperty(key + id + "-reverse", reverse);
+                }
+            }
+        });
     }    
 
     updatePos(element) {
