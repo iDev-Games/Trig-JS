@@ -7,8 +7,6 @@ class Trig
     pos = 0;
     scrollDir = ["trig-scroll-down", "trig-scroll-up"];
     observer;
-    lastScrollTime = 0;
-    throttleDelay = 13.3;
     trigScrollTimeout = null;
     trigAttributesCache = new Map();
 
@@ -33,14 +31,10 @@ class Trig
 
     trigScroll() {
         if (!this.trigs || this.trigs.length === 0) return;
-        const now = Date.now();
-        if (now - this.lastScrollTime >= this.throttleDelay) {
-            this.lastScrollTime = now;
-            this.trigs.forEach((element, index) => {
-                element.index = index;
-                this.observer.observe(element);
-            });
-        }
+        this.trigs.forEach((element, index) => {
+            element.index = index;
+            this.observer.observe(element);
+        });
     }
 
     trigEntries(entries) {
@@ -74,7 +68,6 @@ class Trig
         requestAnimationFrame(() => { this.trigEntries(entries) });
         entries.forEach((entry) => {
             this.observer.unobserve(entry.target);
-            entry.target.dataset.trigObserved = "false";
         });
     }
 

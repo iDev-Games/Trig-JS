@@ -1,0 +1,450 @@
+<html></html>
+    <head>
+        <title>Trig-Animations.css - Predefined Scroll Animations For Your Website</title>
+        
+        <!-- Trig JS -->
+        <script src="src/trig.js"></script>
+        <link rel="stylesheet" href="src/trig-animations.css"></link>
+
+        <!-- Other-->
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-material-dark.min.css" rel="stylesheet">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <!--End Fonts -->
+
+        <!-- Mobile viewport meta tag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Styles -->
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            body{
+                margin:0px;
+                padding:0px;
+                background-color:#060606;
+                color:#FFF;
+                font-family: 'Space Mono', monospace;
+            }
+            .next,.previous{
+                color: #393939;
+                font-size: 90px;
+                line-height: 23px;
+                text-decoration: none;
+                display: table;
+                margin: auto;
+                padding: 20px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                position: absolute;
+                left: 50%;
+            }
+            .previous{
+                top:40px;
+                animation:bob-up-down alternate ease-in-out infinite 2s;
+            }
+            .next{
+                bottom:40px;
+                animation:bob-down-up alternate ease-in-out infinite 2s;
+            }
+            .copy-popup {
+                position: absolute;
+                background: black;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.9;
+            }
+            h1{
+                font-family: 'Bebas Neue', cursive;
+                color: #700c0c;
+                text-shadow: 2px 2px 2px #000000;
+                font-size:72px;
+            }
+            .container{
+                background-color:#060606;
+                width:100%;
+                min-height:calc(100vh - 110px);
+                position:relative;
+                margin:auto;
+                display:flex;
+                padding: 55px 0px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                max-width: 1800px;
+                border-bottom:solid 2px #2f2f2f;
+            }
+            hr{
+                border-color:#AAAAAA;
+            }
+            pre{
+                font-size: 22px;
+                white-space: pre-line;
+                background-color: #111;
+                padding: 20px;
+            }
+            .box{
+                position:relative;
+                display: inline-block;
+                width:auto;
+                margin:auto;
+                margin:20px;
+                padding:20px;
+                max-width: 100%;
+            }
+            code, pre {
+                text-shadow: 0 0px #000 !important;
+                white-space: pre-line !important;
+                background-color: #121212 !important;
+                padding: 0px 20px !important;
+            }
+            #intro .box .target .next{
+                bottom: -60px;
+            }
+            .exampleTarget{
+                width:100%;
+                height:100%;
+                display:flex!important;
+                align-items: center;
+                justify-content: center;
+            }
+            .examples{
+                text-align:center;
+            }
+            .example{
+                width:250px;
+                height:250px;
+                margin-bottom:10px;
+                display:inline-flex;
+                text-align:center;
+                border:solid 1px #2f2f2f;
+                vertical-align:center;
+                justify-content: center;
+                align-items: center;
+                overflow:hidden;
+                cursor: pointer;
+            }
+            .example pre{
+                position: absolute;
+                transform: translateY(100%);
+                font-size: 14px;
+                transition:transform ease-out 1s, opacity ease-out 1s;
+                height:100%;
+                opacity:0;
+            }
+            .example:hover pre{
+                transform: translateY(0%);
+                opacity:1;
+            }
+            @keyframes bob-up-down {
+                0% {
+                    transform:translateY(20px) translateX(-50%);
+                }
+                100% {
+                    transform:translateY(0px) translateX(-50%);
+                }
+            }
+            @keyframes bob-down-up {
+                0% {
+                    transform:translateY(0px) translateX(-50%) rotate(180deg);
+                }
+                100% {
+                    transform:translateY(20px) translateX(-50%) rotate(180deg);
+                }
+            }
+        </style>
+        <!-- End of styles -->
+
+    </head>
+    <body>
+
+        <div class="pageContainer">
+
+            <!-- INTRO -->
+
+            <div id="intro" class="container">
+
+                <div class="box parallaxUp" data-trig data-trig-var="true">
+
+                    <div class="target">
+
+                        <h1 id="logo">Trig-Animations.css</h1>
+
+                        <p>Predefined CSS scroll animations that drop straight into your projects.</p>
+                
+                        <h2 id="documentation">Documentation</h2>
+
+                        <a href="#how-to-install" class="next">˄</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- HOW TO INSTALL -->
+
+            <div id="how-to-install" class="container">
+
+                <a href="#intro" class="previous">˄</a>
+
+                <div class="box parallaxUp target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>How To Install?</h2>
+
+                </div>
+
+                <div class="box boxBG fadeIn target" data-trig>    
+
+                        <p>All you need to do is add the dist trig.js and trig-animations.css file into your projects JS and CSS folders then add the following code with your trig.js and trig-animations.css file paths in. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
+                        
+                        <pre onclick="copyCode(this)" style="cursor:pointer;">
+                            <code class="language-markup">
+                                &lt;link rel="stylesheet" href="/css/trig-animations.css"&gt;&lt;/link&gt;
+                                &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
+                            </code>
+                        </pre>
+
+                        <p>Or just add a CDN instead</p>
+
+                        <pre onclick="copyCode(this)" style="cursor:pointer;">
+                            <code class="language-markup">
+                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trig-js/src/trig-animations.min.css"&gt;&lt;/link&gt;
+                            &lt;script src="https://cdn.jsdelivr.net/npm/trig-js/src/trig.min.js"&gt;&lt;/script&gt;
+                            </code>
+                        </pre>
+                    
+                </div>
+
+                <a href="#fadeIn" class="next">˄</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- FADE IN'S -->
+
+            <div id="fadeIn" class="container">
+
+                <a href="#how-to-install" class="previous">˄</a>
+
+                <div class="box parallaxUp target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Fade In Animations</h2>
+
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example fadeIn enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeIn </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="fadeIn enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeIn
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example fadeInUp enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInUp </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="fadeInUp enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInUp
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example fadeInDown enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInDown </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInDown enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInDown
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example fadeInLeft enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInLeft </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInLeft enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInLeft
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example fadeInRight enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInRight </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInRight enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInRight
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example fadeInUpLeft enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInUpLeft </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInUpLeft enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInUpLeft
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example fadeInUpRight enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInUpRight </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInUpRight enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInUpRight
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example fadeInDownLeft enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInDownLeft </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInDownLeft enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInDownLeft
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example fadeInDownRight enable-trig" onclick="copyCode(this)">
+    
+                            <span class="target exampleTarget"> .fadeInDownRight </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="fadeInDownRight enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .fadeInDownRight
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#fadeIn" class="next">˄</a>
+
+            </div>
+
+            <!-- END -->
+
+        </div>
+
+        <!-- Prism.js -->
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+
+        <!-- Copy to clipboard -->
+        <script>
+            function copyCode(button) {
+                const codeElement = button.querySelector('code');
+                if (!codeElement) return;
+            
+                navigator.clipboard.writeText(codeElement.innerText).then(() => {
+                    const popup = document.createElement('div');
+                    button.append(popup);
+                    popup.innerText = 'Copied!';
+                    popup.className = 'copy-popup';
+                    button.appendChild(popup);
+                    setTimeout(() => popup.remove(), 1000);
+                });
+            }
+        </script>
+
+    </body>
+</html>

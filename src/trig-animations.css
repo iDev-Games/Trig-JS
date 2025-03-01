@@ -1,0 +1,197 @@
+/* Trig-Animations.css */
+
+/* ************************ */
+
+/* Trig.js */
+
+
+    /* Trig */
+
+    .trig{
+        position:relative;
+    }
+
+    /* END */
+
+
+/* END */
+
+/* ************************ */
+
+/* Fade Ins */
+
+
+    /* Fade In */
+
+    .fadeIn .target, .fadeIn.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s;
+    }
+
+    .fadeIn.trig .target, .fadeIn.trig.target{
+        opacity:1;
+    }
+
+    /* END */
+
+    /* Fade In Up */
+
+    .fadeInUp .target, .fadeInUp.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateY(100%);
+    }
+
+    .fadeInUp.trig .target, .fadeInUp.trig.target{
+        opacity:1;
+        transform:translateY(0%);
+    }
+
+    /* END */
+
+    /* Fade In Down */
+
+    .fadeInDown .target, .fadeInDown.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateY(-100%);
+    }
+
+    .fadeInDown.trig .target, .fadeInDown.trig.target{
+        opacity:1;
+        transform:translateY(0%);
+    }
+
+    /* END */
+
+    /* Fade In Left */
+
+    .fadeInLeft .target, .fadeInLeft.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateX(-100%);
+    }
+
+    .fadeInLeft.trig .target, .fadeInLeft.trig.target{
+        opacity:1;
+        transform:translateX(0%);
+    }
+
+    /* END */
+
+    /* Fade In Right */
+
+    .fadeInRight .target, .fadeInRight.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateX(100%);
+    }
+
+    .fadeInRight.trig .target, .fadeInRight.trig.target{
+        opacity:1;
+        transform:translateX(0%);
+    }
+
+    /* END */
+
+    /* Fade In Up Left */
+
+    .fadeInUpLeft .target, .fadeInUpLeft.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateX(-100%) translateY(100%);
+    }
+
+    .fadeInUpLeft.trig .target, .fadeInUpLeft.trig.target{
+        opacity:1;
+        transform:translateX(0%) translateY(0%);
+    }
+
+    /* END */
+    
+    /* Fade In Up Right */
+
+    .fadeInUpRight .target, .fadeInUpRight.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateX(100%) translateY(100%);
+    }
+
+    .fadeInUpRight.trig .target, .fadeInUpRight.trig.target{
+        opacity:1;
+        transform:translateX(0%) translateY(0%);
+    }
+
+    /* END */
+
+    /* Fade In Down Left */
+
+    .fadeInDownLeft .target, .fadeInDownLeft.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateX(-100%) translateY(-100%);
+    }
+
+    .fadeInDownLeft.trig .target, .fadeInDownLeft.trig.target{
+        opacity:1;
+        transform:translateX(0%) translateY(0%);
+    }
+
+    /* END */
+    
+    /* Fade In Down Right */
+
+    .fadeInDownRight .target, .fadeInDownRight.target{
+        display:inline-block;
+        opacity:0;
+        transition:opacity ease-out 4s, transform ease-out 2s;
+        transform:translateX(100%) translateY(-100%);
+    }
+
+    .fadeInDownRight.trig .target, .fadeInDownRight.trig.target{
+        opacity:1;
+        transform:translateX(0%) translateY(0%);
+    }
+
+    /* END */
+
+/* END */
+
+/* ************************ */
+
+/* Parallax */
+
+
+    /* Parallax Up */
+
+    .parallaxUp .target, .parallaxUp.target{
+        display:inline-block;
+        transform: translateY(calc(var(--trig-reverse) / 2));
+        transition:transform ease-out 1s;
+    }
+
+    /* END */
+
+    
+    /* Parallax Down */
+    
+    .parallaxDown .target, .parallaxUp.target{
+        display:inline-block;
+        transform: translateY(calc(var(--trig) / 2));
+        transition:transform ease-out 1s;
+    }
+    
+    /* END */
+
+    
+/* END */
+    
+/* ************************ */
