@@ -8,6 +8,9 @@
     /* Trig */
 
     .trig{
+        --trig-delay:1s;
+        --trig-blend:ease-out;
+        --trig-direction:normal;
         position:relative;
     }
 
@@ -18,147 +21,210 @@
 
 /* ************************ */
 
-/* Fade Ins */
+/* Fade */
 
 
-    /* Fade In */
+    /* Fade */
 
-    .fadeIn .target, .fadeIn.target{
+    .trig-fade .target, .trig-fade.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s;
     }
 
-    .fadeIn.trig .target, .fadeIn.trig.target{
-        opacity:1;
+    .trig-fade.trig .target, .trig-fade.trig.target{
+        animation: trig-fade var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
     }
 
     /* END */
 
-    /* Fade In Up */
+    /* Fade Up */
 
-    .fadeInUp .target, .fadeInUp.target{
+    .trig-fade-up .target, .trig-fade-up.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateY(100%);
     }
 
-    .fadeInUp.trig .target, .fadeInUp.trig.target{
-        opacity:1;
-        transform:translateY(0%);
+    .trig-fade-up.trig .target, .trig-fade-up.trig.target{
+        animation: trig-fade-up var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-up {
+        0% {
+            opacity:0;
+            transform:translateY(100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateY(0%);
+        }
     }
 
     /* END */
 
-    /* Fade In Down */
+    /* Fade Down */
 
-    .fadeInDown .target, .fadeInDown.target{
+    .trig-fade-down .target, .trig-fade-down.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateY(-100%);
     }
 
-    .fadeInDown.trig .target, .fadeInDown.trig.target{
-        opacity:1;
-        transform:translateY(0%);
+    .trig-fade-down.trig .target, .trig-fade-down.trig.target{
+        animation: trig-fade-down var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-down {
+        0% {
+            opacity:0;
+            transform:translateY(-100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateY(0%);
+        }
     }
 
     /* END */
 
-    /* Fade In Left */
+    /* Fade Left */
 
-    .fadeInLeft .target, .fadeInLeft.target{
+    .trig-fade-left .target, .trig-fade-left.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateX(-100%);
     }
 
-    .fadeInLeft.trig .target, .fadeInLeft.trig.target{
-        opacity:1;
-        transform:translateX(0%);
+    .trig-fade-left.trig .target, .trig-fade-left.trig.target{
+        animation: trig-fade-left var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-left {
+        0% {
+            opacity:0;
+            transform:translateX(-100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateX(0%);
+        }
     }
 
     /* END */
 
-    /* Fade In Right */
+    /* Fade Right */
 
-    .fadeInRight .target, .fadeInRight.target{
+    .trig-fade-right .target, .trig-fade-right.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateX(100%);
     }
 
-    .fadeInRight.trig .target, .fadeInRight.trig.target{
-        opacity:1;
-        transform:translateX(0%);
+    .trig-fade-right.trig .target, .trig-fade-right.trig.target{
+        animation: trig-fade-right var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-right {
+        0% {
+            opacity:0;
+            transform:translateX(100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateX(0%);
+        }
     }
 
     /* END */
 
-    /* Fade In Up Left */
+    /* Fade Up Left */
 
-    .fadeInUpLeft .target, .fadeInUpLeft.target{
+    .trig-fade-up-left .target, .trig-fade-up-left.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateX(-100%) translateY(100%);
     }
 
-    .fadeInUpLeft.trig .target, .fadeInUpLeft.trig.target{
-        opacity:1;
-        transform:translateX(0%) translateY(0%);
+    .trig-fade-up-left.trig .target, .trig-fade-up-left.trig.target{
+        animation: trig-fade-up-left var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-up-left {
+        0% {
+            opacity:0;
+            transform:translateX(-100%) translateY(100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateX(0%) translateY(0%);
+        }
     }
 
     /* END */
     
-    /* Fade In Up Right */
+    /* Fade Up Right */
 
-    .fadeInUpRight .target, .fadeInUpRight.target{
+    .trig-fade-up-right .target, .trig-fade-up-right.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateX(100%) translateY(100%);
     }
 
-    .fadeInUpRight.trig .target, .fadeInUpRight.trig.target{
-        opacity:1;
-        transform:translateX(0%) translateY(0%);
+    .trig-fade-up-right.trig .target, .trig-fade-up-right.trig.target{
+        animation: trig-fade-up-right var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-up-right {
+        0% {
+            opacity:0;
+            transform:translateX(100%) translateY(100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateX(0%) translateY(0%);
+        }
     }
 
     /* END */
 
-    /* Fade In Down Left */
+    /* Fade Down Left */
 
-    .fadeInDownLeft .target, .fadeInDownLeft.target{
+    .trig-fade-down-left .target, .trig-fade-down-left.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateX(-100%) translateY(-100%);
     }
 
-    .fadeInDownLeft.trig .target, .fadeInDownLeft.trig.target{
-        opacity:1;
-        transform:translateX(0%) translateY(0%);
+    .trig-fade-down-left.trig .target, .trig-fade-down-left.trig.target{
+        animation: trig-fade-down-left var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-down-left {
+        0% {
+            opacity:0;
+            transform:translateX(-100%) translateY(-100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateX(0%) translateY(0%);
+        }
     }
 
     /* END */
     
-    /* Fade In Down Right */
+    /* Fade Down Right */
 
-    .fadeInDownRight .target, .fadeInDownRight.target{
+    .trig-fade-down-right .target, .trig-fade-down-right.target{
         display:inline-block;
-        opacity:0;
-        transition:opacity ease-out 4s, transform ease-out 2s;
-        transform:translateX(100%) translateY(-100%);
     }
 
-    .fadeInDownRight.trig .target, .fadeInDownRight.trig.target{
-        opacity:1;
-        transform:translateX(0%) translateY(0%);
+    .trig-fade-down-right.trig .target, .trig-fade-down-right.trig.target{
+        animation: trig-fade-down-right var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+    }
+
+    @keyframes trig-fade-down-right {
+        0% {
+            opacity:0;
+            transform:translateX(100%) translateY(-100%);
+        }
+        100% {
+            opacity:1;
+            transform:translateX(0%) translateY(0%);
+        }
     }
 
     /* END */
@@ -172,10 +238,10 @@
 
     /* Parallax Up */
 
-    .parallaxUp .target, .parallaxUp.target{
+    .trig-parallax-up .target, .trig-parallax-up.target{
         display:inline-block;
         transform: translateY(calc(var(--trig-reverse) / 2));
-        transition:transform ease-out 1s;
+        transition:transform var(--trig-blend) var(--trig-delay);
     }
 
     /* END */
@@ -183,10 +249,10 @@
     
     /* Parallax Down */
     
-    .parallaxDown .target, .parallaxUp.target{
+    .trig-parallax-down .target, .trig-parallax-down.target{
         display:inline-block;
         transform: translateY(calc(var(--trig) / 2));
-        transition:transform ease-out 1s;
+        transition:transform var(--trig-blend) var(--trig-delay);
     }
     
     /* END */

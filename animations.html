@@ -44,6 +44,7 @@
                 text-align: center;
                 position: absolute;
                 left: 50%;
+                z-index: 2;
             }
             .previous{
                 top:40px;
@@ -142,10 +143,12 @@
                 transition:transform ease-out 1s, opacity ease-out 1s;
                 height:100%;
                 opacity:0;
+                pointer-events: none;
             }
             .example:hover pre{
                 transform: translateY(0%);
                 opacity:1;
+                pointer-events: all;
             }
             @keyframes bob-up-down {
                 0% {
@@ -175,13 +178,13 @@
 
             <div id="intro" class="container">
 
-                <div class="box parallaxUp" data-trig data-trig-var="true">
+                <div class="box trig-parallax-up" data-trig data-trig-var="true">
 
                     <div class="target">
 
                         <h1 id="logo">Trig-Animations.css</h1>
 
-                        <p>Predefined CSS scroll animations that drop straight into your projects.</p>
+                        <p>Predefined and configurable CSS scroll animations that drop straight into your projects HTML.</p>
                 
                         <h2 id="documentation">Documentation</h2>
 
@@ -201,13 +204,13 @@
 
                 <a href="#intro" class="previous">˄</a>
 
-                <div class="box parallaxUp target" id="install" data-trig data-trig-var="true">       
+                <div class="box trig-parallax-up target" id="install" data-trig data-trig-var="true">       
 
                     <h2>How To Install?</h2>
 
                 </div>
 
-                <div class="box boxBG fadeIn target" data-trig>    
+                <div class="box boxBG trig-fade target" data-trig style="--trig-delay:4s;">    
 
                         <p>All you need to do is add the dist trig.js and trig-animations.css file into your projects JS and CSS folders then add the following code with your trig.js and trig-animations.css file paths in. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
                         
@@ -235,13 +238,13 @@
 
             <!-- END -->
 
-            <!-- FADE IN'S -->
+            <!-- FADE INS -->
 
             <div id="fadeIn" class="container">
 
                 <a href="#how-to-install" class="previous">˄</a>
 
-                <div class="box parallaxUp target" id="install" data-trig data-trig-var="true">       
+                <div class="box trig-parallax-up target" id="install" data-trig data-trig-var="true">       
 
                     <h2>Fade In Animations</h2>
 
@@ -252,16 +255,16 @@
 
                     <div class="examples">
     
-                        <div class="example fadeIn enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeIn </span>
+                            <span class="target exampleTarget"> .trig-fade </span>
 
                             <pre>
                                 <code class="language-markup">
-                                    &lt;div class="fadeIn enable-trig"&gt;
+                                    &lt;div class="trig-fade enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeIn
+                                        .trig-fade
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -270,16 +273,16 @@
     
                         </div>
 
-                        <div class="example fadeInUp enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-up enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInUp </span>
+                            <span class="target exampleTarget"> .trig-fade-up </span>
 
                             <pre>
                                 <code class="language-markup">
-                                    &lt;div class="fadeInUp enable-trig"&gt;
+                                    &lt;div class="trig-fade-up enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInUp
+                                        .trig-fade-up
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -288,16 +291,16 @@
     
                         </div>
 
-                        <div class="example fadeInDown enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-down enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInDown </span>
+                            <span class="target exampleTarget"> .trig-fade-down </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInDown enable-trig"&gt;
+                                    &lt;div class="trig-fade-down enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInDown
+                                        .trig-fade-down
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -306,16 +309,16 @@
     
                         </div>
                         
-                        <div class="example fadeInLeft enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-left enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInLeft </span>
+                            <span class="target exampleTarget"> .trig-fade-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInLeft enable-trig"&gt;
+                                    &lt;div class="trig-fade-left enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInLeft
+                                        .trig-fade-left
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -324,16 +327,16 @@
     
                         </div>
                         
-                        <div class="example fadeInRight enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-right enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInRight </span>
+                            <span class="target exampleTarget"> .trig-fade-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInRight enable-trig"&gt;
+                                    &lt;div class="trig-fade-right enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInRight
+                                        .trig-fade-right
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -342,16 +345,16 @@
     
                         </div>
 
-                        <div class="example fadeInUpLeft enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-up-left enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInUpLeft </span>
+                            <span class="target exampleTarget"> .trig-fade-up-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInUpLeft enable-trig"&gt;
+                                    &lt;div class="trig-fade-up-left enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInUpLeft
+                                        .trig-fade-up-left
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -360,16 +363,16 @@
     
                         </div>
 
-                        <div class="example fadeInUpRight enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-up-right enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInUpRight </span>
+                            <span class="target exampleTarget"> .trig-fade-up-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInUpRight enable-trig"&gt;
+                                    &lt;div class="trig-fade-up-right enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInUpRight
+                                        .trig-fade-up-right
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -378,16 +381,16 @@
     
                         </div>
 
-                        <div class="example fadeInDownLeft enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-down-left enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInDownLeft </span>
+                            <span class="target exampleTarget"> .trig-fade-down-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInDownLeft enable-trig"&gt;
+                                    &lt;div class="trig-fade-down-left enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInDownLeft
+                                        .trig-fade-down-left
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;
@@ -396,16 +399,205 @@
     
                         </div>
 
-                        <div class="example fadeInDownRight enable-trig" onclick="copyCode(this)">
+                        <div class="example trig-fade-down-right enable-trig" onclick="copyCode(this)">
     
-                            <span class="target exampleTarget"> .fadeInDownRight </span>
+                            <span class="target exampleTarget"> .trig-fade-down-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
-                                    &lt;div class="fadeInDownRight enable-trig"&gt;
+                                    &lt;div class="trig-fade-down-right enable-trig"&gt;
 
                                         &nbsp;&lt;span class="target"&gt;
-                                        .fadeInDownRight
+                                        .trig-fade-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#fadeOut" class="next">˄</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- FADE OUTS -->
+
+            <div id="fadeOut" class="container">
+
+                <a href="#fadeIn" class="previous">˄</a>
+
+                <div class="box trig-parallax-up target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Fade Out Animations</h2>
+
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-fade enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-fade enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-fade-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-fade-up enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-fade-down enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-down enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-fade-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-left enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-fade-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-right enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-fade-up-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-up-left enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-fade-up-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-up-right enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-fade-down-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-down-left enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-fade-down-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse;">
+    
+                            <span class="target exampleTarget"> .trig-fade-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-fade-down-right enable-trig" style="--trig-direction:reverse;"&gt;
+
+                                        &nbsp;&lt;span class="target"&gt;
+                                        .trig-fade-down-right
                                         &lt;/span&gt;
 
                                     &lt;/div&gt;

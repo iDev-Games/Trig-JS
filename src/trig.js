@@ -4,7 +4,6 @@ class Trig
     trigs = [];
     thePos = [];
     height = 0;
-    pos = 0;
     scrollDir = ["trig-scroll-down", "trig-scroll-up"];
     observer;
     trigScrollTimeout = null;
@@ -34,7 +33,7 @@ class Trig
         this.trigs.forEach((element, index) => {
             element.index = index;
             this.observer.observe(element);
-        });
+        }); 
     }
 
     trigEntries(entries) {
