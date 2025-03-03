@@ -203,7 +203,6 @@ class Trig
             trigPixels: { key: '--trig-px', value: `${roundedPos}px`, reverse: `${-roundedPos}px` },
             trigDegrees: { key: '--trig-deg', value: `${Math.ceil((roundedPos / 100) * 360)}deg`, reverse: `${Math.ceil((roundedPos / 100) * -360)}deg` }
         };
-    
         this.setCSSVariables(el, id, properties, element);
     }
     

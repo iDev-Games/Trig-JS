@@ -8,9 +8,10 @@
     /* Trig */
 
     .trig{
-        --trig-delay:1s;
+        --trig-delay:0s;
+        --trig-duration:1s;
         --trig-blend:ease-out;
-        --trig-direction:normal;
+        --trig-direction:normal backwards;
         position:relative;
     }
 
@@ -31,7 +32,8 @@
     }
 
     .trig-fade.trig .target, .trig-fade.trig.target{
-        animation: trig-fade var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade {
@@ -52,7 +54,8 @@
     }
 
     .trig-fade-up.trig .target, .trig-fade-up.trig.target{
-        animation: trig-fade-up var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-up {
@@ -75,7 +78,8 @@
     }
 
     .trig-fade-down.trig .target, .trig-fade-down.trig.target{
-        animation: trig-fade-down var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-down var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-down {
@@ -98,7 +102,8 @@
     }
 
     .trig-fade-left.trig .target, .trig-fade-left.trig.target{
-        animation: trig-fade-left var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-left {
@@ -121,7 +126,8 @@
     }
 
     .trig-fade-right.trig .target, .trig-fade-right.trig.target{
-        animation: trig-fade-right var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-right {
@@ -144,7 +150,8 @@
     }
 
     .trig-fade-up-left.trig .target, .trig-fade-up-left.trig.target{
-        animation: trig-fade-up-left var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-up-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-up-left {
@@ -167,7 +174,8 @@
     }
 
     .trig-fade-up-right.trig .target, .trig-fade-up-right.trig.target{
-        animation: trig-fade-up-right var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-up-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-up-right {
@@ -190,7 +198,8 @@
     }
 
     .trig-fade-down-left.trig .target, .trig-fade-down-left.trig.target{
-        animation: trig-fade-down-left var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-down-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-down-left {
@@ -213,7 +222,8 @@
     }
 
     .trig-fade-down-right.trig .target, .trig-fade-down-right.trig.target{
-        animation: trig-fade-down-right var(--trig-direction) forwards var(--trig-blend) var(--trig-delay);
+        animation: trig-fade-down-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
+        animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade-down-right {
@@ -241,7 +251,7 @@
     .trig-parallax-up .target, .trig-parallax-up.target{
         display:inline-block;
         transform: translateY(calc(var(--trig-reverse) / 2));
-        transition:transform var(--trig-blend) var(--trig-delay);
+        transition:transform var(--trig-blend) var(--trig-duration);
     }
 
     /* END */
@@ -252,7 +262,7 @@
     .trig-parallax-down .target, .trig-parallax-down.target{
         display:inline-block;
         transform: translateY(calc(var(--trig) / 2));
-        transition:transform var(--trig-blend) var(--trig-delay);
+        transition:transform var(--trig-blend) var(--trig-duration);
     }
     
     /* END */
