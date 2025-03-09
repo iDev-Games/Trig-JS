@@ -16,7 +16,7 @@
 
 ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/trig-js)
 
-The easy way to create CSS scroll animations that react to the position of your HTML element on screen. Animate on scroll (AOS) your CSS.
+Trig.js makes it easy to create custom CSS scroll animations, while trig-animations.css provides a library of predefined animations out of the box for effortless animation. Whether you want full control or a quick setup, Trig.js has your AOS (animate on scroll) needs covered. Perfect for sites that tell a story.
 
 <p align="center">
   <img src="https://github.com/iDev-Games/Trig-JS/raw/main/creative.gif">
@@ -53,7 +53,7 @@ Trig.js is the perfect solution for CSS scroll animations in any project by deve
 All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags
 
 ```html
-<script src="/js/trig.js"></script>
+<script src="/js/trig.min.js"></script>
 ```
 
 Or just add a CDN instead

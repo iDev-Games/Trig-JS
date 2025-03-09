@@ -213,6 +213,24 @@
                 background-repeat: no-repeat;
                 filter: blur(calc((var(--trig-px) / 5) - 10px));
             }
+            .trig.background9{
+                overflow:hidden;
+                background: #111111;
+            }
+            .trig.background9:before{
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0px;
+                background: #0b0a0a;
+                background-size: 100vw 100vh;
+                background-position: center top;
+                background-repeat: no-repeat;
+                transform: translateY(calc((var(--trig) * 2.5)));
+                transition:transform ease-out 0.4s;
+            }
             .pageContainer{
                 max-width:100%;
                 overflow:hidden;
@@ -253,7 +271,7 @@
             .alignCenter{
                 text-align:center;
             }
-            h1{
+            h1, .trigText{
                 font-family: 'Bebas Neue', cursive;
                 color: #700c0c;
                 text-shadow: 2px 2px 2px #000000;
@@ -369,7 +387,7 @@
 
                     <hr id="headerLine" data-trig-min="20" data-trig />
             
-                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v3.2</sup></h2>
+                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v4.0</sup></h2>
                 </div>
             </div>
 
@@ -388,8 +406,25 @@
                         Using nothing but the power of CSS, HTML and Trig.js. You can make the same effects as you see here! Not just that, Trig.js is really lightweight with a filesize of <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/trig-js">! Trig.js is created with javascript and doesn't require any dependencies.
                     </div>
                     <div class="box fadeIn animdelay2" data-trig>        
-                        Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript.
+                        Trig.js now includes customizable predefined scroll animations (trig-animations.css), making it easier than ever to create powerfully reactive websites.
                     </div>
+                </div>
+            </div>
+
+            <hr/>
+            
+            <div class="container alignCenter background9" data-trig data-trig-max="40" data-trig-var="true">
+                <div class="box" id="animationsCSS" data-trig-min="20" data-trig-max="40" data-trig data-trig-var="true">        
+                    <h2 class="trigText">Trig-Animations.css</h2>
+                </div>
+                <hr id="headerLine2" data-trig-min="10" data-trig data-trig-var="true"/>
+                <div id="textBlock" data-trig-min="0" data-trig data-trig-var="true">
+                    <div class="box fadeIn" data-trig>        
+                        Configurable predefined scroll animations for your projects
+                    </div>
+                </div>
+                <div id="examples" class="box" data-trig>
+                    <a class="moreExamples" href="animations.html" target="_Blank">View Documentation</a>
                 </div>
             </div>
 
@@ -400,9 +435,9 @@
                     <h2>How To Install?</h2>
                 </div>
                 <div class="box boxBG fadeIn" data-trig>        
-                    <p>All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
+                    <p>All you need to do is add the dist trig.min.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
                     <pre>
-                            &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
+                            &lt;script src="/js/trig.min.js"&gt;&lt;/script&gt;
                     </pre>
                     <p>Or just add a CDN instead</p>
                     <pre>

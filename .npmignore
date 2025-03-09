@@ -1,5 +1,6 @@
 # .npmignore
 index.html
+animations.html
 logo.png
 creative.gif
 dist

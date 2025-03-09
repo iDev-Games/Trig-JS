@@ -1,6 +1,6 @@
 <html></html>
     <head>
-        <title>Trig-Animations.css - Predefined Scroll Animations For Your Website</title>
+        <title>Trig-Animations.css – Configurable Predefined Scroll Animations for Your Website</title>
         
         <!-- Trig JS -->
         <script src="src/trig.js"></script>
@@ -45,6 +45,7 @@
                 position: absolute;
                 left: 50%;
                 z-index: 2;
+                font-family: cursive;
             }
             .previous{
                 top:40px;
@@ -110,12 +111,18 @@
                 background-color: #121212 !important;
                 padding: 0px 20px !important;
             }
-            #intro .box .target .next{
+            #intro .box .trig-target .next{
                 bottom: -60px;
             }
             .exampleTarget{
                 width:100%;
                 height:100%;
+                display:flex!important;
+                align-items: center;
+                justify-content: center;
+            }
+            .exampleTargetReveal{
+                width:100%;
                 display:flex!important;
                 align-items: center;
                 justify-content: center;
@@ -183,6 +190,46 @@
             pre::-webkit-scrollbar-corner {
                 background: transparent;
             }
+            .menu{
+                position:fixed;
+                top:0px;
+                left:20px;
+                min-height:200px;
+                color:#F1F1F1;
+                border:solid 1px #252525;
+                z-index:10;
+                padding:10px;
+                padding-bottom:40px;
+                width:400px;
+                transform: translateY(calc(-100% + 30px));
+                transition: transform ease-out 0.5s;
+            }
+            .menu:hover{
+                transform: translateY(0%);
+            }
+            .menu .bottomMenuTab {
+                height: 30px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: #252525;
+                color: #F1F1F1;
+                width: calc(100% - 20px);
+                line-height: 28px;
+                padding: 0px 10px;
+            }
+            .menu a{
+                color:#F1F1F1;
+                text-decoration: none;
+                display:inline-block;
+                width: calc(50% - 5px);
+                font-size:14px;
+                transition: transform ease-out 0.3s;
+                transform: scale(1);
+            }
+            .menu a:hover{
+                transform: scale(1.02);
+            }
             @keyframes bob-up-down {
                 0% {
                     transform:translateY(20px) translateX(-50%);
@@ -205,6 +252,37 @@
     </head>
     <body>
 
+        <!-- MENU -->
+
+        <div class="menu">
+
+            <a href="#how-to-install">How to install</a>
+            <a href="#configuration">Configure Animations</a>
+
+            <br/><br/>
+            <small>Animations</small>
+            <hr>
+            <a href="#fadeIn">Fade In</a>
+            <a href="#fadeOut">Fade Out</a>
+            <a href="#growIn">Grow In</a>
+            <a href="#growOut">Grow Out</a>
+            <a href="#popIn">Pop In</a>
+            <a href="#popOut">Pop Out</a>
+            <a href="#rollIn">Roll In</a>
+            <a href="#rollOut">Roll Out</a>
+            <a href="#revealIn">Reveal In</a>
+            <a href="#revealOut">Reveal Out</a>
+            <a href="#flipIn">Flip In</a>
+            <a href="#flipOut">Flip Out</a>
+            <a href="#parallax">Parallax</a>
+
+            <div class="bottomMenuTab">
+                Menu
+            </div>
+        </div>
+
+        <!-- END -->
+
         <div class="pageContainer">
 
             <!-- INTRO -->
@@ -213,7 +291,7 @@
 
                 <div class="box trig-parallax-up" data-trig data-trig-var="true">
 
-                    <div class="target">
+                    <div class="trig-target">
 
                         <h1 id="logo">Trig-Animations.css</h1>
 
@@ -221,7 +299,7 @@
                 
                         <h2 id="documentation">Documentation</h2>
 
-                        <a href="#how-to-install" class="next">˄</a>
+                        <a href="#how-to-install" class="next">^</a>
 
                     </div>
 
@@ -235,22 +313,22 @@
 
             <div id="how-to-install" class="container">
 
-                <a href="#intro" class="previous">˄</a>
+                <a href="#intro" class="previous">^</a>
 
-                <div class="box trig-parallax-up target" id="install" data-trig data-trig-var="true">       
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
 
                     <h2>How To Install?</h2>
 
                 </div>
 
-                <div class="box boxBG trig-fade target" data-trig style="--trig-duration:4s;">    
+                <div class="box boxBG trig-fade trig-target" data-trig style="--trig-duration:4s;">    
 
-                        <p>All you need to do is add the dist trig.js and trig-animations.css file into your projects JS and CSS folders then add the following code with your trig.js and trig-animations.css file paths in. Put this code in to your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" target="_Blank" style="color:#FFF;">npm</a>.</p>
+                        <p>All you need to do is add the dist trig.min.js and trig-animations.min.css file into your projects JS and CSS folders then add the following code with your trig.js and trig-animations.css file paths in. Put this code in between your head HTML tags. Download Trig.js <a href="https://github.com/iDev-Games/Trig-JS" trig-target="_Blank" style="color:#FFF;">here</a> or use <a href="https://www.npmjs.com/package/trig-js" trig-target="_Blank" style="color:#FFF;">npm</a>.</p>
                         
                         <pre onclick="copyCode(this)" style="cursor:pointer;">
                             <code class="language-markup">
-                                &lt;link rel="stylesheet" href="/css/trig-animations.css"&gt;&lt;/link&gt;
-                                &lt;script src="/js/trig.js"&gt;&lt;/script&gt;
+                                &lt;link rel="stylesheet" href="/css/trig-animations.min.css"&gt;&lt;/link&gt;
+                                &lt;script src="/js/trig.min.js"&gt;&lt;/script&gt;
                             </code>
                         </pre>
 
@@ -265,7 +343,47 @@
                     
                 </div>
 
-                <a href="#fadeIn" class="next">˄</a>
+                <a href="#configuration" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+             
+            <!-- CONFIGURING ANIMATIONS -->
+
+            <div id="configuration" class="container">
+
+                <a href="#how-to-install" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Configuring Animations</h2>
+
+                </div>
+
+                <div class="box boxBG trig-fade trig-target" data-trig style="--trig-duration:4s;">    
+
+                        <p>
+                            You are able to set CSS variables --trig-delay, --trig-duration, --trig-blend, and --trig-direction that are used to control the behavior and timing of animations.
+                        </p>
+
+                        <br/>
+
+                        <pre onclick="copyCode(this)" style="cursor:pointer;">
+                            <code class="language-markup">
+                                &lt;div class="trig-fade enable-trig" style="--trig-delay:2s;--trig-duration:10s;--trig-blend:ease-in-out;--trig-direction:reverse forwards;"&gt;
+
+                                &nbsp;&lt;span class="trig-target"&gt;
+                                .trig-fade
+                                &lt;/span&gt;
+
+                                &lt;/div&gt;
+                            </code>
+                        </pre>
+                    
+                </div>
+
+                <a href="#fadeIn" class="next">^</a>
 
             </div>
 
@@ -275,9 +393,9 @@
 
             <div id="fadeIn" class="container">
 
-                <a href="#how-to-install" class="previous">˄</a>
+                <a href="#configuration" class="previous">^</a>
 
-                <div class="box trig-parallax-up target" id="install" data-trig data-trig-var="true">       
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
 
                     <h2>Fade In Animations</h2>
 
@@ -290,13 +408,13 @@
     
                         <div class="example trig-fade enable-trig" onclick="copyCode(this)" style="--trig-delay:0.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade </span>
+                            <span class="trig-target exampleTarget"> .trig-fade </span>
 
                             <pre>
                                 <code class="language-markup">
                                     &lt;div class="trig-fade enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade
                                         &lt;/span&gt;
 
@@ -308,13 +426,13 @@
 
                         <div class="example trig-fade-up enable-trig" onclick="copyCode(this)" style="--trig-delay:1s;">
     
-                            <span class="target exampleTarget"> .trig-fade-up </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-up </span>
 
                             <pre>
                                 <code class="language-markup">
                                     &lt;div class="trig-fade-up enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-up
                                         &lt;/span&gt;
 
@@ -326,13 +444,13 @@
 
                         <div class="example trig-fade-down enable-trig" onclick="copyCode(this)" style="--trig-delay:1.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-down </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-down </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-down enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-down
                                         &lt;/span&gt;
 
@@ -344,13 +462,13 @@
                         
                         <div class="example trig-fade-left enable-trig" onclick="copyCode(this)" style="--trig-delay:2s;">
     
-                            <span class="target exampleTarget"> .trig-fade-left </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-left enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-left
                                         &lt;/span&gt;
 
@@ -362,13 +480,13 @@
                         
                         <div class="example trig-fade-right enable-trig" onclick="copyCode(this)" style="--trig-delay:2.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-right </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-right enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-right
                                         &lt;/span&gt;
 
@@ -380,13 +498,13 @@
 
                         <div class="example trig-fade-up-left enable-trig" onclick="copyCode(this)" style="--trig-delay:3s;">
     
-                            <span class="target exampleTarget"> .trig-fade-up-left </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-up-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-up-left enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-up-left
                                         &lt;/span&gt;
 
@@ -398,13 +516,13 @@
 
                         <div class="example trig-fade-up-right enable-trig" onclick="copyCode(this)" style="--trig-delay:3.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-up-right </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-up-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-up-right enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-up-right
                                         &lt;/span&gt;
 
@@ -416,13 +534,13 @@
 
                         <div class="example trig-fade-down-left enable-trig" onclick="copyCode(this)" style="--trig-delay:4s;">
     
-                            <span class="target exampleTarget"> .trig-fade-down-left </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-down-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-down-left enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-down-left
                                         &lt;/span&gt;
 
@@ -434,13 +552,13 @@
 
                         <div class="example trig-fade-down-right enable-trig" onclick="copyCode(this)" style="--trig-delay:4.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-down-right </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-down-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-down-right enable-trig"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-down-right
                                         &lt;/span&gt;
 
@@ -454,7 +572,7 @@
                     
                 </div>
                 
-                <a href="#fadeOut" class="next">˄</a>
+                <a href="#fadeOut" class="next">^</a>
 
             </div>
 
@@ -464,9 +582,9 @@
 
             <div id="fadeOut" class="container">
 
-                <a href="#fadeIn" class="previous">˄</a>
+                <a href="#fadeIn" class="previous">^</a>
 
-                <div class="box trig-parallax-up target" id="install" data-trig data-trig-var="true">       
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
 
                     <h2>Fade Out Animations</h2>
 
@@ -479,13 +597,13 @@
     
                         <div class="example trig-fade enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:0.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade </span>
+                            <span class="trig-target exampleTarget"> .trig-fade </span>
 
                             <pre>
                                 <code class="language-markup">
                                     &lt;div class="trig-fade enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade
                                         &lt;/span&gt;
 
@@ -497,13 +615,13 @@
 
                         <div class="example trig-fade-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1s;">
     
-                            <span class="target exampleTarget"> .trig-fade-up </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-up </span>
 
                             <pre>
                                 <code class="language-markup">
                                     &lt;div class="trig-fade-up enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-up
                                         &lt;/span&gt;
 
@@ -515,13 +633,13 @@
 
                         <div class="example trig-fade-down enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-down </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-down </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-down enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-down
                                         &lt;/span&gt;
 
@@ -533,13 +651,13 @@
                         
                         <div class="example trig-fade-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2s;">
     
-                            <span class="target exampleTarget"> .trig-fade-left </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-left
                                         &lt;/span&gt;
 
@@ -551,13 +669,13 @@
                         
                         <div class="example trig-fade-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-right </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-right
                                         &lt;/span&gt;
 
@@ -569,13 +687,13 @@
 
                         <div class="example trig-fade-up-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3s;">
     
-                            <span class="target exampleTarget"> .trig-fade-up-left </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-up-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-up-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-up-left
                                         &lt;/span&gt;
 
@@ -587,13 +705,13 @@
 
                         <div class="example trig-fade-up-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-up-right </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-up-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-up-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-up-right
                                         &lt;/span&gt;
 
@@ -605,13 +723,13 @@
 
                         <div class="example trig-fade-down-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4s;">
     
-                            <span class="target exampleTarget"> .trig-fade-down-left </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-down-left </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-down-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-down-left
                                         &lt;/span&gt;
 
@@ -623,13 +741,13 @@
 
                         <div class="example trig-fade-down-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4.5s;">
     
-                            <span class="target exampleTarget"> .trig-fade-down-right </span>
+                            <span class="trig-target exampleTarget"> .trig-fade-down-right </span>
 
                             <pre>
                                 <code id="code" class="language-markup">
                                     &lt;div class="trig-fade-down-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
 
-                                        &nbsp;&lt;span class="target"&gt;
+                                        &nbsp;&lt;span class="trig-target"&gt;
                                         .trig-fade-down-right
                                         &lt;/span&gt;
 
@@ -643,7 +761,1769 @@
                     
                 </div>
                 
-                <a href="#fadeIn" class="next">˄</a>
+                <a href="#growIn" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- Grow INS -->
+
+            <div id="growIn" class="container">
+
+                <a href="#fadeOut" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Grow In Animations</h2>
+
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-grow enable-trig" onclick="copyCode(this)" style="--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-grow enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-up enable-trig" onclick="copyCode(this)" style="--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-grow-up enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-down enable-trig" onclick="copyCode(this)" style="--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-down enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-grow-left enable-trig" onclick="copyCode(this)" style="--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-grow-right enable-trig" onclick="copyCode(this)" style="--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-up-left enable-trig" onclick="copyCode(this)" style="--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-up-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-up-right enable-trig" onclick="copyCode(this)" style="--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-up-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-down-left enable-trig" onclick="copyCode(this)" style="--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-down-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-down-right enable-trig" onclick="copyCode(this)" style="--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-down-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#growOut" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- Grow OUTS -->
+
+            <div id="growOut" class="container">
+
+                <a href="#growIn" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Grow Out Animations</h2>
+
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-grow enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-grow enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-grow-up enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-down enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-down enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-grow-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-grow-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-up-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-up-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-up-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-up-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-down-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-down-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-grow-down-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-grow-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-grow-down-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-grow-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#popIn" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- POP IN -->
+
+            <div id="popIn" class="container">
+
+                <a href="#growOut" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Pop In Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-pop enable-trig" onclick="copyCode(this)" style="--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-pop enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-up enable-trig" onclick="copyCode(this)" style="--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-pop-up enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-down enable-trig" onclick="copyCode(this)" style="--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-down enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-pop-left enable-trig" onclick="copyCode(this)" style="--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-pop-right enable-trig" onclick="copyCode(this)" style="--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-up-left enable-trig" onclick="copyCode(this)" style="--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-up-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-up-right enable-trig" onclick="copyCode(this)" style="--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-up-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-down-left enable-trig" onclick="copyCode(this)" style="--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-down-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-down-right enable-trig" onclick="copyCode(this)" style="--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-down-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#popOut" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- POP Out -->
+
+            <div id="popOut" class="container">
+
+                <a href="#popIn" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Pop Out Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-pop enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-pop enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-pop-up enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-down enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-down enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-pop-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-pop-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-up-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-up-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-up-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-up-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-down-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-down-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-pop-down-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-pop-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-pop-down-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-pop-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#rollIn" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- ROLL IN -->
+
+            <div id="rollIn" class="container">
+
+                <a href="#popOut" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Roll In Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-roll enable-trig" onclick="copyCode(this)" style="--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-roll enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-up enable-trig" onclick="copyCode(this)" style="--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-roll-up enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-down enable-trig" onclick="copyCode(this)" style="--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-down enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-roll-left enable-trig" onclick="copyCode(this)" style="--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-roll-right enable-trig" onclick="copyCode(this)" style="--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-up-left enable-trig" onclick="copyCode(this)" style="--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-up-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-up-right enable-trig" onclick="copyCode(this)" style="--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-up-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-down-left enable-trig" onclick="copyCode(this)" style="--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-down-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-down-right enable-trig" onclick="copyCode(this)" style="--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-down-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#rollOut" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- ROLL OUT -->
+
+            <div id="rollOut" class="container">
+
+                <a href="#rollIn" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Roll Out Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-roll enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-roll enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-roll-up enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-down enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-down enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-roll-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-roll-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-up-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-up-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-up-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-up-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-down-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-down-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-roll-down-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-roll-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-roll-down-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-roll-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#revealIn" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- REVEAL IN -->
+
+            <div id="revealIn" class="container">
+
+                <a href="#rollOut" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Reveal In Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-reveal enable-trig" onclick="copyCode(this)" style="--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-reveal enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-up enable-trig" onclick="copyCode(this)" style="--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-reveal-up enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-down enable-trig" onclick="copyCode(this)" style="--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-down enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-reveal-left enable-trig" onclick="copyCode(this)" style="--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-reveal-right enable-trig" onclick="copyCode(this)" style="--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-up-left enable-trig" onclick="copyCode(this)" style="--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-up-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-up-right enable-trig" onclick="copyCode(this)" style="--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-up-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-down-left enable-trig" onclick="copyCode(this)" style="--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-down-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-down-right enable-trig" onclick="copyCode(this)" style="--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-down-right enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#revealOut" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- REVEAL OUT -->
+
+            <div id="revealOut" class="container">
+
+                <a href="#revealIn" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Reveal Out Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-reveal enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-reveal enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-reveal-up enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-down enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-down </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-down enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-reveal-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-reveal-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:2.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-up-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-up-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-up-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-up-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-up-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:3.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-up-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-up-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-up-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-down-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-down-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-down-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-down-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-reveal-down-right enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:4.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-reveal-down-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-reveal-down-right enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-reveal-down-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#flipIn" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- FLIP IN -->
+
+            <div id="flipIn" class="container">
+
+                <a href="#revealOut" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Flip In Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-flip enable-trig" onclick="copyCode(this)" style="--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-flip </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-flip enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-flip
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-flip-up enable-trig" onclick="copyCode(this)" style="--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-flip-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-flip-up enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-flip-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-flip-left enable-trig" onclick="copyCode(this)" style="--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTargetReveal"> .trig-flip-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-flip-left enable-trig"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-flip-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#flipOut" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+             
+            <!-- FLIP OUT -->
+
+            <div id="flipOut" class="container">
+
+                <a href="#flipIn" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Flip Out Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-flip enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:0.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-flip </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-flip enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-flip
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-flip-up enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-flip-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-flip-up enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-flip-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-flip-left enable-trig" onclick="copyCode(this)" style="--trig-direction:reverse forwards;--trig-delay:1.5s;">
+    
+                            <span class="trig-target exampleTarget"> .trig-flip-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-flip-left enable-trig" style="--trig-direction:reverse forwards;"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-flip-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a href="#parallax" class="next">^</a>
+
+            </div>
+
+            <!-- END -->
+
+            <!-- Parallax -->
+
+            <div id="parallax" class="container">
+
+                <a href="#flipOut" class="previous">^</a>
+
+                <div class="box trig-parallax-up trig-target" id="install" data-trig data-trig-var="true">       
+
+                    <h2>Parallax Animations</h2>
+                    
+                </div>
+                
+                <div class="box">    
+
+                    <div class="examples">
+    
+                        <div class="example trig-parallax-up enable-trig" data-trig-var="true" onclick="copyCode(this)">
+    
+                            <span class="trig-target exampleTarget"> .trig-parallax-up </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-parallax-up enable-trig" data-trig-var="true"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-parallax-up
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-parallax-down enable-trig" data-trig-var="true" onclick="copyCode(this)">
+    
+                            <span class="trig-target exampleTarget"> .trig-parallax-down </span>
+
+                            <pre>
+                                <code class="language-markup">
+                                    &lt;div class="trig-parallax-down enable-trig" data-trig-var="true"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-parallax-down
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+                        
+                        <div class="example trig-parallax-left enable-trig" data-trig-var="true" onclick="copyCode(this)">
+    
+                            <span class="trig-target exampleTarget"> .trig-parallax-left </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-parallax-left enable-trig" data-trig-var="true"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-parallax-left
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+
+                        <div class="example trig-parallax-right enable-trig" data-trig-var="true" onclick="copyCode(this)">
+    
+                            <span class="trig-target exampleTarget"> .trig-parallax-right </span>
+
+                            <pre>
+                                <code id="code" class="language-markup">
+                                    &lt;div class="trig-parallax-right enable-trig" data-trig-var="true"&gt;
+
+                                        &nbsp;&lt;span class="trig-target"&gt;
+                                        .trig-parallax-right
+                                        &lt;/span&gt;
+
+                                    &lt;/div&gt;
+                                </code>
+                            </pre>
+    
+                        </div>
+    
+                    </div>
+                    
+                </div>
 
             </div>
 
