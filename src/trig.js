@@ -5,6 +5,7 @@ class Trig
     thePos = [];
     height = 0;
     scrollDir = ["trig-scroll-down", "trig-scroll-up"];
+    trigClass = 'trig-down';
     observer;
     trigScrollTimeout = null;
     trigAttributesCache = new Map();
@@ -56,8 +57,10 @@ class Trig
         if(this.scrollPos){
             if (this.scrollPos < y) {
                 this.scrollDir = ["trig-scroll-down", "trig-scroll-up"];
+                this.trigClass = 'trig-up';
             } else if (this.scrollPos > y) {
                 this.scrollDir = ["trig-scroll-up", "trig-scroll-down"];
+                this.trigClass = 'trig-down';
             }
         }
         this.scrollPos = y;
@@ -73,9 +76,9 @@ class Trig
     trigIntersecting(entry) {
         if(document.body != entry.target){
             if (entry.isIntersecting) {
-                entry.target.classList.add("trig");
+                entry.target.classList.add("trig", this.trigClass);
             } else {
-                entry.target.classList.remove("trig");
+                entry.target.classList.remove("trig", "trig-down", "trig-up");
             }
             return true;
         }
