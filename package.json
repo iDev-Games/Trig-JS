@@ -1,6 +1,6 @@
 {
   "name": "trig-js",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Trig.js powers dynamic, CSS-driven animate-on-scroll effects using CSS variables and element position data, making AOS effortless. Create custom animations in CSS or use trig-animations.css for ready-made effects—full control or quick setup. Perfect for storytelling websites.",
   "main": "src/trig.js",
   "repository": {

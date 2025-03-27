@@ -32,13 +32,13 @@
         display:inline-block;
     }
 
-    .trig-fade.trig.trig-target, .trig-fade .trig.trig-target{
+    .trig-fade.trig.trig-target, .trig-fade.trig .trig-target{
         animation: trig-fade var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
 
     @keyframes trig-fade {
-        
+
         0% {
             opacity:0;
         }
@@ -57,7 +57,7 @@
         display:inline-block;
     }
 
-    .trig-fade-up.trig.trig-target, .trig-fade-up .trig.trig-target{
+    .trig-fade-up.trig.trig-target, .trig-fade-up.trig .trig-target{
         animation: trig-fade-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -84,7 +84,7 @@
         display:inline-block;
     }
 
-    .trig-fade-down.trig.trig-target, .trig-fade-down .trig.trig-target{
+    .trig-fade-down.trig.trig-target, .trig-fade-down.trig .trig-target{
         animation: trig-fade-down var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -111,7 +111,7 @@
         display:inline-block;
     }
 
-    .trig-fade-left.trig.trig-target, .trig-fade-left .trig.trig-target{
+    .trig-fade-left.trig.trig-target, .trig-fade-left.trig .trig-target{
         animation: trig-fade-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -138,7 +138,7 @@
         display:inline-block;
     }
 
-    .trig-fade-right.trig.trig-target, .trig-fade-right .trig.trig-target{
+    .trig-fade-right.trig.trig-target, .trig-fade-right.trig .trig-target{
         animation: trig-fade-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -165,7 +165,7 @@
         display:inline-block;
     }
 
-    .trig-fade-up-left.trig.trig-target, .trig-fade-up-left .trig.trig-target{
+    .trig-fade-up-left.trig.trig-target, .trig-fade-up-left.trig .trig-target{
         animation: trig-fade-up-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -192,7 +192,7 @@
         display:inline-block;
     }
 
-    .trig-fade-up-right.trig.trig-target, .trig-fade-up-right .trig.trig-target{
+    .trig-fade-up-right.trig.trig-target, .trig-fade-up-right.trig .trig-target{
         animation: trig-fade-up-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -219,7 +219,7 @@
         display:inline-block;
     }
 
-    .trig-fade-down-left.trig.trig-target, .trig-fade-down-left .trig.trig-target{
+    .trig-fade-down-left.trig.trig-target, .trig-fade-down-left.trig .trig-target{
         animation: trig-fade-down-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -246,7 +246,7 @@
         display:inline-block;
     }
 
-    .trig-fade-down-right.trig.trig-target, .trig-fade-down-right .trig.trig-target{
+    .trig-fade-down-right.trig.trig-target, .trig-fade-down-right.trig .trig-target{
         animation: trig-fade-down-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -280,7 +280,7 @@
         display:inline-block;
     }
 
-    .trig-grow.trig.trig-target, .trig-grow .trig.trig-target{
+    .trig-grow.trig.trig-target, .trig-grow.trig .trig-target{
         animation: trig-grow var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -305,7 +305,7 @@
         display:inline-block;
     }
 
-    .trig-grow-up.trig.trig-target, .trig-grow-up .trig.trig-target{
+    .trig-grow-up.trig.trig-target, .trig-grow-up.trig .trig-target{
         animation: trig-grow-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -330,7 +330,7 @@
         display:inline-block;
     }
 
-    .trig-grow-down.trig.trig-target, .trig-grow-down .trig.trig-target{
+    .trig-grow-down.trig.trig-target, .trig-grow-down.trig .trig-target{
         animation: trig-grow-down var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -355,7 +355,7 @@
         display:inline-block;
     }
 
-    .trig-grow-left.trig.trig-target, .trig-grow-left .trig.trig-target{
+    .trig-grow-left.trig.trig-target, .trig-grow-left.trig .trig-target{
         animation: trig-grow-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -380,7 +380,7 @@
         display:inline-block;
     }
 
-    .trig-grow-right.trig.trig-target, .trig-grow-right .trig.trig-target{
+    .trig-grow-right.trig.trig-target, .trig-grow-right.trig .trig-target{
         animation: trig-grow-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -405,7 +405,7 @@
         display:inline-block;
     }
 
-    .trig-grow-up-left.trig.trig-target, .trig-grow-up-left .trig.trig-target{
+    .trig-grow-up-left.trig.trig-target, .trig-grow-up-left.trig .trig-target{
         animation: trig-grow-up-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -430,7 +430,7 @@
         display:inline-block;
     }
 
-    .trig-grow-up-right.trig.trig-target, .trig-grow-up-right .trig.trig-target{
+    .trig-grow-up-right.trig.trig-target, .trig-grow-up-right.trig .trig-target{
         animation: trig-grow-up-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -455,7 +455,7 @@
         display:inline-block;
     }
 
-    .trig-grow-down-left.trig.trig-target, .trig-grow-down-left .trig.trig-target{
+    .trig-grow-down-left.trig.trig-target, .trig-grow-down-left.trig .trig-target{
         animation: trig-grow-down-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -480,7 +480,7 @@
         display:inline-block;
     }
 
-    .trig-grow-down-right.trig.trig-target, .trig-grow-down-right .trig.trig-target{
+    .trig-grow-down-right.trig.trig-target, .trig-grow-down-right.trig .trig-target{
         animation: trig-grow-down-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -512,7 +512,7 @@
         display:inline-block;
     }
 
-    .trig-pop.trig.trig-target, .trig-pop .trig.trig-target{
+    .trig-pop.trig.trig-target, .trig-pop.trig .trig-target{
         animation: trig-pop var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -541,7 +541,7 @@
         display:inline-block;
     }
 
-    .trig-pop-up.trig.trig-target, .trig-pop-up .trig.trig-target{
+    .trig-pop-up.trig.trig-target, .trig-pop-up.trig .trig-target{
         animation: trig-pop-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -570,7 +570,7 @@
         display:inline-block;
     }
 
-    .trig-pop-down.trig.trig-target, .trig-pop-down .trig.trig-target{
+    .trig-pop-down.trig.trig-target, .trig-pop-down.trig .trig-target{
         animation: trig-pop-down var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -599,7 +599,7 @@
         display:inline-block;
     }
 
-    .trig-pop-left.trig.trig-target, .trig-pop-left .trig.trig-target{
+    .trig-pop-left.trig.trig-target, .trig-pop-left.trig .trig-target{
         animation: trig-pop-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -628,7 +628,7 @@
         display:inline-block;
     }
 
-    .trig-pop-right.trig.trig-target, .trig-pop-right .trig.trig-target{
+    .trig-pop-right.trig.trig-target, .trig-pop-right.trig .trig-target{
         animation: trig-pop-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -657,7 +657,7 @@
         display:inline-block;
     }
 
-    .trig-pop-up-left.trig.trig-target, .trig-pop-up-left .trig.trig-target{
+    .trig-pop-up-left.trig.trig-target, .trig-pop-up-left.trig .trig-target{
         animation: trig-pop-up-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -686,7 +686,7 @@
         display:inline-block;
     }
 
-    .trig-pop-up-right.trig.trig-target, .trig-pop-up-right .trig.trig-target{
+    .trig-pop-up-right.trig.trig-target, .trig-pop-up-right.trig .trig-target{
         animation: trig-pop-up-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -715,7 +715,7 @@
         display:inline-block;
     }
 
-    .trig-pop-down-left.trig.trig-target, .trig-pop-down-left .trig.trig-target{
+    .trig-pop-down-left.trig.trig-target, .trig-pop-down-left.trig .trig-target{
         animation: trig-pop-down-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -744,7 +744,7 @@
         display:inline-block;
     }
 
-    .trig-pop-down-right.trig.trig-target, .trig-pop-down-right .trig.trig-target{
+    .trig-pop-down-right.trig.trig-target, .trig-pop-down-right.trig .trig-target{
         animation: trig-pop-down-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -780,7 +780,7 @@
         display:inline-block;
     }
 
-    .trig-roll.trig.trig-target, .trig-roll .trig.trig-target{
+    .trig-roll.trig.trig-target, .trig-roll.trig .trig-target{
         animation: trig-roll var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -807,7 +807,7 @@
         display:inline-block;
     }
 
-    .trig-roll-up.trig.trig-target, .trig-roll-up .trig.trig-target{
+    .trig-roll-up.trig.trig-target, .trig-roll-up.trig .trig-target{
         animation: trig-roll-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -834,7 +834,7 @@
         display:inline-block;
     }
 
-    .trig-roll-down.trig.trig-target, .trig-roll-down .trig.trig-target{
+    .trig-roll-down.trig.trig-target, .trig-roll-down.trig .trig-target{
         animation: trig-roll-down var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -861,7 +861,7 @@
         display:inline-block;
     }
 
-    .trig-roll-left.trig.trig-target, .trig-roll-left .trig.trig-target{
+    .trig-roll-left.trig.trig-target, .trig-roll-left.trig .trig-target{
         animation: trig-roll-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -888,7 +888,7 @@
         display:inline-block;
     }
 
-    .trig-roll-right.trig.trig-target, .trig-roll-right .trig.trig-target{
+    .trig-roll-right.trig.trig-target, .trig-roll-right.trig .trig-target{
         animation: trig-roll-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -915,7 +915,7 @@
         display:inline-block;
     }
 
-    .trig-roll-up-left.trig.trig-target, .trig-roll-up-left .trig.trig-target{
+    .trig-roll-up-left.trig.trig-target, .trig-roll-up-left.trig .trig-target{
         animation: trig-roll-up-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -942,7 +942,7 @@
         display:inline-block;
     }
 
-    .trig-roll-up-right.trig.trig-target, .trig-roll-up-right .trig.trig-target{
+    .trig-roll-up-right.trig.trig-target, .trig-roll-up-right.trig .trig-target{
         animation: trig-roll-up-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -969,7 +969,7 @@
         display:inline-block;
     }
 
-    .trig-roll-down-left.trig.trig-target, .trig-roll-down-left .trig.trig-target{
+    .trig-roll-down-left.trig.trig-target, .trig-roll-down-left.trig .trig-target{
         animation: trig-roll-down-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -996,7 +996,7 @@
         display:inline-block;
     }
 
-    .trig-roll-down-right.trig.trig-target, .trig-roll-down-right .trig.trig-target{
+    .trig-roll-down-right.trig.trig-target, .trig-roll-down-right.trig .trig-target{
         animation: trig-roll-down-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1030,7 +1030,7 @@
         display:inline-block;
     }
 
-    .trig-reveal.trig.trig-target, .trig-reveal .trig.trig-target{
+    .trig-reveal.trig.trig-target, .trig-reveal.trig .trig-target{
         animation: trig-reveal var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1055,7 +1055,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-up.trig.trig-target, .trig-reveal-up .trig.trig-target{
+    .trig-reveal-up.trig.trig-target, .trig-reveal-up.trig .trig-target{
         animation: trig-reveal-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1080,7 +1080,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-down.trig.trig-target, .trig-reveal-down .trig.trig-target{
+    .trig-reveal-down.trig.trig-target, .trig-reveal-down.trig .trig-target{
         animation: trig-reveal-down var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1105,7 +1105,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-left.trig.trig-target, .trig-reveal-left .trig.trig-target{
+    .trig-reveal-left.trig.trig-target, .trig-reveal-left.trig .trig-target{
         animation: trig-reveal-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1130,7 +1130,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-right.trig.trig-target, .trig-reveal-right .trig.trig-target{
+    .trig-reveal-right.trig.trig-target, .trig-reveal-right.trig .trig-target{
         animation: trig-reveal-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1155,7 +1155,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-up-left.trig.trig-target, .trig-reveal-up-left .trig.trig-target{
+    .trig-reveal-up-left.trig.trig-target, .trig-reveal-up-left.trig .trig-target{
         animation: trig-reveal-up-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1180,7 +1180,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-up-right.trig.trig-target, .trig-reveal-up-right .trig.trig-target{
+    .trig-reveal-up-right.trig.trig-target, .trig-reveal-up-right.trig .trig-target{
         animation: trig-reveal-up-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1205,7 +1205,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-down-left.trig.trig-target, .trig-reveal-down-left .trig.trig-target{
+    .trig-reveal-down-left.trig.trig-target, .trig-reveal-down-left.trig .trig-target{
         animation: trig-reveal-down-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1230,7 +1230,7 @@
         display:inline-block;
     }
 
-    .trig-reveal-down-right.trig.trig-target, .trig-reveal-down-right .trig.trig-target{
+    .trig-reveal-down-right.trig.trig-target, .trig-reveal-down-right.trig .trig-target{
         animation: trig-reveal-down-right var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
     }
@@ -1262,7 +1262,7 @@
         display:inline-block;
     }
 
-    .trig-flip.trig.trig-target, .trig-flip .trig.trig-target{
+    .trig-flip.trig.trig-target, .trig-flip.trig .trig-target{
         animation: trig-flip var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
         perspective: 2000px;
@@ -1293,7 +1293,7 @@
         display:inline-block;
     }
 
-    .trig-flip-up.trig.trig-target, .trig-flip-up .trig.trig-target{
+    .trig-flip-up.trig.trig-target, .trig-flip-up.trig .trig-target{
         animation: trig-flip-up var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
         perspective: 2000px;
@@ -1320,7 +1320,7 @@
         display:inline-block;
     }
 
-    .trig-flip-left.trig.trig-target, .trig-flip-left .trig.trig-target{
+    .trig-flip-left.trig.trig-target, .trig-flip-left.trig .trig-target{
         animation: trig-flip-left var(--trig-direction) var(--trig-blend) var(--trig-duration);
         animation-delay: var(--trig-delay);
         perspective: 2000px;
