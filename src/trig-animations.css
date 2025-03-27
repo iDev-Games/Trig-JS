@@ -198,7 +198,7 @@
     }
 
     @keyframes trig-fade-up-right {
-
+        
         0% {
             opacity:0;
             transform:translateX(100%) translateY(100%);
