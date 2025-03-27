@@ -15,6 +15,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/0d58ec40b6b2e8231b19/maintainability)](https://codeclimate.com/github/iDev-Games/Trig-JS/maintainability)
 
 ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/trig-js)
+[![libs.tech recommends](https://libs.tech/project/615432200/badge.svg)](https://libs.tech/project/615432200/trig-js)
 
 Trig.js makes it easy to create custom CSS scroll animations, while trig-animations.css provides a library of predefined animations out of the box for effortless animation. Whether you want full control or a quick setup, Trig.js has your AOS (animate on scroll) needs covered. Perfect for sites that tell a story.
 
@@ -26,6 +27,8 @@ Trig.js makes it easy to create custom CSS scroll animations, while trig-animati
 See it in action here: https://idev-games.github.io/Trig-JS/
 
 Find more examples here: https://github.com/iDev-Games/Trig-JS-Examples
+
+Trig-Animations.css documentation can be found here: https://idev-games.github.io/Trig-JS/animations.html
 
 You can download from Github.
 
@@ -48,6 +51,10 @@ Using nothing but the power of CSS, HTML and Trig.js. You can make the same effe
 Trig.js is really simple and quick to work with. You can use Trig.js even if you arn't familiar with javascript. 
 
 Trig.js is the perfect solution for CSS scroll animations in any project by developers of any skill level for both light or heavy usage. Making it the perfect alternative to libraries like scrollmagic or GSAP scrolltrigger for most of your website animation needs.
+
+# Trig-Animations.css
+Configurable predefined scroll animations for your projects
+https://idev-games.github.io/Trig-JS/animations.html
 
 # How To Install?
 All you need to do is add the dist trig.js file into your projects JS folder and add the following code with your trig.js location as the src. Put this code in to your head HTML tags
