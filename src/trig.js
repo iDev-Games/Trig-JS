@@ -1,4 +1,4 @@
-/* Trig.js v4.0 by iDev Games */
+/* Trig.js v4.1.0 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -76,7 +76,9 @@ class Trig
     trigIntersecting(entry) {
         if(document.body != entry.target){
             if (entry.isIntersecting) {
-                entry.target.classList.add("trig", this.trigClass);
+                if (!entry.target.classList.contains("trig")) {
+                    entry.target.classList.add("trig", this.trigClass);
+                }
             } else {
                 entry.target.classList.remove("trig", "trig-down", "trig-up");
             }

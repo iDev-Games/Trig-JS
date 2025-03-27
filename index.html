@@ -61,13 +61,13 @@
             }
             .trig.background2:before{
                 content:"";
-                width:100%;
+                width:400%;
                 height:100%;
                 position:absolute;
                 top:0;
                 left:0;
                 background-image:url("assets/img/plane.jpg");
-                background-size: cover;
+                background-size: contain;
                 background-repeat: no-repeat;
                 background-position: 0;
                 transform:translateX(calc(var(--trig) - 40%)) translateY(calc(var(--trig) - 10%));
@@ -150,7 +150,7 @@
                 top:0;
                 left:0px;
                 background-image:url("assets/img/living-room.jpg");
-                background-size: 100% 100vh;
+                background-size: cover;
                 background-position: left bottom;
                 background-repeat: no-repeat;
                 mix-blend-mode: screen;
@@ -387,7 +387,7 @@
 
                     <hr id="headerLine" data-trig-min="20" data-trig />
             
-                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v4.0</sup></h2>
+                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v4.1.0</sup></h2>
                 </div>
             </div>
 
@@ -453,7 +453,7 @@
                     <h2>How To Use?</h2>
                 </div>
                 <div class="box boxBG fadeIn" data-trig>        
-                    <p>To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.</p>
+                    <p>To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place classes of "trig", as well as "trig-up" or "trig-down", onto your element when it appears on screen and depending from which direction. </p>
                     <pre>
                             &lt;div class="fadeIn" data-trig&gt; &lt;/div&gt;
                     </pre>
@@ -549,7 +549,8 @@
                     <div class="headerText">WITH YOUR CSS</div>
                 </div>
                 <div id="examples" class="box" data-trig-negativeOffset="-100" data-trig>
-                    <a class="moreExamples" href="https://idev-games.github.io/Trig-JS-Examples/" target="_Blank">See More Examples</a>
+                    <a class="moreExamples" href="https://idev-games.github.io/Trig-JS-Examples/" target="_Blank" style="margin-top:10px;">See More Examples</a>
+                    <a class="moreExamples" href="https://codepen.io/collection/wkBWzm" target="_Blank" style="margin-top:10px;">Codepen Examples</a>
                 </div>
             </div>
 
@@ -566,6 +567,9 @@
                 </div>
                 <div class="box">
                     <a href="https://github.com/iDev-Games/Trig-JS" target="_Blank" style="color:#FFF;">Download here</a>
+                </div>
+                <div class="box"></div>
+                    <a href="https://dev.to/idevgames" target="_Blank" style="color:#FFF;">Keep up to date on dev.to</a>
                 </div>
             </div>
 

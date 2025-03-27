@@ -17,7 +17,7 @@
 ![npm](https://img.shields.io/npm/dt/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dw/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dm/trig-js?logo=NPM) ![npm](https://img.shields.io/npm/dy/trig-js?logo=NPM) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/trig-js)
 [![libs.tech recommends](https://libs.tech/project/615432200/badge.svg)](https://libs.tech/project/615432200/trig-js)
 
-Trig.js makes it easy to create custom CSS scroll animations, while trig-animations.css provides a library of predefined animations out of the box for effortless animation. Whether you want full control or a quick setup, Trig.js has your AOS (animate on scroll) needs covered. Perfect for sites that tell a story.
+Trig.js powers dynamic, CSS-driven animate-on-scroll effects using CSS variables and element position data, making AOS effortless. Create custom animations in CSS or use trig-animations.css for ready-made effects—full control or quick setup. Perfect for storytelling websites.
 
 <p align="center">
   <img src="https://github.com/iDev-Games/Trig-JS/raw/main/creative.gif">
@@ -27,6 +27,10 @@ Trig.js makes it easy to create custom CSS scroll animations, while trig-animati
 See it in action here: https://idev-games.github.io/Trig-JS/
 
 Find more examples here: https://github.com/iDev-Games/Trig-JS-Examples
+
+Find our codepen examples here: https://codepen.io/collection/wkBWzm
+
+Keep up to date with tutorials, examples and informtion on my dev.to: https://dev.to/idevgames
 
 Trig-Animations.css documentation can be found here: https://idev-games.github.io/Trig-JS/animations.html
 
@@ -69,7 +73,7 @@ Or just add a CDN instead
 ```
 
 # How To Use?
-To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place a class of "trig" onto your element when it appears on screen.
+To activate trig.js add the data attribute "data-trig" or a class "enable-trig" to your html element. To trigger animations trig.js will place classes of "trig", as well as "trig-up" or "trig-down", onto your element when it appears on screen and depending from which direction. 
 
 ```html
 <div class="fadeIn" data-trig> </div>
@@ -91,11 +95,13 @@ To activate trig.js add the data attribute "data-trig" or a class "enable-trig" 
 }
 ```
 
+The classes of "trig-up" and "trig-down"
+
 # Scroll Animations
 Trig.js calculates the percentage that the element is on screen and creates CSS variables that you can use with CSS transform etc.
 
 ```html
-<div class="element" data-trig> </div>
+<div class="element" data-trig data-trig-var="true"> </div>
 ```
 ```css
 .element{ 

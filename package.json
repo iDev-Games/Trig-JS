@@ -1,6 +1,6 @@
 {
   "name": "trig-js",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Trig.js makes it easy to create custom CSS scroll animations, while trig-animations.css provides a library of predefined animations out of the box for effortless animation. Whether you want full control or a quick setup, Trig.js has your AOS (animate on scroll) needs covered. Perfect for sites that tell a story.",
   "main": "src/trig.js",
   "repository": {
