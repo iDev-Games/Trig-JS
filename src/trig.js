@@ -1,4 +1,4 @@
-/* Trig.js v4.1.1 by iDev Games */
+/* Trig.js v4.2.0 by iDev Games */
 class Trig
 {
     trigs = [];
@@ -214,7 +214,8 @@ class Trig
     setCSSVariables(el, id, properties, element) {
         Object.entries(properties).forEach(([attr, { key, value, reverse }]) => {
             if(el.getPropertyValue(key) != value){
-                if (element.dataset[attr] === "true") {
+                if (element.dataset[attr]) {
+                    element.dataset[attr] = Math.round(parseInt(value) / 10) * 10;
                     el.setProperty(key + id, value);
                     el.setProperty(key + id + "-reverse", reverse);
                 }

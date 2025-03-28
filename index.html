@@ -130,7 +130,7 @@
                 top:0;
                 left:0px;
                 background-image:url("assets/img/wheel.png");
-                background-size: auto 100%;
+                background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
                 transform: translateX(calc(var(--trig) - 75%)) rotate(calc(var(--trig-deg)));
@@ -387,7 +387,7 @@
 
                     <hr id="headerLine" data-trig-min="20" data-trig />
             
-                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v4.1.1</sup></h2>
+                    <h2 id="documentation" data-trig-min="20" data-trig>Documentation <sup>v4.2.0</sup></h2>
                 </div>
             </div>
 
@@ -498,6 +498,7 @@
                     <div class="listItem">
                         --trig-deg-reverse
                     </div>
+                    <p>The data attribute will also update in incremants of 10 so you can use CSS attribute selectors like <span class="listItem">[data-trig-var="50"]{ }</span> for more control.</p>
                 </div>
             </div>
 

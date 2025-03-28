@@ -95,8 +95,6 @@ To activate trig.js add the data attribute "data-trig" or a class "enable-trig" 
 }
 ```
 
-The classes of "trig-up" and "trig-down"
-
 # Scroll Animations
 Trig.js calculates the percentage that the element is on screen and creates CSS variables that you can use with CSS transform etc.
 
@@ -119,6 +117,21 @@ var(--trig-px-reverse) /* Reverse pixels */
 var(--trig-deg) /* Degrees */
 var(--trig-deg-reverse) /* Reverse degrees */
 ```
+
+The data attribute will also update in incremants of 10 so you can use CSS attribute selectors like:
+
+```css 
+[data-trig-var="50"],
+[data-trig-var="60"],
+[data-trig-var="70"],
+[data-trig-var="80"],
+[data-trig-var="90"],
+[data-trig-var="100"]{
+  transform: translateX( var(--trig) );
+} 
+``` 
+
+for more control.
 
 # Scroll Direction
 Trig.js creates a class of "trig-scroll-up" or "trig-scroll-down" onto the body of the document depending on the last scroll direction.
