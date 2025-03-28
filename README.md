@@ -118,7 +118,7 @@ var(--trig-deg) /* Degrees */
 var(--trig-deg-reverse) /* Reverse degrees */
 ```
 
-The data attribute will also update in incremants of 10 so you can use CSS attribute selectors like:
+The data attribute will also update in increments of 10 so you can use CSS attribute selectors like:
 
 ```css 
 [data-trig-var="50"],
