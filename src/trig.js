@@ -238,7 +238,7 @@ class Trig
         }
     }
 }
-const trig = new Trig;
+window.trig = new Trig;
 
 window.addEventListener("scroll", trig.trigScroll, { passive: true });
 window.addEventListener('resize', trig.trigWindowHeight, { passive: true });
