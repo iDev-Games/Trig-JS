@@ -149,3 +149,16 @@ You can use the below data attributes for additional features
 Check out the code of the documentation as an example.
 
 https://github.com/iDev-Games/Trig-JS/blob/main/index.html
+
+# Companion Library
+[Cursor.js](https://github.com/iDev-Games/Cursor-JS) is the perfect companion to Trig.js for complete control over both scroll and cursor interactions using the same elegant CSS-first philosophy!
+
+**Together they provide:**
+- **Trig.js**: Scroll position data (vertical)
+- **Cursor.js**: Mouse position data (horizontal + vertical)
+- Same API patterns and conventions
+- Same performance optimizations
+- Zero dependencies for both
+- Minimal footprint
+
+Perfect pair for modern, interactive web experiences!
